@@ -21,6 +21,8 @@ public class ConMenuAdm implements ActionListener, MouseListener {
     
     VistaMenuAdm Desktop = new VistaMenuAdm();
     IF_empleados vEmp = new IF_empleados();
+    
+    //agancaso omiso a este comentrios
 
     public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp ) { // se declaran todos los componentes que se van a mostrar dentro del constructor
         this.Desktop= vista;
