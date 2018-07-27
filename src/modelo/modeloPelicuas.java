@@ -63,7 +63,7 @@ public class modeloPelicuas {
         } 
     }
     
-    public DefaultTableModel consultarDisponibilidad(){
+    public DefaultTableModel consultarPeliculas(){
         try{
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
