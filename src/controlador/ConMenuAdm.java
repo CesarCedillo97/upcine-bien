@@ -14,6 +14,9 @@ import vista.VistaMenuAdm;
 
 import vista.IF_empleados;
 import vista.IF_peliculas;
+import vista.IF_Proveedores;
+
+import modelo.modeloProveedor;
 /**
  *
  * @author Cesar Cedillo
@@ -23,28 +26,39 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
     VistaMenuAdm Desktop = new VistaMenuAdm();
     IF_empleados vEmp = new IF_empleados();
     IF_peliculas vPeli = new IF_peliculas();
+    IF_Proveedores vProv= new IF_Proveedores();
+    
+    modeloProveedor modProv = new modeloProveedor();
+    
     //agancaso omiso a este comentrios
 
-    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli ) { // se declaran todos los componentes que se van a mostrar dentro del constructor
+    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv ) { // se declaran todos los componentes que se van a mostrar dentro del constructor
         this.Desktop= vista;
         this.vEmp = vistaEmp;
         this.vPeli = vistaPeli;
+        this.vProv = vistaProv;
         
         this.Desktop.btnSalir.addActionListener((ActionListener) this);
+        
         //Aquí va la declaracion de paneles (Internal frames)
         this.Desktop.panelEmpleados.addMouseListener((MouseListener)this); 
         this.Desktop.panelPeli.addMouseListener((MouseListener)this);
+        this.Desktop.panelProv.addMouseListener((MouseListener)this);
+        
         //Aquí se agregan al desktop
         this.Desktop.Desktop.add(vEmp);
         this.Desktop.Desktop.add(vPeli);
+        this.Desktop.Desktop.add(vProv);
         
         //aquí se muestran
         this.vEmp.show();
         this.vPeli.show();
+        this.vProv.show();
         
         //Aqui se ponen en tal posicion para que se vean bien
         this.vEmp.setLocation(-3, -25);
         this.vPeli.setLocation(-3, -25);
+        this.vProv.setLocation(-3, -25);
         
         this.vEmp.toFront();
         
@@ -79,6 +93,10 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         else if (Desktop.panelPeli == e.getSource()) {
             this.vPeli.toFront();
         }
+        else if (Desktop.panelProv == e.getSource()){
+            vProv.JTable.setModel(modProv.cargarDatos());
+            this.vProv.toFront();
+        }
     }
 
     @Override
@@ -97,6 +115,9 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         else if (Desktop.panelPeli == e.getSource()) {
             setColor(Desktop.panelPeli);
         }
+        else if (Desktop.panelProv == e.getSource()){
+            setColor(Desktop.panelProv);
+        }
     }
 
     @Override
@@ -106,6 +127,9 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         }
         else if (Desktop.panelPeli == e.getSource()) {
             resetColor(Desktop.panelPeli);
+        }
+        else if (Desktop.panelProv == e.getSource()){
+            resetColor(Desktop.panelProv);
         }
     }
     

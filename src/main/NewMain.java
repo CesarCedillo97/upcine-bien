@@ -18,6 +18,11 @@ import modelo.modeloEmpleados;
 import vista.IF_peliculas;
 import modelo.modeloPelicuas;
 import controlador.controladorPeliculas;
+
+//Proveedor
+import vista.IF_Proveedores;
+import modelo.modeloProveedor;
+import controlador.controladorProveedores;
 /**
  *
  * @author Cesar Cedillo
@@ -38,8 +43,13 @@ public class NewMain {
         modeloPelicuas modPeli = new modeloPelicuas();
         controladorPeliculas conPeli = new controladorPeliculas(peli, modPeli);
         
+        //Para los proveedores
+        IF_Proveedores prove = new IF_Proveedores();
+        modeloProveedor modProv = new modeloProveedor();
+        controladorProveedores conProv = new controladorProveedores(prove,modProv);
+        
         VistaMenuAdm vistaMenu = new VistaMenuAdm();
-        ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli);
+        ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove);
         newCalis.iniciarVista();
         
 
