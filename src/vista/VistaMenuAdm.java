@@ -104,7 +104,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Emplados");
+        jLabel17.setText("Empleados");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/emp.png"))); // NOI18N
 

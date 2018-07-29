@@ -5,7 +5,9 @@
  */
 package main;
 
-//Desktop
+import vista.Login;
+
+/*Desktop
 import vista.VistaMenuAdm;
 import controlador.ConMenuAdm;
 
@@ -22,7 +24,11 @@ import controlador.controladorPeliculas;
 //Proveedor
 import vista.IF_Proveedores;
 import modelo.modeloProveedor;
-import controlador.controladorProveedores;
+import controlador.controladorProveedores;*/
+
+import vista.Login;
+import modelo.modeloLogin;
+import controlador.controladorLogin;
 /**
  *
  * @author Cesar Cedillo
@@ -34,23 +40,11 @@ public class NewMain {
      */
     public static void main(String[] args) {
         //para el empleado
-        IF_empleados emp = new IF_empleados();
-        modeloEmpleados modEmp = new modeloEmpleados();
-        controladorEmpleados conEmp = new controladorEmpleados(emp, modEmp);
         
-        //Para las pelis
-        IF_peliculas peli = new IF_peliculas();
-        modeloPelicuas modPeli = new modeloPelicuas();
-        controladorPeliculas conPeli = new controladorPeliculas(peli, modPeli);
-        
-        //Para los proveedores
-        IF_Proveedores prove = new IF_Proveedores();
-        modeloProveedor modProv = new modeloProveedor();
-        controladorProveedores conProv = new controladorProveedores(prove,modProv);
-        
-        VistaMenuAdm vistaMenu = new VistaMenuAdm();
-        ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove);
-        newCalis.iniciarVista();
+        Login vista = new Login();
+        modeloLogin modelo = new modeloLogin();
+        controladorLogin control = new controladorLogin(modelo, vista);
+        control.iniciarVista();
         
 
     }

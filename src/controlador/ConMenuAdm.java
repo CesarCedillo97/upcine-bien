@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import modelo.modeloLogin;
 import vista.VistaMenuAdm;
 
 import vista.IF_empleados;
@@ -15,6 +16,7 @@ import vista.IF_peliculas;
 import vista.IF_Proveedores;
 
 import modelo.modeloProveedor;
+import vista.Login;
 /**
  *
  * @author Cesar Cedillo
@@ -98,6 +100,10 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         }
         else if (Desktop.panelSalir == e.getSource()) {
             Desktop.dispose();
+            Login vistaL = new Login();
+            modeloLogin modeloL = new modeloLogin();
+            controladorLogin control = new controladorLogin(modeloL, vistaL);
+            control.iniciarVista();
         }
     }
 

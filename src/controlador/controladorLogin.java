@@ -11,16 +11,24 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelo.modeloEmpleados;
 
 import vista.Login;
 import modelo.modeloLogin;
+import modelo.modeloPelicuas;
+import modelo.modeloProveedor;
+import vista.IF_Proveedores;
+import vista.IF_empleados;
+import vista.IF_peliculas;
+import vista.VistaMenuAdm;
 /**
  *
  * @author Cesar Cedillo
  */
-public class controladorLogin/* extends ControladorPrincipal implements ActionListener, KeyListener*/{
- /*   Login vista = new Login();
+public class controladorLogin extends ControladorPrincipal implements ActionListener, KeyListener{
+  Login vista = new Login();
     modeloLogin modelo = new modeloLogin();
     
     
@@ -44,7 +52,7 @@ public class controladorLogin/* extends ControladorPrincipal implements ActionLi
         vista.btnLogin.addKeyListener(this);
         vista.btnSalir.addKeyListener(this);
     }
-/
+
     public void verificarInicio(){
         int idEmpleado = -1;
         int tipoEmpleado;
@@ -55,33 +63,39 @@ public class controladorLogin/* extends ControladorPrincipal implements ActionLi
         }
         if(idEmpleado != -1){   //si se encontró una coincidencia en el inicio de sesion
             falloInicio = 0;    
-            tipoEmpleado = modInicio.verificarTipoAcceso(idEmpleado); //checa si es admin o empleado comun
+            tipoEmpleado = modelo.verificarTipoAcceso(idEmpleado); //checa si es admin o empleado comun
             vista.dispose(); 
             if(tipoEmpleado == 1){  //Si es admin
-                ModAdmMenu modMenu = new ModAdmMenu();
-                AdmMenu visMenu = new AdmMenu();
-                ConAdmMenu conMenu = new ConAdmMenu(modMenu, visMenu, idEmpleado);
-                conMenu.iniciarVista();
+                IF_empleados emp = new IF_empleados();
+                modeloEmpleados modEmp = new modeloEmpleados();
+                controladorEmpleados conEmp = new controladorEmpleados(emp, modEmp);
+
+                //Para las pelis
+                IF_peliculas peli = new IF_peliculas();
+                modeloPelicuas modPeli = new modeloPelicuas();
+                controladorPeliculas conPeli = new controladorPeliculas(peli, modPeli);
+
+                //Para los proveedores
+                IF_Proveedores prove = new IF_Proveedores();
+                modeloProveedor modProv = new modeloProveedor();
+                controladorProveedores conProv = new controladorProveedores(prove,modProv);
+
+                VistaMenuAdm vistaMenu = new VistaMenuAdm();
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove);
+                newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
-                ModEmpOpcVender modOpcVender = new ModEmpOpcVender();
-                EmpOpcVender visOpcVender = new EmpOpcVender();
-                ConEmpOpcVender ConOpcVende = new ConEmpOpcVender(modOpcVender, visOpcVender, nombre,idEmpleado);
-                ConOpcVende.iniciarVista();
+                JOptionPane.showMessageDialog(null,"nimodo prro, no eres admin");
             }
 
         }
         else{   //si no encuentra una coincidencia
             falloInicio++; 
             if(falloInicio >=5){ //no permite iniciar sesión despues de 5 fallas en el inicio de sesión
-                GenAlert visAlert = new GenAlert();
-                ConAlert alert = new ConAlert(visAlert, "Sistema temporalmente bloqueado, ","favor de contactar al administrador.");
-                alert.iniciarVista();
+               JOptionPane.showMessageDialog(null,"nimodo prro, ya petaste");
             }
             else{
-                GenAlert visAlert = new GenAlert();
-                ConAlert alert = new ConAlert(visAlert, "Usuario y/o contraseña incorrectos,","quedan "+(5-falloInicio)+" intentos");
-                alert.iniciarVista();
+                JOptionPane.showMessageDialog(null,"nimodo prro, te quedan "+(5-falloInicio)+" intentos");
             }
         }
     }
@@ -89,44 +103,10 @@ public class controladorLogin/* extends ControladorPrincipal implements ActionLi
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        
-    }
-    
-    @Override
-    public void mousePressed(MouseEvent e) {
         if(vista.btnLogin == e.getSource() && falloInicio < 5){ //mandar llamar la función verificarInicio al dar click en el boton iniciar sesion
             verificarInicio();
         }else if (vista.btnSalir == e.getSource()) {
             System.exit(0);
-        }
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        vista.setCursor(Cursor.HAND_CURSOR);
-        if (vista.btnLogin == e.getSource()) {
-            vista.btnLogin.setBackground(new java.awt.Color(115, 163, 239));
-        }else if (vista.btnSalir == e.getSource()) {
-            vista.btnSalir.setBackground(new java.awt.Color(115, 163, 239));
-        }
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        vista.setCursor(Cursor.DEFAULT_CURSOR);
-        if (vista.btnLogin == e.getSource()) {
-            vista.btnLogin.setBackground(new java.awt.Color(240,240,240));
-        }else if (vista.btnSalir == e.getSource()) {
-            vista.btnSalir.setBackground(new java.awt.Color(240,240,240));
         }
     }
 
@@ -153,5 +133,4 @@ public class controladorLogin/* extends ControladorPrincipal implements ActionLi
         
     }
 
-    */
 }
