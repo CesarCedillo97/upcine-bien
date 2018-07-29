@@ -18,11 +18,11 @@ public abstract class ControladorPrincipal
     
     //TODO ESTO ES PARA DARLE COLOR A LOS PANELES CUANDO PASAS SOBRE ELLOS:
     public void setColor(JPanel panel){
-        panel.setBackground(new java.awt.Color(115, 163, 239));
+        panel.setBackground(new java.awt.Color(64, 43, 100));
     }
     
     public void resetColor(JPanel panel){
-        panel.setBackground(new java.awt.Color(240,240,240));
+        panel.setBackground(new java.awt.Color(85,65,118));
     }
     
     public void resetColorSalir(JPanel panel){

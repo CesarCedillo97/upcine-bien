@@ -44,7 +44,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(25, 116, 232));
+        jPanel2.setBackground(new java.awt.Color(54, 33, 89));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -57,7 +57,7 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.setBackground(new java.awt.Color(25, 116, 232));
+        jPanel5.setBackground(new java.awt.Color(54, 33, 89));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/rsz_logo_blanco.png"))); // NOI18N
 
@@ -79,10 +79,11 @@ public class Login extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(25, 116, 232));
+        jLabel1.setForeground(new java.awt.Color(54, 33, 89));
         jLabel1.setText("Usuario");
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(25, 116, 232));
         txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,9 +92,10 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(25, 116, 232));
+        jLabel2.setForeground(new java.awt.Color(54, 33, 89));
         jLabel2.setText("Contraseña");
 
+        txtContra.setForeground(new java.awt.Color(25, 116, 232));
         txtContra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,8 +223,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     public javax.swing.JPasswordField txtContra;
     public javax.swing.JTextField txtUsuario;

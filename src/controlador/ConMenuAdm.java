@@ -5,8 +5,6 @@
  */
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
@@ -21,7 +19,7 @@ import modelo.modeloProveedor;
  *
  * @author Cesar Cedillo
  */
-public class ConMenuAdm extends ControladorPrincipal implements ActionListener, MouseListener{
+public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     
     VistaMenuAdm Desktop = new VistaMenuAdm();
     IF_empleados vEmp = new IF_empleados();
@@ -38,12 +36,19 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         this.vPeli = vistaPeli;
         this.vProv = vistaProv;
         
-        this.Desktop.btnSalir.addActionListener((ActionListener) this);
+        
         
         //Aquí va la declaracion de paneles (Internal frames)
         this.Desktop.panelEmpleados.addMouseListener((MouseListener)this); 
         this.Desktop.panelPeli.addMouseListener((MouseListener)this);
         this.Desktop.panelProv.addMouseListener((MouseListener)this);
+        this.Desktop.panelAsientos.addMouseListener((MouseListener)this);
+        this.Desktop.panelCompras.addMouseListener((MouseListener)this);
+        this.Desktop.panelFunciones.addMouseListener((MouseListener)this);
+        this.Desktop.panelPrecios.addMouseListener((MouseListener)this);
+        this.Desktop.panelProduct.addMouseListener((MouseListener)this);
+        this.Desktop.panelReportes.addMouseListener((MouseListener)this);
+        this.Desktop.panelSalir.addMouseListener((MouseListener)this);
         
         //Aquí se agregan al desktop
         this.Desktop.Desktop.add(vEmp);
@@ -56,9 +61,9 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         this.vProv.show();
         
         //Aqui se ponen en tal posicion para que se vean bien
-        this.vEmp.setLocation(-3, -25);
-        this.vPeli.setLocation(-3, -25);
-        this.vProv.setLocation(-3, -25);
+        this.vEmp.setLocation(-1, -25);
+        this.vPeli.setLocation(-1, -25);
+        this.vProv.setLocation(-1, -25);
         
         this.vEmp.toFront();
         
@@ -78,12 +83,6 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (Desktop.btnSalir == e.getSource()) {
-            Desktop.dispose();
-        }
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -96,6 +95,9 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         else if (Desktop.panelProv == e.getSource()){
             vProv.JTable.setModel(modProv.cargarDatos());
             this.vProv.toFront();
+        }
+        else if (Desktop.panelSalir == e.getSource()) {
+            Desktop.dispose();
         }
     }
 
@@ -112,11 +114,32 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         if (Desktop.panelEmpleados == e.getSource()) {
             setColor(Desktop.panelEmpleados);
         }
+        else if (Desktop.panelFunciones == e.getSource()) {
+            setColor(Desktop.panelFunciones);
+        }
         else if (Desktop.panelPeli == e.getSource()) {
             setColor(Desktop.panelPeli);
         }
+        else if (Desktop.panelProduct == e.getSource()) {
+            setColor(Desktop.panelProduct);
+        }
+        else if (Desktop.panelPrecios == e.getSource()) {
+            setColor(Desktop.panelPrecios);
+        }
+        else if (Desktop.panelAsientos == e.getSource()) {
+            setColor(Desktop.panelAsientos);
+        }
         else if (Desktop.panelProv == e.getSource()){
             setColor(Desktop.panelProv);
+        }
+        else if (Desktop.panelCompras == e.getSource()){
+            setColor(Desktop.panelCompras);
+        }
+        else if (Desktop.panelReportes == e.getSource()){
+            setColor(Desktop.panelReportes);
+        }
+        else if (Desktop.panelSalir == e.getSource()) {
+            setColor(Desktop.panelSalir);
         }
     }
 
@@ -125,11 +148,32 @@ public class ConMenuAdm extends ControladorPrincipal implements ActionListener, 
         if (Desktop.panelEmpleados == e.getSource()) {
             resetColor(Desktop.panelEmpleados);
         }
+        else if (Desktop.panelFunciones == e.getSource()) {
+            resetColor(Desktop.panelFunciones);
+        }
         else if (Desktop.panelPeli == e.getSource()) {
             resetColor(Desktop.panelPeli);
         }
+        else if (Desktop.panelProduct == e.getSource()) {
+            resetColor(Desktop.panelProduct);
+        }
+        else if (Desktop.panelPrecios == e.getSource()) {
+            resetColor(Desktop.panelPrecios);
+        }
+        else if (Desktop.panelAsientos == e.getSource()) {
+            resetColor(Desktop.panelAsientos);
+        }
         else if (Desktop.panelProv == e.getSource()){
             resetColor(Desktop.panelProv);
+        }
+        else if (Desktop.panelCompras == e.getSource()){
+            resetColor(Desktop.panelCompras);
+        }
+        else if (Desktop.panelReportes == e.getSource()){
+            resetColor(Desktop.panelReportes);
+        }
+        else if (Desktop.panelSalir == e.getSource()) {
+            resetColor(Desktop.panelSalir);
         }
     }
     
