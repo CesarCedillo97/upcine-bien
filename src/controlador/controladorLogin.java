@@ -69,7 +69,8 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 IF_empleados emp = new IF_empleados();
                 modeloEmpleados modEmp = new modeloEmpleados();
                 controladorEmpleados conEmp = new controladorEmpleados(emp, modEmp);
-
+                conEmp.iniciarVista();
+            
                 //Para las pelis
                 IF_peliculas peli = new IF_peliculas();
                 modeloPelicuas modPeli = new modeloPelicuas();
@@ -79,6 +80,7 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 IF_Proveedores prove = new IF_Proveedores();
                 modeloProveedor modProv = new modeloProveedor();
                 controladorProveedores conProv = new controladorProveedores(prove,modProv);
+                conProv.iniciarVista();
 
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
                 ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove);

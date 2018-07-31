@@ -15,7 +15,6 @@ import vista.IF_empleados;
 import vista.IF_peliculas;
 import vista.IF_Proveedores;
 
-import modelo.modeloProveedor;
 import vista.Login;
 /**
  *
@@ -28,7 +27,6 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     IF_peliculas vPeli = new IF_peliculas();
     IF_Proveedores vProv= new IF_Proveedores();
     
-    modeloProveedor modProv = new modeloProveedor();
     
     //agancaso omiso a este comentrios
 
@@ -95,7 +93,6 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
             this.vPeli.toFront();
         }
         else if (Desktop.panelProv == e.getSource()){
-            vProv.JTable.setModel(modProv.cargarDatos());
             this.vProv.toFront();
         }
         else if (Desktop.panelSalir == e.getSource()) {
