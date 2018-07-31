@@ -14,7 +14,7 @@ import modelo.modeloProveedor;
  *
  * @author Jesus
  */
-public class controladorProveedores implements KeyListener {
+public class controladorProveedores extends ControladorPrincipal implements KeyListener {
     IF_Proveedores vista = new  IF_Proveedores();
     modeloProveedor modelo = new modeloProveedor();
     
@@ -22,7 +22,13 @@ public class controladorProveedores implements KeyListener {
     this.vista = vista;
     this.modelo= modProv;
     //declara lo que contiene el internal frame (es como el iniciar vista de las pantallas)
-    vista.bucar_txt.addKeyListener(this);
+    
+    }
+    
+    @Override
+    public void iniciarVista() {
+        vista.JTable.setModel(modelo.cargarDatos());
+        vista.bucar_txt.addKeyListener(this);
     }
 
     @Override
@@ -43,4 +49,6 @@ public class controladorProveedores implements KeyListener {
 //modelo.buscarDatos();
         }
     }
+
+    
 }

@@ -5,7 +5,6 @@
  */
 package main;
 
-import vista.Login;
 
 /*Desktop
 import vista.VistaMenuAdm;

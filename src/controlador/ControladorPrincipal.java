@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  */
 public abstract class ControladorPrincipal 
 {
-    //public abstract void iniciarVista();//para inciar la vista
+    public abstract void iniciarVista();//para inciar la vista
     
     
     //TODO ESTO ES PARA DARLE COLOR A LOS PANELES CUANDO PASAS SOBRE ELLOS:
