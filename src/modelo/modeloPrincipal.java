@@ -52,6 +52,7 @@ public class modeloPrincipal {
                     values+="'"+table_value+"',";
                 }
                 values = values.substring(0, values.length()-1);//Lo de arriba pero ahora con values
+                System.out.println("INSERT INTO "+table_name+"("+columns+")VALUES("+values+")");
                 PreparedStatement s = con.prepareStatement("INSERT INTO "+table_name+"("+columns+")VALUES("+values+")",Statement.RETURN_GENERATED_KEYS);
                 s.executeUpdate();
                 ResultSet rs = s.getGeneratedKeys();

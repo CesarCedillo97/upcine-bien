@@ -12,7 +12,10 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.Date;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import vista.IF_empleados;
 import modelo.modeloEmpleados;
 import vista.forms.vistaFormEmpleados;
@@ -123,7 +126,13 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             form.txtTelefono.setText(this.phone);
             form.txtDireccion.setText(this.address);
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            df.format(form.txtFecha_Inicio.getDate());
+            java.util.Date date = null;
+            try{
+                 date = df.parse(String.valueOf(initDate));
+            } catch (ParseException ex){
+
+            }   
+            form.txtFecha_Inicio.setDate(date);
             form.txtTipo.setSelectedItem(this.type);
         }
         
