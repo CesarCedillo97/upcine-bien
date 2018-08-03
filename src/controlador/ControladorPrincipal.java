@@ -40,8 +40,28 @@ public abstract class ControladorPrincipal
     public void setColorCancelar(JPanel panel){
         panel.setBackground(new Color(247,143,143));
     }
+    
+    public void resetColorGrey(JPanel panel){
+        panel.setBackground(new java.awt.Color(240,240,240));
+    }
+    
     public void setColorSuccess(JPanel panel){
         panel.setBackground(new Color(100,247,14));
+    }
+    /**
+     * Checa que un array no contenga valores vaciós
+     * @param array
+     * @return <ul>Retorna:</ul>
+     *         <li>True: Cuando todos tienen valor</li>
+     *         <li>False: Cuando hay algun valor nulo</li>
+     */
+    public boolean checkIsNotEmpty(String[] array){
+        for (String array1 : array) {
+            if("".equals(array1)){
+                return false;
+            }
+        }
+        return true;
     }
     //función para validar numeros
     //cuando recibe un 1 se puede ingresar un punto, 0 cuando no

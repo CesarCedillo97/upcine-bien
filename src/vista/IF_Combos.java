@@ -166,6 +166,7 @@ public class IF_Combos extends javax.swing.JInternalFrame {
         jLabel23.setText("Nombre:");
 
         panelAgregarPro1.setBackground(new java.awt.Color(128, 128, 128));
+        panelAgregarPro1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,6 +190,7 @@ public class IF_Combos extends javax.swing.JInternalFrame {
         );
 
         panelAgregarPro4.setBackground(new java.awt.Color(128, 128, 128));
+        panelAgregarPro4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,17 +252,19 @@ public class IF_Combos extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(JTable2);
 
         panelEditarPro.setBackground(new java.awt.Color(128, 128, 128));
+        panelEditarPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelEditarPro.setFocusTraversalPolicyProvider(true);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Elminar");
+        jLabel18.setText("Eliminar");
 
         javax.swing.GroupLayout panelEditarProLayout = new javax.swing.GroupLayout(panelEditarPro);
         panelEditarPro.setLayout(panelEditarProLayout);
         panelEditarProLayout.setHorizontalGroup(
             panelEditarProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarProLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel18)
                 .addGap(54, 54, 54))
         );
@@ -309,8 +313,9 @@ public class IF_Combos extends javax.swing.JInternalFrame {
                                 .addComponent(lblPrecioCombo)
                                 .addGap(36, 36, 36)))
                         .addGap(67, 67, 67)
-                        .addComponent(panelAgregarPro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelEditarPro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelEditarPro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelAgregarPro1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(78, 78, 78))
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
