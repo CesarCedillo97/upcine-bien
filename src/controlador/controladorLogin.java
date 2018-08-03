@@ -20,11 +20,15 @@ import modelo.modeloLogin;
 import modelo.modeloPelicuas;
 import modelo.modeloProveedor;
 import modelo.modeloProductos;
+import modelo.modeloCombos;
+
+
 import vista.IF_Proveedores;
 import vista.IF_empleados;
 import vista.IF_peliculas;
 import vista.VistaMenuAdm;
 import vista.IF_productos;
+import vista.IF_Combos;
 /**
  *
  * @author Cesar Cedillo
@@ -42,6 +46,7 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
         this.vista = vista;
     }
     
+  @Override
     public void iniciarVista()
     {
         vista.setTitle("Inicio de sesión");
@@ -67,7 +72,8 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
             falloInicio = 0;    
             tipoEmpleado = modelo.verificarTipoAcceso(idEmpleado); //checa si es admin o empleado comun
             vista.dispose(); 
-            if(tipoEmpleado == 1){  //Si es admin
+            if(tipoEmpleado == 1){  //Si es admin   
+                //PAra empleados
                 IF_empleados emp = new IF_empleados();
                 modeloEmpleados modEmp = new modeloEmpleados();
                 controladorEmpleados conEmp = new controladorEmpleados(emp, modEmp);
@@ -84,14 +90,21 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 controladorProveedores conProv = new controladorProveedores(prove,modProv);
                 conProv.iniciarVista();
                 
+                //para los combos
+                IF_Combos vCom = new IF_Combos();
+                modeloCombos modCom = new modeloCombos();
+                controladorCombos conCom = new controladorCombos();
+                conCom.iniciarVista();
+                
                 //Para los productos
                 IF_productos vprod = new IF_productos();
                 modeloProductos modPro = new modeloProductos();
                 controladorProductos conProd = new controladorProductos(vprod, modPro);
                 conProd.iniciarVista();
-
+                
+                //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod);
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom);
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado

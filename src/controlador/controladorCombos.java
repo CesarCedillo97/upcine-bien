@@ -4,54 +4,43 @@
  * and open the template in the editor.
  */
 package controlador;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import vista.IF_productos;
-import modelo.modeloProductos;
+import vista.IF_Combos;
+import modelo.modeloCombos;
 
 /**
  *
  * @author Cesar Cedillo
  */
-public class controladorProductos extends ControladorPrincipal implements MouseListener{
-    IF_productos vista = new IF_productos();
-    modeloProductos modelo = new modeloProductos();
+public class controladorCombos extends ControladorPrincipal implements MouseListener{
     
+    IF_Combos vista = new IF_Combos();
+    modeloCombos modelo = new modeloCombos();
 
-
-    public controladorProductos(IF_productos vista, modeloProductos modelo) {
-        this.modelo = modelo;
-        this.vista = vista;
-
+    public controladorCombos() {
+        
     }
 
     
     @Override
     public void iniciarVista() {
-        vista.panelAgregar.addMouseListener(this);
-        vista.panelEditar.addMouseListener(this);
-        vista.panelEliminar.addMouseListener(this);
-        vista.panelLimpiar.addMouseListener(this);
-        
     }
 
     @Override
-    public void mouseClicked(java.awt.event.MouseEvent e) {
-        
-        
+    public void mouseClicked(MouseEvent me) {
     }
 
     @Override
-    public void mousePressed(java.awt.event.MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mousePressed(MouseEvent me) {
     }
 
     @Override
-    public void mouseReleased(java.awt.event.MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mouseReleased(MouseEvent me) {
     }
 
     @Override
-    public void mouseEntered(java.awt.event.MouseEvent e) {
+    public void mouseEntered(MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
             setColor(vista.panelAgregar);
         }
@@ -67,7 +56,7 @@ public class controladorProductos extends ControladorPrincipal implements MouseL
     }
 
     @Override
-    public void mouseExited(java.awt.event.MouseEvent e) {
+    public void mouseExited(MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
             resetColor(vista.panelAgregar);
         }

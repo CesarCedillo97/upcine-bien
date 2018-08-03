@@ -35,7 +35,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="727" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" alignment="0" pref="809" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -102,7 +102,7 @@
             <Container class="javax.swing.JPanel" name="jPanel7">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e8" green="74" red="19" type="rgb"/>
+                  <Color blue="59" green="21" red="36" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -183,7 +183,7 @@
             <Container class="javax.swing.JPanel" name="jPanel6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e8" green="74" red="19" type="rgb"/>
+                  <Color blue="59" green="21" red="36" type="rgb"/>
                 </Property>
               </Properties>
 

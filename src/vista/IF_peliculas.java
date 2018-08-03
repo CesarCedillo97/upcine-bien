@@ -49,7 +49,7 @@ public class IF_peliculas extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel7.setBackground(new java.awt.Color(25, 116, 232));
+        jPanel7.setBackground(new java.awt.Color(54, 33, 89));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,7 +73,7 @@ public class IF_peliculas extends javax.swing.JInternalFrame {
         );
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(25, 116, 232));
+        jLabel8.setForeground(new java.awt.Color(54, 33, 89));
         jLabel8.setText("Buscar:");
 
         bucar_txt.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
@@ -91,10 +91,10 @@ public class IF_peliculas extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(25, 116, 232));
+        jLabel1.setForeground(new java.awt.Color(54, 33, 89));
         jLabel1.setText("[ingrese el nombre del empleado]");
 
-        jPanel6.setBackground(new java.awt.Color(25, 116, 232));
+        jPanel6.setBackground(new java.awt.Color(54, 33, 89));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));

@@ -25,9 +25,10 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
     
     }
     
+    
     @Override
     public void iniciarVista() {
-        vista.JTable.setModel(modelo.cargarDatos());
+        
         vista.bucar_txt.addKeyListener(this);
     }
 

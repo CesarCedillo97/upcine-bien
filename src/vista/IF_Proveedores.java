@@ -49,7 +49,7 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel7.setBackground(new java.awt.Color(25, 116, 232));
+        jPanel7.setBackground(new java.awt.Color(54, 33, 89));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,7 +94,7 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(25, 116, 232));
         jLabel1.setText("[ingrese el nombre del empleado]");
 
-        jPanel6.setBackground(new java.awt.Color(25, 116, 232));
+        jPanel6.setBackground(new java.awt.Color(54, 33, 89));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,7 +177,7 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
         );
 
         pack();
