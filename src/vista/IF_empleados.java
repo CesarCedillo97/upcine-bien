@@ -41,6 +41,12 @@ public class IF_empleados extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         JTable = new javax.swing.JTable();
         JTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        panelAgregarEmp = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        panelEditEmp = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        panelEliminarEmp = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
 
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(807, 760));
@@ -130,6 +136,78 @@ public class IF_empleados extends javax.swing.JInternalFrame {
         JTable.setRowHeight(18);
         jScrollPane3.setViewportView(JTable);
 
+        panelAgregarEmp.setBackground(new java.awt.Color(128, 128, 128));
+        panelAgregarEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Agregar");
+
+        javax.swing.GroupLayout panelAgregarEmpLayout = new javax.swing.GroupLayout(panelAgregarEmp);
+        panelAgregarEmp.setLayout(panelAgregarEmpLayout);
+        panelAgregarEmpLayout.setHorizontalGroup(
+            panelAgregarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarEmpLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel21)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        panelAgregarEmpLayout.setVerticalGroup(
+            panelAgregarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarEmpLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addContainerGap())
+        );
+
+        panelEditEmp.setBackground(new java.awt.Color(128, 128, 128));
+        panelEditEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Editar");
+
+        javax.swing.GroupLayout panelEditEmpLayout = new javax.swing.GroupLayout(panelEditEmp);
+        panelEditEmp.setLayout(panelEditEmpLayout);
+        panelEditEmpLayout.setHorizontalGroup(
+            panelEditEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEditEmpLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel17)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        panelEditEmpLayout.setVerticalGroup(
+            panelEditEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEditEmpLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelEliminarEmp.setBackground(new java.awt.Color(128, 128, 128));
+        panelEliminarEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Eliminar");
+
+        javax.swing.GroupLayout panelEliminarEmpLayout = new javax.swing.GroupLayout(panelEliminarEmp);
+        panelEliminarEmp.setLayout(panelEliminarEmpLayout);
+        panelEliminarEmpLayout.setHorizontalGroup(
+            panelEliminarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarEmpLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel18)
+                .addGap(54, 54, 54))
+        );
+        panelEliminarEmpLayout.setVerticalGroup(
+            panelEliminarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarEmpLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel18)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,6 +225,13 @@ public class IF_empleados extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1)
                             .addComponent(bucar_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(580, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panelEditEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelAgregarEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelEliminarEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +247,13 @@ public class IF_empleados extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(264, 264, 264))
+                .addGap(18, 18, 18)
+                .addComponent(panelAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(panelEditEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(panelEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -196,6 +287,9 @@ public class IF_empleados extends javax.swing.JInternalFrame {
     public javax.swing.JTable JTable;
     public javax.swing.JTextField bucar_txt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
@@ -204,5 +298,8 @@ public class IF_empleados extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JPanel panelAgregarEmp;
+    public javax.swing.JPanel panelEditEmp;
+    public javax.swing.JPanel panelEliminarEmp;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,6 +2,8 @@
 package modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -31,9 +33,10 @@ public class modeloPrincipal {
      * @param table_name Nombre de la tabla
      * @param table_columns Nombre de cada columna en la que se insertará 
      * @param table_values Los valores a insertar
+     * Retorna el id agregado porque hay muchas donde se hace doble inserción, si falla retorna -1
      * @return
      */
-    public boolean insertar(String table_name,String[] table_columns, String[] table_values) {
+    public int insertar(String table_name,String[] table_columns, String[] table_values) {
         try {
             Connection con = conexion.abrirConexion();
             if(con!=null){
@@ -49,18 +52,23 @@ public class modeloPrincipal {
                     values+="'"+table_value+"',";
                 }
                 values = values.substring(0, values.length()-1);//Lo de arriba pero ahora con values
-                Statement s = con.createStatement();
-                System.out.println("INSERT INTO "+table_name+"("+columns+")VALUES("+values+")");
-                s.executeUpdate("INSERT INTO "+table_name+"("+columns+")VALUES("+values+")");
+                PreparedStatement s = con.prepareStatement("INSERT INTO "+table_name+"("+columns+")VALUES("+values+")",Statement.RETURN_GENERATED_KEYS);
+                s.executeUpdate();
+                ResultSet rs = s.getGeneratedKeys();
+                int last_id = -1;
+                if(rs.next()){
+                    last_id = rs.getInt(1);   
+                }
+                rs.close();
                 conexion.cerrarConexion(con);
-                return true;
+                return last_id;
             }
             else{
-                return false;
+                return -1;
             }
         }catch (SQLException e) {
             System.out.println("Algo sucedió: "+e.getMessage());
-            return false;
+            return -1;
         }
     }
     /**

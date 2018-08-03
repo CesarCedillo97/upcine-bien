@@ -17,9 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Cesar Cedillo
  */
-public class modeloEmpleados {
-    
-    Conexion conexion = new Conexion();
+public class modeloEmpleados extends modeloPrincipal{
     
     public DefaultTableModel consultarPeliculas(){
         try{
