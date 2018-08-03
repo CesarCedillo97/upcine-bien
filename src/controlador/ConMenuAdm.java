@@ -14,6 +14,7 @@ import vista.VistaMenuAdm;
 import vista.IF_empleados;
 import vista.IF_peliculas;
 import vista.IF_Proveedores;
+import vista.IF_productos;
 
 import vista.Login;
 /**
@@ -26,16 +27,17 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     IF_empleados vEmp = new IF_empleados();
     IF_peliculas vPeli = new IF_peliculas();
     IF_Proveedores vProv= new IF_Proveedores();
+    IF_productos vProd = new IF_productos();
     
     
     //agancaso omiso a este comentrios
 
-    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv ) { // se declaran todos los componentes que se van a mostrar dentro del constructor
+    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ) { // se declaran todos los componentes que se van a mostrar dentro del constructor
         this.Desktop= vista;
         this.vEmp = vistaEmp;
         this.vPeli = vistaPeli;
         this.vProv = vistaProv;
-        
+        this.vProd = productos;
         
         
         //Aquí va la declaracion de paneles (Internal frames)
@@ -54,16 +56,20 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.Desktop.Desktop.add(vEmp);
         this.Desktop.Desktop.add(vPeli);
         this.Desktop.Desktop.add(vProv);
+        this.Desktop.Desktop.add(vProd);
         
         //aquí se muestran
         this.vEmp.show();
         this.vPeli.show();
         this.vProv.show();
+        this.vProd.show();
         
         //Aqui se ponen en tal posicion para que se vean bien
         this.vEmp.setLocation(-1, -25);
         this.vPeli.setLocation(-1, -25);
         this.vProv.setLocation(-1, -25);
+        this.vProd.setLocation(-1, -25);
+        
         
         this.vEmp.toFront();
         
@@ -94,6 +100,8 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         }
         else if (Desktop.panelProv == e.getSource()){
             this.vProv.toFront();
+        } else if (Desktop.panelProduct == e.getSource()) {
+            this.vProd.toFront();
         }
         else if (Desktop.panelSalir == e.getSource()) {
             Desktop.dispose();

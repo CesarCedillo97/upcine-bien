@@ -19,10 +19,12 @@ import vista.Login;
 import modelo.modeloLogin;
 import modelo.modeloPelicuas;
 import modelo.modeloProveedor;
+import modelo.modeloProductos;
 import vista.IF_Proveedores;
 import vista.IF_empleados;
 import vista.IF_peliculas;
 import vista.VistaMenuAdm;
+import vista.IF_productos;
 /**
  *
  * @author Cesar Cedillo
@@ -81,9 +83,15 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 modeloProveedor modProv = new modeloProveedor();
                 controladorProveedores conProv = new controladorProveedores(prove,modProv);
                 conProv.iniciarVista();
+                
+                //Para los productos
+                IF_productos vprod = new IF_productos();
+                modeloProductos modPro = new modeloProductos();
+                controladorProductos conProd = new controladorProductos(vprod, modPro);
+                conProd.iniciarVista();
 
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove);
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod);
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
