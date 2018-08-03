@@ -29,6 +29,18 @@ public abstract class ControladorPrincipal
         panel.setBackground(new java.awt.Color(25,116,232));
     }
     
+    public void resetColorLimpiar(JPanel panel){
+        panel.setBackground(new java.awt.Color(12, 205, 174));
+    }
+    
+    public void resetColorEditar(JPanel panel){
+        panel.setBackground(new java.awt.Color(168, 151, 46));
+    }
+    
+    public void resetColorEliminar(JPanel panel){
+        panel.setBackground(new java.awt.Color(154, 86, 86));
+    }
+    
     public void setColorDisabled(JPanel panel){
         panel.setBackground(new java.awt.Color(25,116,232));
     }
@@ -39,6 +51,18 @@ public abstract class ControladorPrincipal
     
     public void setColorCancelar(JPanel panel){
         panel.setBackground(new Color(247,143,143));
+    }
+    
+    public void setColorLimpiar(JPanel panel){
+        panel.setBackground(new Color(57, 244, 214));
+    }
+    
+    public void setColorEliminar(JPanel panel){
+        panel.setBackground(new Color(217, 121, 121));
+    }
+    
+    public void setColorEditar(JPanel panel){
+        panel.setBackground(new Color(217, 198, 78));
     }
     
     public void resetColorGrey(JPanel panel){

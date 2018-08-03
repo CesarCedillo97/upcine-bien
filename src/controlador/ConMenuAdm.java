@@ -15,8 +15,12 @@ import vista.IF_empleados;
 import vista.IF_peliculas;
 import vista.IF_Proveedores;
 import vista.IF_productos;
+import vista.IF_Combos;
 
 import vista.Login;
+
+
+import modelo.*;
 /**
  *
  * @author Cesar Cedillo
@@ -28,16 +32,26 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     IF_peliculas vPeli = new IF_peliculas();
     IF_Proveedores vProv= new IF_Proveedores();
     IF_productos vProd = new IF_productos();
+    IF_Combos vCom = new IF_Combos();
+    
+    
+    modeloCombos mCom = new modeloCombos();
+    modeloEmpleados mEmp = new modeloEmpleados();
+    modeloPelicuas mPeli = new modeloPelicuas();
+    modeloPrincipal mPrin = new modeloEmpleados();
+    modeloProductos mProd = new modeloProductos();
+    modeloProveedor mProv = new modeloProveedor();
     
     
     //agancaso omiso a este comentrios
 
-    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ) { // se declaran todos los componentes que se van a mostrar dentro del constructor
+    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos) { // se declaran todos los componentes que se van a mostrar dentro del constructor
         this.Desktop= vista;
         this.vEmp = vistaEmp;
         this.vPeli = vistaPeli;
         this.vProv = vistaProv;
         this.vProd = productos;
+        this.vCom = combos;
         
         
         //Aquí va la declaracion de paneles (Internal frames)
@@ -49,32 +63,38 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.Desktop.panelFunciones.addMouseListener((MouseListener)this);
         this.Desktop.panelPrecios.addMouseListener((MouseListener)this);
         this.Desktop.panelProduct.addMouseListener((MouseListener)this);
+        this.Desktop.panelCombos.addMouseListener((MouseListener)this);
         this.Desktop.panelReportes.addMouseListener((MouseListener)this);
         this.Desktop.panelSalir.addMouseListener((MouseListener)this);
+        
         
         //Aquí se agregan al desktop
         this.Desktop.Desktop.add(vEmp);
         this.Desktop.Desktop.add(vPeli);
         this.Desktop.Desktop.add(vProv);
         this.Desktop.Desktop.add(vProd);
+        this.Desktop.Desktop.add(vCom);
         
         //aquí se muestran
         this.vEmp.show();
         this.vPeli.show();
         this.vProv.show();
         this.vProd.show();
+        this.vCom.show();
         
         //Aqui se ponen en tal posicion para que se vean bien
         this.vEmp.setLocation(-1, -25);
         this.vPeli.setLocation(-1, -25);
         this.vProv.setLocation(-1, -25);
         this.vProd.setLocation(-1, -25);
+        this.vCom.setLocation(-1, -25);
         
         
         this.vEmp.toFront();
         
     }
     
+    @Override
      public void iniciarVista(){
         Desktop.setTitle("Biblioteca");
         Desktop.pack();
@@ -93,14 +113,23 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         if (Desktop.panelEmpleados == e.getSource()) {
+            vEmp.JTable.setModel(mEmp.consultarPeliculas());
             this.vEmp.toFront();
         }
         else if (Desktop.panelPeli == e.getSource()) {
+            //aqui iria el modelo de la tabla
             this.vPeli.toFront();
         }
         else if (Desktop.panelProv == e.getSource()){
+            vProv.JTable.setModel(mProv.cargarDatos());
             this.vProv.toFront();
-        } else if (Desktop.panelProduct == e.getSource()) {
+        } 
+        else if (Desktop.panelCombos == e.getSource()) {
+            //aqui va el modleo de la tabla
+            this.vCom.toFront();
+        } 
+        else if (Desktop.panelProduct == e.getSource()) {
+            //aqui va el modleo de la tabla
             this.vProd.toFront();
         }
         else if (Desktop.panelSalir == e.getSource()) {
@@ -133,6 +162,9 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         }
         else if (Desktop.panelProduct == e.getSource()) {
             setColor(Desktop.panelProduct);
+        }
+        else if (Desktop.panelCombos == e.getSource()) {
+            setColor(Desktop.panelCombos);
         }
         else if (Desktop.panelPrecios == e.getSource()) {
             setColor(Desktop.panelPrecios);
@@ -167,6 +199,9 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         }
         else if (Desktop.panelProduct == e.getSource()) {
             resetColor(Desktop.panelProduct);
+        }
+        else if (Desktop.panelCombos == e.getSource()) {
+            resetColor(Desktop.panelCombos);
         }
         else if (Desktop.panelPrecios == e.getSource()) {
             resetColor(Desktop.panelPrecios);

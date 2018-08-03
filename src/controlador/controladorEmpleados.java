@@ -30,15 +30,18 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     public controladorEmpleados( IF_empleados vista, modeloEmpleados modelo) {
         this.vista= vista;
         this.modelo= modelo;
-    }
-    
-    @Override
-    public void iniciarVista() {
+        
         vista.bucar_txt.addKeyListener(this);
-        vista.JTable.setModel(modelo.consultarPeliculas());
+        
         vista.panelAgregarEmp.addMouseListener(this);
         vista.panelEditEmp.addMouseListener(this);
         vista.panelEliminarEmp.addMouseListener(this);
+    }
+    
+    
+    @Override
+    public void iniciarVista() {
+        
     }
     
     @Override
