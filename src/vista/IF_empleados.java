@@ -49,7 +49,7 @@ public class IF_empleados extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblContra = new javax.swing.JLabel();
+        lblPass = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -234,11 +234,11 @@ public class IF_empleados extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(54, 33, 89));
         jLabel3.setText("Contraseña:");
 
-        lblContra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblContra.setForeground(new java.awt.Color(25, 116, 232));
-        lblContra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblContra.setAlignmentY(1.0F);
-        lblContra.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(54, 33, 89)));
+        lblPass.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPass.setForeground(new java.awt.Color(25, 116, 232));
+        lblPass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPass.setAlignmentY(1.0F);
+        lblPass.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(54, 33, 89)));
 
         lblId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblId.setForeground(new java.awt.Color(25, 116, 232));
@@ -344,7 +344,7 @@ public class IF_empleados extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblContra, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblPass, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49)
                         .addComponent(panelAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -407,7 +407,7 @@ public class IF_empleados extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel3))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
-                                .addComponent(lblContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblPass, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(panelAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -506,12 +506,12 @@ public class IF_empleados extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JLabel lblContra;
     public javax.swing.JLabel lblDireccion;
     public javax.swing.JLabel lblEdad;
     public javax.swing.JLabel lblId;
     public javax.swing.JLabel lblInitDate;
     public javax.swing.JLabel lblNombre;
+    public javax.swing.JLabel lblPass;
     public javax.swing.JLabel lblPhone;
     public javax.swing.JLabel lblType;
     public javax.swing.JLabel lblUser;

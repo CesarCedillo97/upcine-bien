@@ -96,7 +96,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="lblContra" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="lblPass" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblId" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
@@ -177,7 +177,7 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
-                                      <Component id="lblContra" min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="lblPass" min="-2" pref="20" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="panelAgregarEmp" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -576,7 +576,7 @@
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblContra">
+            <Component class="javax.swing.JLabel" name="lblPass">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>

@@ -17,7 +17,7 @@ import modelo.modeloProveedor;
 public class controladorProveedores extends ControladorPrincipal implements KeyListener {
     IF_Proveedores vista = new  IF_Proveedores();
     modeloProveedor modelo = new modeloProveedor();
-    
+    String[][] datos;
     public controladorProveedores( IF_Proveedores vista, modeloProveedor modProv ) {
     this.vista = vista;
     this.modelo= modProv;
@@ -28,7 +28,10 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
     
     @Override
     public void iniciarVista() {
-        
+        String[] columnas = new String[]{"ID","Empresa","Responsable","Dirección","Teléfono"};
+        String txtQuery = "SELECT * FROM proveedor";
+        datos = modelo.obtenerDatos(txtQuery);
+        vista.JTable.setModel(modelo.obtenerDatosTabla(datos,columnas));
         vista.bucar_txt.addKeyListener(this);
     }
 

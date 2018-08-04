@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -177,42 +178,58 @@ public class modeloPrincipal {
     }
     /**
      * Esta función obtiene los datos de la tabla especificada
-     * @param SQLQuery Recibe la conlsuta de SQL
+     * @param datos Recibe todo los datos de donde hará el filtrado para la tabla
      * @param nombresColumnas Recibe el nombre de las columnas que se agregarán en la tabla
      * @return 
      */
-    public DefaultTableModel obtenerDatos(String SQLQuery, String[] nombresColumnas){
-        try{
-            Connection con = conexion.abrirConexion();
-            Statement s = con.createStatement();
-            DefaultTableModel modelo;
-            
-            try{
-                ResultSet rs = s.executeQuery(SQLQuery);
-                modelo = new DefaultTableModel();
-                
-                ResultSetMetaData rsMd = rs.getMetaData();
-                int cantidadColumnas = rsMd.getColumnCount();
-                for(int i=0;i < cantidadColumnas;i++){
-                    modelo.addColumn(nombresColumnas[i]);
-                }
-                while(rs.next()){
-                    Object[] fila = new Object[cantidadColumnas];
-                    for(int i = 0; i<cantidadColumnas; i++){
-                        fila[i]=rs.getObject(i+1);
-                        
-                    }
-                    modelo.addRow(fila);
-                }
-                return modelo;
-            }finally{
-                conexion.cerrarConexion(con);
+    public DefaultTableModel obtenerDatosTabla(String[][] datos, String[] nombresColumnas){
+        DefaultTableModel modelo = new DefaultTableModel(); 
+        int numCols = nombresColumnas.length;
+        for(int i=0;i < numCols;i++){
+            modelo.addColumn(nombresColumnas[i]);
+        }
+        Object[] fila = new Object[numCols];
+        for (String[] dato : datos) {
+            for (int j = 0; j < numCols; j++) {
+                fila[j] = dato[j];
             }
+            modelo.addRow(fila);
+        }
+        return modelo;
+    }
+    /**
+     * Esta función retorna todos los datos de la consulta en un arreglo bidimensional
+     * @param SQLQuery Recibe la conlsuta de SQL
+     * @return 
+     */
+    public String[][] obtenerDatos(String SQLQuery){
+        String[][] datos;
+        int numCol;
+        Connection con = null;
+        try{
+            con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(SQLQuery);
+            numCol = rs.getMetaData().getColumnCount();
+            rs.last();
+            int numRows = rs.getRow();
+            datos = new String[numRows][numCol];
+            rs.beforeFirst();
+            while(rs.next()){
+                for (int j = 0; j < numCol; j++) {
+                    datos[rs.getRow()-1][j] = rs.getString(j+1);
+                } 
+            }
+            return datos;
         }
         catch(SQLException e){
+            System.out.println(e.getMessage());
             return null;
         }
+        finally{
+            if(con != null) cerrarConexion(con);
+        }
     }
-    
+
  }   
     

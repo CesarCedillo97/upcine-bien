@@ -16,6 +16,10 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 import vista.IF_empleados;
 import modelo.modeloEmpleados;
@@ -27,7 +31,10 @@ import vista.forms.vistaFormEmpleados;
 public class controladorEmpleados extends ControladorPrincipal implements KeyListener,MouseListener{
     IF_empleados vista = new IF_empleados();
     modeloEmpleados modelo = new modeloEmpleados();
-    
+    String[][] datosTabla;
+    String[][] datos;
+    String[] columnasTabla;
+    int fila;
     public controladorEmpleados( IF_empleados vista, modeloEmpleados modelo) {
         this.vista= vista;
         this.modelo= modelo;
@@ -40,20 +47,40 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
         vista.panelAgregarEmp.addMouseListener(this);
         vista.panelEditEmp.addMouseListener(this);
         vista.panelEliminarEmp.addMouseListener(this);
-        vista.JTable.addMouseListener(this);
+        vista.JTable.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            fila = vista.JTable.getSelectedRow();
+            llenarDatos();
+        });
+        //txtQueryTabla es la consulta que jalará los datos que irán en la tabla solamente
+        String txtQueryTabla = "SELECT Nombre, Telefono, Direccion, Edad FROM empleado, login WHERE empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
+        //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
+        String txtQuery = "SELECT IdEmpleado, Usuario, Contraseña, Nombre, Telefono, Direccion, Edad, Fecha_Inicio, \n" +
+                                "case when Tipo = 1 then 'Administrador'\n" +
+                                "     when Tipo = 2 then 'Empleado' \n" +
+                                "     end as 'Tipo'\n" +
+                                " FROM empleado, login WHERE empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
+        //Se obtienen los datos de la consulta de la tabla
+        datosTabla = modelo.obtenerDatos(txtQueryTabla);
+        //Se obtienen los datos de la otra consulta (Para la parte de datos)
+        datos = modelo.obtenerDatos(txtQuery);
+        //Se declaran los nombres de las columnas que llevará la table (Esta madre no tiene nada que ver con la base de datos si no con JTable)
+        columnasTabla = new String[]{"Nombre","Telefono","Direccion","Edad"};
+        //Se asigna el modelo a la tabla de los datos de la tabla.
+        vista.JTable.setModel(modelo.obtenerDatosTabla(datosTabla,columnasTabla));
     }
     
-    public void llenarDatos(int fila){
-        TableModel tm = vista.JTable.getModel();
-        vista.lblId.setText(String.valueOf(tm.getValueAt(fila, 0)));
-        //vista.lblUser.setText(String.valueOf(tm.getValueAt(fila, 0)));
-        //vista.lblPass.setText(String.valueOf(tm.getValueAt(fila, 0)));
-        vista.lblNombre.setText(String.valueOf(tm.getValueAt(fila, 1)));
-        vista.lblPhone.setText(String.valueOf(tm.getValueAt(fila, 2)));
-        vista.lblDireccion.setText(String.valueOf(tm.getValueAt(fila, 3)));
-        vista.lblEdad.setText(String.valueOf(tm.getValueAt(fila, 4)));
-        vista.lblInitDate.setText(String.valueOf(tm.getValueAt(fila, 5)));
-        vista.lblType.setText(String.valueOf(tm.getValueAt(fila, 6)));
+    public void llenarDatos(){
+        if(fila!=-1){
+            vista.lblId.setText(datos[fila][0]);
+            vista.lblUser.setText(datos[fila][1]);
+            vista.lblPass.setText(datos[fila][2]);
+            vista.lblNombre.setText(datos[fila][3]);
+            vista.lblPhone.setText(datos[fila][4]);
+            vista.lblDireccion.setText(datos[fila][5]);
+            vista.lblEdad.setText(datos[fila][6]);
+            vista.lblInitDate.setText(datos[fila][7]);
+            vista.lblType.setText(datos[fila][8]);
+        }
     }
     @Override
     public void keyTyped(KeyEvent ke) {
@@ -68,8 +95,8 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     @Override
     public void keyReleased(KeyEvent e) {
         if (vista.bucar_txt == e.getSource()) {
-            String[] columnas = {"ID","Nombre","Teléfono","Dirección","Edad","Fecha inicio","Tipo"};
-            String Query = "select * from upcine.empleado where Nombre LIKE '"+ vista.bucar_txt.getText() +"%'";
+            String[] columnas = {"Nombre","Teléfono","Dirección","Edad"};
+            String Query = "select Nombre, Telefono, Direccion, Edad from upcine.empleado where Nombre LIKE '"+ vista.bucar_txt.getText() +"%'";
             vista.JTable.setModel(modelo.filtrarTabla(Query, columnas));
         }
     }
@@ -86,8 +113,9 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             formEmpleado form = new formEmpleado();
             form.iniciarVistaForm();
         }
-        if(e.getSource() == vista.JTable){
-            llenarDatos(vista.JTable.rowAtPoint(e.getPoint()));
+        else if(e.getSource() == vista.panelEditEmp){
+            formEmpleado form = new formEmpleado(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5],datos[fila][6],datos[fila][7],datos[fila][8],"1");
+            form.iniciarVistaForm();
         }
     }
 
@@ -107,20 +135,20 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     }
     
     private class formEmpleado implements MouseListener, WindowListener {
-        private String user,password,name,age,phone,address,type, status;        
-        private Date initDate;
+        private String user,password,name,age,phone,address,type, status, initDate,id;        
         private boolean opcion = false;//Esta variable es para saber como se utilizará si para agregar o modificar, Modificar = true; Agregar = false; 
         vistaFormEmpleados form = new vistaFormEmpleados();
-        private formEmpleado(String user, String password, String name, String age, String phone, String address, Date initDate, String type, String status) {
+        private formEmpleado(String id, String user, String password, String name, String phone, String address, String age, String initDate, String type, String status) {
+            this.id = id;
             this.user = user;
             this.password = password;
             this.name = name;
-            this.age = age;
             this.phone = phone;
             this.address = address;
+            this.age = age;
             this.initDate = initDate;
             this.type = type;
-            this.status = status;
+            //this.status = status;
             this.opcion = true;
         }
 
@@ -138,6 +166,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
         }
 
         private void llenarInputs(){
+            form.txtId.setText(this.id);
             form.txtUsuario.setText(this.user);
             form.txtContra.setText(this.password);
             form.txtNombre.setText(this.name);
@@ -162,31 +191,40 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
         @Override
         public void mousePressed(MouseEvent e) {
-            if(e.getSource() == form.panelAdd){
+            //Agregar
+            if(e.getSource() == form.panelAdd && !opcion){
                 int last_id = -1;
-                //Para la tabla empleado
+                //Se llenan los datos que se van a guardar en la tabla de EMPLEADOS
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                 String fechaBD = df.format(form.txtFecha_Inicio.getDate()); //le da formato correcto a la fecha 
-                String[] table_columns = {"Nombre","Teléfono","Dirección","Edad","Fecha_Inicio","Tipo"};
+                String[] table_columns = {"Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo"};
                 String[] table_values = {form.txtNombre.getText(),
                                          form.txtTelefono.getText(),
                                          form.txtDireccion.getText(),
                                          form.txtEdad.getText(),
                                          fechaBD,
                                          String.valueOf(form.txtTipo.getSelectedIndex()+1)};
-                //Para la tabla de login
+                //Se llenan los datos que se van a guardar en la tabla LOGIN
                 String[] table_columns2 = {"Usuario","Contraseña","empleado_idEmpleado"};
                 String[] table_values2 = {form.txtUsuario.getText(),
                                           form.txtContra.getText(),
                                           String.valueOf(last_id)};
+                //verifica que los inputs no esten vaciós
                 boolean areNotEmpty = checkIsNotEmpty(table_values) && checkIsNotEmpty(table_values2);
+                //Se abre la conexión, lo hacemos desde aquí para aplicar las transacciones
                 Connection con = modelo.abrirConexion();
+                try {
+                    con.setAutoCommit(false);
+                } catch (SQLException ex) {
+                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 if(areNotEmpty && con != null &&(last_id = modelo.insertar("empleado", table_columns, table_values, con)) != -1){
                     table_values2[2]=String.valueOf(last_id);
                     System.out.println(last_id);
                     if(modelo.insertar("login", table_columns2, table_values2, con) != -1){
                         try {
                             System.out.println("Se ha insertado prrron alv");
+                            //si todo se inserta se realiza el commit
                             con.commit();
                         } catch (SQLException ex) {
                             System.out.println("No se pudo realizar el commit");
@@ -201,7 +239,57 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                     if(!areNotEmpty)
                         System.out.println("No mames, dejaste campos vacios");
                 }
-                
+            }
+            //para modificar
+            else if(e.getSource() == form.panelAdd && opcion){
+                int last_id = -1;
+                //Se llenan los datos que se van a guardar en la tabla de EMPLEADOS
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String fechaBD = df.format(form.txtFecha_Inicio.getDate()); //le da formato correcto a la fecha 
+                String[] table_columns = {"IdEmpleado","Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo"};
+                String[] table_values = {form.txtId.getText(),
+                                         form.txtNombre.getText(),
+                                         form.txtTelefono.getText(),
+                                         form.txtDireccion.getText(),
+                                         form.txtEdad.getText(),
+                                         fechaBD,
+                                         String.valueOf(form.txtTipo.getSelectedIndex()+1)};
+                //Se llenan los datos que se van a guardar en la tabla LOGIN
+                //Como se va a encotnrar por el campo idEmpleado, lo puse primero
+                String[] table_columns2 = {"empleado_idEmpleado","Usuario","Contraseña"};
+                String[] table_values2 = {form.txtId.getText(),
+                                          form.txtUsuario.getText(),
+                                          form.txtContra.getText()};
+                //verifica que los inputs no esten vaciós
+                boolean areNotEmpty = checkIsNotEmpty(table_values) && checkIsNotEmpty(table_values2);
+                //Se abre la conexión, lo hacemos desde aquí para aplicar las transacciones
+                Connection con = modelo.abrirConexion();
+                try {
+                    con.setAutoCommit(false);
+                } catch (SQLException ex) {
+                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if(areNotEmpty && con != null &&(modelo.modificar("empleado", table_columns, table_values, con))){
+                    if(modelo.modificar("login", table_columns2, table_values2, con)){
+                        try {
+                            System.out.println("Se ha modificado prrron alv");
+                            //si todo se inserta se realiza el commit
+                            con.commit();
+                        } catch (SQLException ex) {
+                            System.out.println("No se pudo realizar el commit");
+                            System.out.println(ex.getMessage());
+                        }
+                    }
+                    else{
+                        System.out.println("Valió verga:c");
+                    }
+                    modelo.cerrarConexion(con);
+                }
+                else{
+                    System.out.println("wha");
+                    if(!areNotEmpty)
+                        System.out.println("No mames, dejaste campos vacios");
+                }
             }
         }
 
