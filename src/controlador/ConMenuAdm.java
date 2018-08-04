@@ -102,7 +102,13 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         Desktop.setLocationRelativeTo(null);
 //        vD.Cual_sucursal.setText(this.IDSUC); solo si quieres que sea vea la sucursal al lado del salir
         Desktop.setVisible(true);
-        
+        String[] table_columns = {"ID","Nombre","Telefono","Direccion","Edad","Fecha inicio","Tipo"};
+        String txtQuery = "select IdEmpleado, Nombre, Telefono, Direccion, Edad, Fecha_Inicio, \n" +
+                                "case when Tipo = 1 then 'Administrador'\n" +
+                                "     when Tipo = 2 then 'Empleado' \n" +
+                                "     end as 'Tipo'\n" +
+                                " from empleado, login where empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
+        vEmp.JTable.setModel(mEmp.obtenerDatos(txtQuery,table_columns));
         //algun setModel para la tabla de la primer pantalla (si es que tiene)... seria libros
         //dejo lo siguiente como ejemplo
         //vista.Administrador_Usuarios_TablaUsuarios_Table.setModel(modelo.usuariosUsuariosConsultar());
@@ -112,8 +118,16 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        String[] columnas;
+        String txtQuery;
         if (Desktop.panelEmpleados == e.getSource()) {
-            vEmp.JTable.setModel(mEmp.consultarPeliculas());
+            txtQuery = "select IdEmpleado, Nombre, Telefono, Direccion, Edad, Fecha_Inicio, \n" +
+                                "case when Tipo = 1 then 'Administrador'\n" +
+                                "     when Tipo = 2 then 'Empleado' \n" +
+                                "     end as 'Tipo'\n" +
+                                " from empleado, login where empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
+            columnas = new String[]{"ID","Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo"};
+            vEmp.JTable.setModel(mEmp.obtenerDatos(txtQuery,columnas));
             this.vEmp.toFront();
         }
         else if (Desktop.panelPeli == e.getSource()) {
@@ -121,7 +135,9 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
             this.vPeli.toFront();
         }
         else if (Desktop.panelProv == e.getSource()){
-            vProv.JTable.setModel(mProv.cargarDatos());
+            columnas = new String[]{"ID","Empresa","Responsable","Dirección","Teléfono"};
+            txtQuery = "SELECT * FROM proveedor";
+            vProv.JTable.setModel(mProv.obtenerDatos(txtQuery,columnas));
             this.vProv.toFront();
         } 
         else if (Desktop.panelCombos == e.getSource()) {

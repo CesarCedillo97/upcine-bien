@@ -46,8 +46,10 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
     public void keyReleased(KeyEvent e) {
         if(e.getSource() == vista.bucar_txt)
         {
-          vista.JTable.setModel(modelo.buscarDatos(vista.bucar_txt.getText()));  
-//modelo.buscarDatos();
+          String[] columnas = {"ID","Empresa","Responsable","Dirección","Teléfono"};
+          String query = "select * from upcine.proveedor where Nombre_empresa LIKE '"+ vista.bucar_txt.getText() +"%'";
+          vista.JTable.setModel(modelo.filtrarTabla(query,columnas));  
+            //modelo.buscarDatos();
         }
     }
 
