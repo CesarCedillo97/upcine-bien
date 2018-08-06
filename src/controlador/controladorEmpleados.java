@@ -11,7 +11,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -19,8 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableModel;
 import vista.IF_empleados;
 import modelo.modeloEmpleados;
 import vista.forms.vistaFormEmpleados;
@@ -51,22 +48,11 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             fila = vista.JTable.getSelectedRow();
             llenarDatos();
         });
-        //txtQueryTabla es la consulta que jalará los datos que irán en la tabla solamente
-        String txtQueryTabla = "SELECT Nombre, Telefono, Direccion, Edad FROM empleado, login WHERE empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
-        //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
-        String txtQuery = "SELECT IdEmpleado, Usuario, Contraseña, Nombre, Telefono, Direccion, Edad, Fecha_Inicio, \n" +
-                                "case when Tipo = 1 then 'Administrador'\n" +
-                                "     when Tipo = 2 then 'Empleado' \n" +
-                                "     end as 'Tipo'\n" +
-                                " FROM empleado, login WHERE empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
-        //Se obtienen los datos de la consulta de la tabla
-        datosTabla = modelo.obtenerDatos(txtQueryTabla);
+
         //Se obtienen los datos de la otra consulta (Para la parte de datos)
-        datos = modelo.obtenerDatos(txtQuery);
-        //Se declaran los nombres de las columnas que llevará la table (Esta madre no tiene nada que ver con la base de datos si no con JTable)
-        columnasTabla = new String[]{"Nombre","Telefono","Direccion","Edad"};
+        datos = modelo.callObtenerDatos();
         //Se asigna el modelo a la tabla de los datos de la tabla.
-        vista.JTable.setModel(modelo.obtenerDatosTabla(datosTabla,columnasTabla));
+        vista.JTable.setModel(modelo.callObtenerDatosTabla());
     }
     
     public void llenarDatos(){
@@ -95,9 +81,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     @Override
     public void keyReleased(KeyEvent e) {
         if (vista.bucar_txt == e.getSource()) {
-            String[] columnas = {"Nombre","Teléfono","Dirección","Edad"};
-            String Query = "select Nombre, Telefono, Direccion, Edad from upcine.empleado where Nombre LIKE '"+ vista.bucar_txt.getText() +"%'";
-            vista.JTable.setModel(modelo.filtrarTabla(Query, columnas));
+            vista.JTable.setModel(modelo.callFiltrarTabla(vista.bucar_txt.getText()));
         }
     }
 
