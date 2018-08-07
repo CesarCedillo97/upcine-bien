@@ -13,6 +13,9 @@ import javax.swing.JPanel;
  */
 public abstract class ControladorPrincipal 
 {
+    /**
+     * es para inicializar la vista de las pantallas
+     */
     public abstract void iniciarVista();//para inciar la vista
     
     
@@ -30,15 +33,19 @@ public abstract class ControladorPrincipal
     }
     
     public void resetColorLimpiar(JPanel panel){
-        panel.setBackground(new java.awt.Color(12, 205, 174));
+        panel.setBackground(new java.awt.Color(106,100,100));
     }
     
     public void resetColorEditar(JPanel panel){
-        panel.setBackground(new java.awt.Color(168, 151, 46));
+        panel.setBackground(new java.awt.Color(161,143,30));
     }
     
     public void resetColorEliminar(JPanel panel){
-        panel.setBackground(new java.awt.Color(154, 86, 86));
+        panel.setBackground(new java.awt.Color(215,24,24));
+    }
+    
+    public void resetColorAdd(JPanel panel){
+        panel.setBackground(new java.awt.Color(35,8,79));
     }
     
     public void setColorDisabled(JPanel panel){
@@ -51,6 +58,10 @@ public abstract class ControladorPrincipal
     
     public void setColorCancelar(JPanel panel){
         panel.setBackground(new Color(247,143,143));
+    }
+    
+    public void setColorAdd(JPanel panel){
+        panel.setBackground(new Color(90, 65, 131));
     }
     
     public void setColorLimpiar(JPanel panel){

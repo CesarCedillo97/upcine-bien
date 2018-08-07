@@ -42,18 +42,16 @@ public class controladorProductos extends ControladorPrincipal implements MouseL
 
     @Override
     public void mousePressed(java.awt.event.MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(java.awt.event.MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(java.awt.event.MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
-            setColor(vista.panelAgregar);
+            setColorAdd(vista.panelAgregar);
         }
         else if (vista.panelEditar == e.getSource()) {
             setColorEditar(vista.panelEditar);
@@ -69,7 +67,7 @@ public class controladorProductos extends ControladorPrincipal implements MouseL
     @Override
     public void mouseExited(java.awt.event.MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
-            resetColor(vista.panelAgregar);
+            resetColorAdd(vista.panelAgregar);
         }
         else if (vista.panelEditar == e.getSource()) {
             resetColorEditar(vista.panelEditar);

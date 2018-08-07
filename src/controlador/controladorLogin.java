@@ -93,7 +93,7 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 //para los combos
                 IF_Combos vCom = new IF_Combos();
                 modeloCombos modCom = new modeloCombos();
-                controladorCombos conCom = new controladorCombos();
+                controladorCombos conCom = new controladorCombos(vCom,modCom);
                 conCom.iniciarVista();
                 
                 //Para los productos
