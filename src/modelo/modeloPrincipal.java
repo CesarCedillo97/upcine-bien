@@ -123,11 +123,14 @@ public class modeloPrincipal {
             Connection con = conexion.abrirConexion();
             if(con!=null){
                 Statement s = con.createStatement();
+                System.out.println("DELETE FROM "+table_name+" WHERE "+column_name+"="+id);
                 s.executeUpdate("DELETE FROM "+table_name+" WHERE "+column_name+"="+id);
+                System.out.println("simon");
                 conexion.cerrarConexion(con);
                 return true;
             }
             else{
+                System.out.println("No se pudo abrir la conexión");
                 return false;
             }
         }catch (SQLException e) {
@@ -158,7 +161,8 @@ public class modeloPrincipal {
           for(int i = 0; i < cantidadColumnas; i++)
           {
             modelo.addColumn(nombresColumnas[i]);
-          }while(rs.next())
+          }
+          while(rs.next())
           {
               Object[] fila = new Object[cantidadColumnas];
               for(int i = 0; i < cantidadColumnas; i++)
@@ -176,6 +180,7 @@ public class modeloPrincipal {
            return null;
        }
     }
+    
     /**
      * Esta función obtiene los datos de la tabla especificada
      * @param datos Recibe todo los datos de donde hará el filtrado para la tabla

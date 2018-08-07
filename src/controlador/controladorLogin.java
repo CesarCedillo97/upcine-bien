@@ -6,6 +6,8 @@
 package controlador;
 
 import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -29,6 +31,7 @@ import vista.IF_peliculas;
 import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
+import vista.VentaBoletos;
 /**
  *
  * @author Cesar Cedillo
@@ -105,10 +108,12 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
                 ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom);
+                System.out.println("w");
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
-                JOptionPane.showMessageDialog(null,"nimodo prro, no eres admin");
+//                VentaBoletos vBol = new VentaBoletos();
+//                vBol.setVisible(true);
             }
 
         }
