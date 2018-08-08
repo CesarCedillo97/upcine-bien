@@ -59,7 +59,7 @@ public class controladorError extends controlador.ControladorPrincipal implement
     @Override
     public void mouseExited(MouseEvent e) {
         if (vista.panelAceptar == e.getSource()) {
-            resetColor(vista.panelAceptar);
+            resetColorGrey(vista.panelAceptar);
         }
     }
    
