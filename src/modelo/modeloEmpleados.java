@@ -17,7 +17,7 @@ public class modeloEmpleados extends modeloPrincipal{
         String txtQuery = "SELECT IdEmpleado, Usuario, Contraseña, Nombre, Telefono, Direccion, Edad, Fecha_Inicio, \n" +
                                 "case when Tipo = 1 then 'Administrador'\n" +
                                 "     when Tipo = 2 then 'Empleado' \n" +
-                                "     end as 'Tipo'\n" +
+                                "     end as 'Tipo', Estatus\n" +
                                 " FROM empleado, login WHERE empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
         return super.obtenerDatos(txtQuery);
     }

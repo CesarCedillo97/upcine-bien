@@ -51,7 +51,7 @@ public class vistaFormEmpleados extends javax.swing.JFrame {
         txtContra = new javax.swing.JTextField();
         txtFecha_Inicio = new org.jdesktop.swingx.JXDatePicker();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtEstado = new javax.swing.JComboBox<>();
         panelAdd = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         iconAdd = new javax.swing.JLabel();
@@ -148,7 +148,7 @@ public class vistaFormEmpleados extends javax.swing.JFrame {
 
         jLabel4.setText("Estado:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laborando", "No laborando" }));
+        txtEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laborando", "No laborando" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -157,12 +157,10 @@ public class vistaFormEmpleados extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(director)
-                            .addComponent(nombre)
-                            .addComponent(jLabel3)))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(director)
+                        .addComponent(nombre)
+                        .addComponent(jLabel3))
                     .addComponent(jLabel7))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -185,7 +183,7 @@ public class vistaFormEmpleados extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -231,7 +229,7 @@ public class vistaFormEmpleados extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -413,7 +411,6 @@ public class vistaFormEmpleados extends javax.swing.JFrame {
     private javax.swing.JLabel duracion;
     private javax.swing.JLabel iconAdd;
     private javax.swing.JLabel iconCancel;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -434,6 +431,7 @@ public class vistaFormEmpleados extends javax.swing.JFrame {
     public javax.swing.JTextField txtContra;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtEdad;
+    public javax.swing.JComboBox<String> txtEstado;
     public org.jdesktop.swingx.JXDatePicker txtFecha_Inicio;
     public javax.swing.JLabel txtId;
     public javax.swing.JTextField txtNombre;

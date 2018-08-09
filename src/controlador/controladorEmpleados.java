@@ -51,11 +51,11 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     String[][] datos;
     String[] columnasTabla;
     int fila = -1;
+    
     public controladorEmpleados( IF_empleados vista, modeloEmpleados modelo) {
         this.vista= vista;
         this.modelo= modelo;
     }
-    
     
     @Override
     public void iniciarVista() {
@@ -85,6 +85,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             vista.lblEdad.setText(datos[fila][6]);
             vista.lblInitDate.setText(datos[fila][7]);
             vista.lblType.setText(datos[fila][8]);
+            vista.lblStatus.setText(datos[fila][9]);
         }
     }
     @Override
@@ -121,7 +122,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             conMessage.iniciarVista();
         }
         else if(e.getSource() == vista.panelEditEmp){
-            formEmpleado form = new formEmpleado(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5],datos[fila][6],datos[fila][7],datos[fila][8],"1");
+            formEmpleado form = new formEmpleado(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5],datos[fila][6],datos[fila][7],datos[fila][8],datos[fila][9]);
             form.iniciarVistaForm();
             fila = -1;
         }
@@ -192,7 +193,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             this.age = age;
             this.initDate = initDate;
             this.type = type;
-            //this.status = status;
+            this.status = status;
             this.opcion = true;
         }
 
@@ -220,6 +221,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             form.txtTelefono.setText(this.phone);
             form.txtDireccion.setText(this.address);
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            form.txtEstado.setSelectedItem(this.status);
             java.util.Date date = null;
             try{
                  date = df.parse(String.valueOf(initDate));
@@ -243,13 +245,14 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                 //Se llenan los datos que se van a guardar en la tabla de EMPLEADOS
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                 String fechaBD = df.format(form.txtFecha_Inicio.getDate()); //le da formato correcto a la fecha 
-                String[] table_columns = {"Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo"};
+                String[] table_columns = {"Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo","Estatus"};
                 String[] table_values = {form.txtNombre.getText(),
                                          form.txtTelefono.getText(),
                                          form.txtDireccion.getText(),
                                          form.txtEdad.getText(),
                                          fechaBD,
-                                         "0".equals(String.valueOf(form.txtTipo.getSelectedIndex()))?"":String.valueOf(form.txtTipo.getSelectedIndex())
+                                         "0".equals(String.valueOf(form.txtTipo.getSelectedIndex()))?"":String.valueOf(form.txtTipo.getSelectedIndex()),
+                                         String.valueOf(form.txtEstado.getSelectedItem())
                                         };
                 //Se llenan los datos que se van a guardar en la tabla LOGIN
                 String[] table_columns2 = {"Usuario","Contraseña","empleado_idEmpleado"};
@@ -297,14 +300,16 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                 String fechaBD = df.format(form.txtFecha_Inicio.getDate()); //le da formato correcto a la fecha s
                 System.out.println(String.valueOf(form.txtTipo.getSelectedIndex()));
-                String[] table_columns = {"IdEmpleado","Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo"};
+                String[] table_columns = {"IdEmpleado","Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo","Estatus"};
                 String[] table_values = {form.txtId.getText(),
                                          form.txtNombre.getText(),
                                          form.txtTelefono.getText(),
                                          form.txtDireccion.getText(),
                                          form.txtEdad.getText(),
                                          fechaBD,
-                                          "0".equals(String.valueOf(form.txtTipo.getSelectedIndex()))?"":String.valueOf(form.txtTipo.getSelectedIndex())};
+                                          "0".equals(String.valueOf(form.txtTipo.getSelectedIndex()))?"":String.valueOf(form.txtTipo.getSelectedIndex()),
+                                         String.valueOf(form.txtEstado.getSelectedItem())
+                                        };
                 //Se llenan los datos que se van a guardar en la tabla LOGIN
                 //Como se va a encotnrar por el campo idEmpleado, lo puse primero
                 String[] table_columns2 = {"empleado_idEmpleado","Usuario","Contraseña"};
@@ -384,7 +389,8 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
         @Override
         public void windowClosed(WindowEvent e) {
-            vista.setEnabled(true);
+            datos=modelo.callObtenerDatos();
+            vista.JTable.setModel(modelo.callObtenerDatosTabla());
         }
 
         @Override

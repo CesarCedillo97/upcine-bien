@@ -112,8 +112,9 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
-//                VentaBoletos vBol = new VentaBoletos();
-//                vBol.setVisible(true);
+                VentaBoletos vBol = new VentaBoletos();
+                ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol);
+                conVenBol.iniciarVista();
             }
 
         }
