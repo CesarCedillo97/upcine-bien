@@ -15,28 +15,32 @@ public class modeloProductos extends modeloPrincipal{
     
         public String[][] callObtenerDatos(){
         //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
-        String txtQuery = "SELECT IdEmpleado, Usuario, Contraseña, Nombre, Telefono, Direccion, Edad, Fecha_Inicio, \n" +
-                                "case when Tipo = 1 then 'Administrador'\n" +
-                                "     when Tipo = 2 then 'Empleado' \n" +
-                                "     end as 'Tipo'\n" +
-                                " FROM empleado, login WHERE empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
+        String txtQuery = "SELECT IdProducto, Cantidad, Costo, Precio_venta, proveedor_idProveedor, Descripcion \n" +
+                                " FROM producto;";
         return super.obtenerDatos(txtQuery);
     }
    
     public DefaultTableModel callObtenerDatosTabla(){
         //txtQueryTabla es la consulta que jalará los datos que irán en la tabla solamente
-        String txtQueryTabla = "SELECT Nombre, Telefono, Direccion, Edad FROM empleado, login WHERE empleado.IdEmpleado = login.empleado_IdEmpleado order by Nombre;";
+        String txtQueryTabla = "SELECT Descripcion, Precio_venta, Nombre_empresa, Cantidad FROM producto, proveedor WHERE producto.proveedor_idProveedor = proveedor.idProveedor order by Descripcion;";
         //Se obtienen los datos de la consulta de la tabla
         String[][] datosTabla = super.obtenerDatos(txtQueryTabla);
         //Se declaran los nombres de las columnas que llevará la table (Esta madre no tiene nada que ver con la base de datos si no con JTable)
-        String[] columnasTabla = new String[]{"Nombre","Telefono","Direccion","Edad"};
+        String[] columnasTabla = new String[]{"Descripcion","Precio","Proveedor","Cantidad"};
         return obtenerDatosTabla(datosTabla, columnasTabla);
     }
     
     public DefaultTableModel callFiltrarTabla(String dato){
-        String[] columnas = {"Nombre","Teléfono","Dirección","Edad"};
-        String Query = "select Nombre, Telefono, Direccion, Edad from upcine.empleado where Nombre LIKE '"+ dato +"%'";
+        String[] columnas = {"Descripcion","Precio","Proveedor","Cantidad"};
+        String Query = "SELECT Descripcion, Precio_venta, Nombre_empresa, Cantidad FROM producto, proveedor WHERE producto.proveedor_idProveedor = proveedor.idProveedor and Descripcion LIKE '"+ dato +"%'";
         return super.filtrarTabla(Query, columnas);
+    }
+    
+    public String[][] callObtenerDatosCombo(){
+        //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
+        String txtQuery = "SELECT Nombre_empresa \n" +
+                                " FROM proveedo;";
+        return super.obtenerDatos(txtQuery);
     }
     
 }
