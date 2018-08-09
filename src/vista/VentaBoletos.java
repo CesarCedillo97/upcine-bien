@@ -20,12 +20,12 @@ public class VentaBoletos extends javax.swing.JFrame {
     public VentaBoletos() {
         initComponents();
         dispose();
+        jXDatePicker1.setFont(new Font("Tahoma", Font.PLAIN, 18));
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setUndecorated(true);
         this.setAlwaysOnTop(true);
         this.setResizable(false);       
-        this.setVisible(true);
-        jXDatePicker1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        this.setUndecorated(true);
+        //this.setVisible(true);
     }
 
     /**
