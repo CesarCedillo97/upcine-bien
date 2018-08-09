@@ -19,6 +19,8 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
     
     IF_Combos vista = new IF_Combos();
     modeloCombos modelo = new modeloCombos();
+    
+    
 
     public controladorCombos(IF_Combos vistaP, modeloCombos modeloP) {
         this.modelo= modeloP;
