@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import vista.IF_Combos;
 import modelo.modeloCombos;
+import controlador.conAlerts.controladorSucces;
+import vista.alerts.alertSuccess;
 
 /**
  *
@@ -17,18 +19,32 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
     
     IF_Combos vista = new IF_Combos();
     modeloCombos modelo = new modeloCombos();
+    
+    
 
-    public controladorCombos() {
-        
+    public controladorCombos(IF_Combos vistaP, modeloCombos modeloP) {
+        this.modelo= modeloP;
+        this.vista = vistaP;
     }
 
     
     @Override
     public void iniciarVista() {
+        vista.panelAgregar.addMouseListener(this);
+        vista.panelEditar.addMouseListener(this);
+        vista. panelEliminar.addMouseListener(this);
+        vista.panelLimpiar.addMouseListener(this);
     }
 
     @Override
-    public void mouseClicked(MouseEvent me) {
+    public void mouseClicked(MouseEvent e) {
+        if (true) {
+            if (vista.panelAgregar == e.getSource()) {
+            alertSuccess vistaSucces = new alertSuccess();
+            controladorSucces conSucces = new controladorSucces(vistaSucces, "Se metio al Agregar");
+            conSucces.iniciarVista();
+        }
+        }
     }
 
     @Override
@@ -42,7 +58,7 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
     @Override
     public void mouseEntered(MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
-            setColor(vista.panelAgregar);
+            setColorAdd(vista.panelAgregar);
         }
         else if (vista.panelEditar == e.getSource()) {
             setColorEditar(vista.panelEditar);
@@ -58,7 +74,7 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
     @Override
     public void mouseExited(MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
-            resetColor(vista.panelAgregar);
+            resetColorAdd(vista.panelAgregar);
         }
         else if (vista.panelEditar == e.getSource()) {
             resetColorEditar(vista.panelEditar);

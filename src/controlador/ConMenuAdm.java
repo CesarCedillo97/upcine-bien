@@ -50,8 +50,15 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     modeloCombos mcop = new modeloCombos();
     
     //agancaso omiso a este comentrios
+<<<<<<< HEAD
 
     public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos, IF_precios precios, IF_compras compras) { // se declaran todos los componentes que se van a mostrar dentro del constructor
+=======
+    public ConMenuAdm(){
+        
+    }
+    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos) { // se declaran todos los componentes que se van a mostrar dentro del constructor
+>>>>>>> fe7aeda81f2492143190a1c1d5174a0830813d42
         this.Desktop= vista;
         this.vEmp = vistaEmp;
         this.vPeli = vistaPeli;

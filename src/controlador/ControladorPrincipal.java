@@ -7,12 +7,17 @@ package controlador;
 
 import java.awt.Color;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 /**
  *
  * @author adria
  */
 public abstract class ControladorPrincipal 
 {
+    /**
+     * es para inicializar la vista de las pantallas
+     */
     public abstract void iniciarVista();//para inciar la vista
     
     
@@ -30,15 +35,19 @@ public abstract class ControladorPrincipal
     }
     
     public void resetColorLimpiar(JPanel panel){
-        panel.setBackground(new java.awt.Color(12, 205, 174));
+        panel.setBackground(new java.awt.Color(106,100,100));
     }
     
     public void resetColorEditar(JPanel panel){
-        panel.setBackground(new java.awt.Color(168, 151, 46));
+        panel.setBackground(new java.awt.Color(161,143,30));
     }
     
     public void resetColorEliminar(JPanel panel){
-        panel.setBackground(new java.awt.Color(154, 86, 86));
+        panel.setBackground(new java.awt.Color(215,24,24));
+    }
+    
+    public void resetColorAdd(JPanel panel){
+        panel.setBackground(new java.awt.Color(35,8,79));
     }
     
     public void setColorDisabled(JPanel panel){
@@ -51,6 +60,10 @@ public abstract class ControladorPrincipal
     
     public void setColorCancelar(JPanel panel){
         panel.setBackground(new Color(247,143,143));
+    }
+    
+    public void setColorAdd(JPanel panel){
+        panel.setBackground(new Color(90, 65, 131));
     }
     
     public void setColorLimpiar(JPanel panel){
@@ -87,31 +100,43 @@ public abstract class ControladorPrincipal
         }
         return true;
     }
+    
+    public void validacionTexFields(JTextField txtField, String allowedDigits){
+        String txtOld = txtField.getText();
+        String lastChar = txtOld.substring(txtOld.length() - 1);
+        if(!(lastChar).matches(allowedDigits)){
+            txtField.setText(txtOld.substring(0,txtOld.length()-1));
+            txtField.setBorder( new LineBorder(Color.red, 1) );
+        }
+        else{
+            txtField.setBorder( new LineBorder(new Color(109,109,109), 1) );
+        }
+    }
     //función para validar numeros
     //cuando recibe un 1 se puede ingresar un punto, 0 cuando no
-    public boolean validacionNum(String txt, long opcion){
-        if(txt.indexOf('.') < 0){
-            try{
-                Long.parseLong(txt);
-                return true;
-            }
-            catch(NumberFormatException e){
-                return false;
-            }
-        }
-        else if(opcion == 1){
-            String[] txts = txt.split(".");
-            try{
-                System.out.println(txts[0]);
-                System.out.println(txts[1]);
-                Long.parseLong(txts[0]);
-                Long.parseLong(txts[1]);
-                return true;
-            }
-            catch(NumberFormatException e){
-                return false;
-            }
-        }
-        return false;
-    }
+//    public boolean validacionNum(String txt, long opcion){
+//        if(txt.indexOf('.') < 0){
+//            try{
+//                Long.parseLong(txt);
+//                return true;
+//            }
+//            catch(NumberFormatException e){
+//                return false;
+//            }
+//        }
+//        else if(opcion == 1){
+//            String[] txts = txt.split(".");
+//            try{
+//                System.out.println(txts[0]);
+//                System.out.println(txts[1]);
+//                Long.parseLong(txts[0]);
+//                Long.parseLong(txts[1]);
+//                return true;
+//            }
+//            catch(NumberFormatException e){
+//                return false;
+//            }
+//        }
+//        return false;
+//    }
 }
