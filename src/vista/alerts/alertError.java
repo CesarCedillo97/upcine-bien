@@ -34,7 +34,8 @@ public class alertError extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(215, 24, 24));
 
@@ -44,6 +45,8 @@ public class alertError extends javax.swing.JFrame {
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(215, 24, 24));
         lblMessage.setText("Message");
+
+        panelAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(215, 24, 24));

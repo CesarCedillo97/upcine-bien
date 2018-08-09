@@ -1,6 +1,7 @@
 
 package modelo;
 
+import controlador.conAlerts.controladorError;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,13 +10,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
-
+import vista.alerts.alertError;
 /**
  *
  * @author Adrián Scott
  */
 public class modeloPrincipal {
     Conexion conexion = new Conexion();
+    alertError alertError = new alertError();
+    controladorError conError;
     //EJEMPLO DE USO
 //    public static void main(String args[]){
 //        String[] columns={"Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo"};
@@ -34,7 +37,8 @@ public class modeloPrincipal {
             Connection con = conexion.abrirConexion();
             return con;
         } catch (SQLException ex) {
-            System.out.println("Hubo un error al hacer la conexión con el servidor");
+            conError = new controladorError(alertError, "No se pudo conectar con el servidor");
+            conError.iniciarVista();
             return null;
         }
     }
@@ -43,7 +47,8 @@ public class modeloPrincipal {
         try {
             conexion.cerrarConexion(con);
         } catch (SQLException ex) {
-            System.out.println("Hubo un error al cerrar la conexión con el servidor");
+            conError = new controladorError(alertError, "No se pudo conectar con el servidor");
+            conError.iniciarVista();
         }
     }
     /**
@@ -81,7 +86,15 @@ public class modeloPrincipal {
             rs.close();
             return last_id;
         }catch (SQLException e) {
-            System.out.println("Algo sucedió: "+e.getMessage());
+            String mensaje;
+            if(e.getErrorCode() == 1062){
+                mensaje = "Ya existe un usuario identico";
+            }
+            else{
+                mensaje = "Algo ha sucedido";
+            }
+            conError = new controladorError(alertError, mensaje);
+            conError.iniciarVista();
             return -1;
         }
     }
@@ -107,7 +120,15 @@ public class modeloPrincipal {
             s.executeUpdate("UPDATE "+table_name+" SET "+values+" WHERE "+table_columns[0]+"="+table_values[0]+"");
             return true;
         }catch (SQLException e) {
-            System.out.println("Algo sucedió: "+e.getMessage());
+            String mensaje;
+            if(e.getErrorCode() == 1062){
+                mensaje = "Ya existe un usuario identico";
+            }
+            else{
+                mensaje = "Algo ha sucedido";
+            }
+            conError = new controladorError(alertError, mensaje);
+            conError.iniciarVista();
             return false;
         }
     }
@@ -123,15 +144,27 @@ public class modeloPrincipal {
             Connection con = conexion.abrirConexion();
             if(con!=null){
                 Statement s = con.createStatement();
+                System.out.println("DELETE FROM "+table_name+" WHERE "+column_name+"="+id);
                 s.executeUpdate("DELETE FROM "+table_name+" WHERE "+column_name+"="+id);
                 conexion.cerrarConexion(con);
                 return true;
             }
             else{
+                conError = new controladorError(alertError, "No se pudo hacer la conexión");
+                conError.iniciarVista();
                 return false;
             }
         }catch (SQLException e) {
+            String mensaje;
+            if(e.getErrorCode() == 1451){
+                mensaje = "Este campo esta siendo utilizado en otros registros";
+            }
+            else{
+                mensaje = "Algo sucedió, no se pudo eliminar";
+            }
             System.out.println("Algo sucedió: "+e.getMessage());
+            conError = new controladorError(alertError, mensaje);
+            conError.iniciarVista();
             return false;
         }
     }
@@ -158,7 +191,8 @@ public class modeloPrincipal {
           for(int i = 0; i < cantidadColumnas; i++)
           {
             modelo.addColumn(nombresColumnas[i]);
-          }while(rs.next())
+          }
+          while(rs.next())
           {
               Object[] fila = new Object[cantidadColumnas];
               for(int i = 0; i < cantidadColumnas; i++)
@@ -176,6 +210,7 @@ public class modeloPrincipal {
            return null;
        }
     }
+    
     /**
      * Esta función obtiene los datos de la tabla especificada
      * @param datos Recibe todo los datos de donde hará el filtrado para la tabla

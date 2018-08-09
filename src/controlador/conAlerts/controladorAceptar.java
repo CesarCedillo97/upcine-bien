@@ -14,7 +14,7 @@ import vista.alerts.alertAccept;
  * @author Cesar Cedillo
  */
 public class controladorAceptar extends controlador.ControladorPrincipal implements MouseListener{
-    alertAccept vista = new alertAccept();
+    public alertAccept vista = new alertAccept();
     private String message;
 
     public controladorAceptar(alertAccept vistaP,String message) {
@@ -62,9 +62,9 @@ public class controladorAceptar extends controlador.ControladorPrincipal impleme
     @Override
     public void mouseExited(MouseEvent e) {
         if (vista.panelAceptar == e.getSource()) {
-            resetColor(vista.panelAceptar);
+            resetColorGrey(vista.panelAceptar);
         }else if (vista.panelRechazar == e.getSource()) {
-            resetColor(vista.panelRechazar);
+            resetColorGrey(vista.panelRechazar);
         }
     }
     
