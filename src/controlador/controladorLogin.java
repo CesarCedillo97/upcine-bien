@@ -33,12 +33,12 @@ import vista.IF_peliculas;
 import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
-<<<<<<< HEAD
+
 import vista.IF_compras;
 import vista.IF_precios;
-=======
+
 import vista.VentaBoletos;
->>>>>>> fe7aeda81f2492143190a1c1d5174a0830813d42
+
 /**
  *
  * @author Cesar Cedillo
@@ -126,12 +126,12 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-<<<<<<< HEAD
+
                 ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom, pre, vCop);
-=======
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom);
+
+                
                 System.out.println("w");
->>>>>>> fe7aeda81f2492143190a1c1d5174a0830813d42
+
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado

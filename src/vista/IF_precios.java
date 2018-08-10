@@ -41,12 +41,20 @@ public class IF_precios extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         JTable = new javax.swing.JTable();
         JTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 20));
-        panelAgregarEmp = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        panelEditEmp = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        lbPrecio = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lbTipo = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        panelAgregarBol = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        panelEditBol = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        panelEliminarEmp = new javax.swing.JPanel();
+        panelEliminarBol = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        panelLimpiar = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
 
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(807, 760));
@@ -98,7 +106,7 @@ public class IF_precios extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 116, 232));
-        jLabel1.setText("Ingrese el tipo de boleto");
+        jLabel1.setText("[ingrese el nombre del empleado]");
 
         jPanel6.setBackground(new java.awt.Color(54, 33, 89));
 
@@ -136,76 +144,116 @@ public class IF_precios extends javax.swing.JInternalFrame {
         JTable.setRowHeight(18);
         jScrollPane3.setViewportView(JTable);
 
-        panelAgregarEmp.setBackground(new java.awt.Color(128, 128, 128));
-        panelAgregarEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(54, 33, 89));
+        jLabel2.setText("ID:");
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Agregar");
+        lblId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblId.setForeground(new java.awt.Color(25, 116, 232));
+        lblId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblId.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(54, 33, 89)));
 
-        javax.swing.GroupLayout panelAgregarEmpLayout = new javax.swing.GroupLayout(panelAgregarEmp);
-        panelAgregarEmp.setLayout(panelAgregarEmpLayout);
-        panelAgregarEmpLayout.setHorizontalGroup(
-            panelAgregarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAgregarEmpLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel21)
-                .addContainerGap(55, Short.MAX_VALUE))
+        lbPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbPrecio.setForeground(new java.awt.Color(25, 116, 232));
+        lbPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbPrecio.setAlignmentY(1.0F);
+        lbPrecio.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(54, 33, 89)));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(54, 33, 89));
+        jLabel7.setText("Tipo:");
+
+        lbTipo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbTipo.setForeground(new java.awt.Color(25, 116, 232));
+        lbTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTipo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(54, 33, 89)));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(54, 33, 89));
+        jLabel9.setText("Precio:");
+
+        panelAgregarBol.setBackground(new java.awt.Color(35, 8, 79));
+        panelAgregarBol.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Agregar");
+
+        javax.swing.GroupLayout panelAgregarBolLayout = new javax.swing.GroupLayout(panelAgregarBol);
+        panelAgregarBol.setLayout(panelAgregarBolLayout);
+        panelAgregarBolLayout.setHorizontalGroup(
+            panelAgregarBolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarBolLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel24)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
-        panelAgregarEmpLayout.setVerticalGroup(
-            panelAgregarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarEmpLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel21)
-                .addContainerGap())
+        panelAgregarBolLayout.setVerticalGroup(
+            panelAgregarBolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        panelEditEmp.setBackground(new java.awt.Color(128, 128, 128));
-        panelEditEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelEditBol.setBackground(new java.awt.Color(161, 143, 30));
+        panelEditBol.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Editar");
 
-        javax.swing.GroupLayout panelEditEmpLayout = new javax.swing.GroupLayout(panelEditEmp);
-        panelEditEmp.setLayout(panelEditEmpLayout);
-        panelEditEmpLayout.setHorizontalGroup(
-            panelEditEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEditEmpLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+        javax.swing.GroupLayout panelEditBolLayout = new javax.swing.GroupLayout(panelEditBol);
+        panelEditBol.setLayout(panelEditBolLayout);
+        panelEditBolLayout.setHorizontalGroup(
+            panelEditBolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditBolLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel17)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
-        panelEditEmpLayout.setVerticalGroup(
-            panelEditEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEditEmpLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        panelEditBolLayout.setVerticalGroup(
+            panelEditBolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        panelEliminarEmp.setBackground(new java.awt.Color(128, 128, 128));
-        panelEliminarEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelEliminarBol.setBackground(new java.awt.Color(215, 24, 24));
+        panelEliminarBol.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Eliminar");
 
-        javax.swing.GroupLayout panelEliminarEmpLayout = new javax.swing.GroupLayout(panelEliminarEmp);
-        panelEliminarEmp.setLayout(panelEliminarEmpLayout);
-        panelEliminarEmpLayout.setHorizontalGroup(
-            panelEliminarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarEmpLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(54, 54, 54))
-        );
-        panelEliminarEmpLayout.setVerticalGroup(
-            panelEliminarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarEmpLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelEliminarBolLayout = new javax.swing.GroupLayout(panelEliminarBol);
+        panelEliminarBol.setLayout(panelEliminarBolLayout);
+        panelEliminarBolLayout.setHorizontalGroup(
+            panelEliminarBolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBolLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel18)
-                .addContainerGap())
+                .addGap(40, 40, 40))
+        );
+        panelEliminarBolLayout.setVerticalGroup(
+            panelEliminarBolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        panelLimpiar.setBackground(new java.awt.Color(106, 100, 100));
+        panelLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Limpiar");
+
+        javax.swing.GroupLayout panelLimpiarLayout = new javax.swing.GroupLayout(panelLimpiar);
+        panelLimpiar.setLayout(panelLimpiarLayout);
+        panelLimpiarLayout.setHorizontalGroup(
+            panelLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLimpiarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel19)
+                .addGap(44, 44, 44))
+        );
+        panelLimpiarLayout.setVerticalGroup(
+            panelLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -228,13 +276,27 @@ public class IF_precios extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(580, 580, 580)
-                        .addComponent(panelAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(582, 582, 582)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelEditEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(322, 322, 322)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(panelEliminarBol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelEditBol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelAgregarBol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(11, 11, 11))
         );
         jPanel1Layout.setVerticalGroup(
@@ -249,17 +311,34 @@ public class IF_precios extends javax.swing.JInternalFrame {
                     .addComponent(bucar_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addComponent(jLabel1)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(panelEditEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(panelEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 108, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(lbPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(panelEditBol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(panelEliminarBol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(panelLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(345, 345, 345)
+                        .addComponent(panelAgregarBol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -280,32 +359,40 @@ public class IF_precios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bucar_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bucar_txtKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bucar_txtKeyReleased
-
     private void bucar_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bucar_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bucar_txtActionPerformed
 
+    private void bucar_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bucar_txtKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bucar_txtKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable JTable;
-    private javax.swing.JTextField bucar_txt;
+    public javax.swing.JTable JTable;
+    public javax.swing.JTextField bucar_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JPanel panelAgregarEmp;
-    private javax.swing.JPanel panelEditEmp;
-    private javax.swing.JPanel panelEliminarEmp;
+    public javax.swing.JLabel lbPrecio;
+    public javax.swing.JLabel lbTipo;
+    public javax.swing.JLabel lblId;
+    public javax.swing.JPanel panelAgregarBol;
+    public javax.swing.JPanel panelEditBol;
+    public javax.swing.JPanel panelEliminarBol;
+    public javax.swing.JPanel panelLimpiar;
     // End of variables declaration//GEN-END:variables
 }

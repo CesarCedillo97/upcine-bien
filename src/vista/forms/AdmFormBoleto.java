@@ -324,13 +324,13 @@ public class AdmFormBoleto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel panelAdd;
-    private javax.swing.JPanel panelBack;
+    public javax.swing.JPanel panelAdd;
+    public javax.swing.JPanel panelBack;
     public javax.swing.JLabel title;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JLabel txtId;
-    private javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtDescripcion;
+    public javax.swing.JLabel txtId;
+    public javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }
