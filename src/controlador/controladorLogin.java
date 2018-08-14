@@ -23,12 +23,15 @@ import modelo.modeloProductos;
 import modelo.modeloCombos;
 
 
+
 import vista.IF_Proveedores;
 import vista.IF_empleados;
 import vista.IF_peliculas;
 import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
+import vista.IF_Reportes;
+
 /**
  *
  * @author Cesar Cedillo
@@ -102,9 +105,13 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 controladorProductos conProd = new controladorProductos(vprod, modPro);
                 conProd.iniciarVista();
                 
+                IF_Reportes vrep = new IF_Reportes();
+                controladorReportes conRep = new controladorReportes(vrep);
+                conRep.iniciarVista();
+                
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom);
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom,vrep);
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado

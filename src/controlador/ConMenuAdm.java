@@ -16,6 +16,7 @@ import vista.IF_peliculas;
 import vista.IF_Proveedores;
 import vista.IF_productos;
 import vista.IF_Combos;
+import vista.IF_Reportes;
 
 import vista.Login;
 
@@ -33,7 +34,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     IF_Proveedores vProv= new IF_Proveedores();
     IF_productos vProd = new IF_productos();
     IF_Combos vCom = new IF_Combos();
-    
+    IF_Reportes vRep = new IF_Reportes();
     
     modeloCombos mCom = new modeloCombos();
     modeloEmpleados mEmp = new modeloEmpleados();
@@ -44,14 +45,14 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     
     //agancaso omiso a este comentrios
 
-    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos) { // se declaran todos los componentes que se van a mostrar dentro del constructor
+    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos,IF_Reportes reportes) { // se declaran todos los componentes que se van a mostrar dentro del constructor
         this.Desktop= vista;
         this.vEmp = vistaEmp;
         this.vPeli = vistaPeli;
         this.vProv = vistaProv;
         this.vProd = productos;
         this.vCom = combos;
-        
+        this.vRep = reportes;
         
         //Aquí va la declaracion de paneles (Internal frames)
         this.Desktop.panelEmpleados.addMouseListener((MouseListener)this); 
@@ -65,7 +66,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.Desktop.panelCombos.addMouseListener((MouseListener)this);
         this.Desktop.panelReportes.addMouseListener((MouseListener)this);
         this.Desktop.panelSalir.addMouseListener((MouseListener)this);
-        
+        this.Desktop.panelReportes.addMouseListener((MouseListener)this);
         
         //Aquí se agregan al desktop
         this.Desktop.Desktop.add(vEmp);
@@ -73,6 +74,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.Desktop.Desktop.add(vProv);
         this.Desktop.Desktop.add(vProd);
         this.Desktop.Desktop.add(vCom);
+        this.Desktop.Desktop.add(vRep);
         
         //aquí se muestran
         this.vEmp.show();
@@ -80,6 +82,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.vProv.show();
         this.vProd.show();
         this.vCom.show();
+        this.vRep.show();
         
         //Aqui se ponen en tal posicion para que se vean bien
         this.vEmp.setLocation(-1, -25);
@@ -87,7 +90,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.vProv.setLocation(-1, -25);
         this.vProd.setLocation(-1, -25);
         this.vCom.setLocation(-1, -25);
-        
+        this.vRep.setLocation(-1, -25);
         
         this.vEmp.toFront();
         
@@ -129,6 +132,10 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
             //aqui va el modleo de la tabla
             this.vProd.toFront();
         }
+        else if (Desktop.panelReportes == e.getSource()){
+            this.vRep.toFront();
+        }
+        
         else if (Desktop.panelSalir == e.getSource()) {
             Desktop.dispose();
             Login vistaL = new Login();
