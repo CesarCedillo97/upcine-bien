@@ -11,20 +11,19 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.Connection;
+
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
-import vista.forms.vistaFormEmpleados;
-import vista.IF_empleados;
+import vista.forms.AdmFormBoleto;
+import vista.IF_precios;
 import vista.alerts.alertSuccess;
 import vista.alerts.alertError;
 import vista.alerts.alertMessage;
 import vista.alerts.alertAccept;
-import modelo.modeloEmpleados;
+import modelo.modeloPrecios;
 import controlador.conAlerts.controladorError;
 import controlador.conAlerts.controladorSucces;
 import controlador.conAlerts.controladorMessage;
@@ -33,9 +32,9 @@ import controlador.conAlerts.controladorAceptar;
  *
  * @author Cesar Cedillo
  */
-public class controladorEmpleados extends ControladorPrincipal implements KeyListener,MouseListener{
-    IF_empleados vista = new IF_empleados();
-    modeloEmpleados modelo = new modeloEmpleados();
+public class controladorPrecios extends ControladorPrincipal implements KeyListener,MouseListener{
+    IF_precios vista = new IF_precios();
+    modeloPrecios modelo = new modeloPrecios();
     
     alertAccept alertAccept = new alertAccept();
     alertError alertError = new alertError();
@@ -52,17 +51,20 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     String[] columnasTabla;
     int fila = -1;
     
-    public controladorEmpleados( IF_empleados vista, modeloEmpleados modelo) {
+    public controladorPrecios( IF_precios vista, modeloPrecios modelo) {
         this.vista= vista;
         this.modelo= modelo;
     }
-    
+
+
+
+
     @Override
     public void iniciarVista() {
         vista.bucar_txt.addKeyListener(this);
-        vista.panelAgregarEmp.addMouseListener(this);
-        vista.panelEditEmp.addMouseListener(this);
-        vista.panelEliminarEmp.addMouseListener(this);
+        vista.panelAgregarBol.addMouseListener(this);
+        vista.panelEditBol.addMouseListener(this);
+        vista.panelEliminarBol.addMouseListener(this);
         vista.JTable.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
             fila = vista.JTable.getSelectedRow();
             llenarDatos();
@@ -77,15 +79,9 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     public void llenarDatos(){
         if(fila!=-1){
             vista.lblId.setText(datos[fila][0]);
-            vista.lblUser.setText(datos[fila][1]);
-            vista.lblPass.setText(datos[fila][2]);
-            vista.lblNombre.setText(datos[fila][3]);
-            vista.lblPhone.setText(datos[fila][4]);
-            vista.lblDireccion.setText(datos[fila][5]);
-            vista.lblEdad.setText(datos[fila][6]);
-            vista.lblInitDate.setText(datos[fila][7]);
-            vista.lblType.setText(datos[fila][8]);
-            vista.lblStatus.setText(datos[fila][9]);
+            vista.lbTipo.setText(datos[fila][1]);
+            vista.lbPrecio.setText(datos[fila][2]);
+           
         }
     }
     @Override
@@ -112,29 +108,29 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getSource() == vista.panelAgregarEmp){
+        if(vista.panelAgregarBol == e.getSource()){
             this.vista.setEnabled(false);
-            formEmpleado form = new formEmpleado();
+            formPrecio form = new formPrecio();
             form.iniciarVistaForm();
         }
         else if(fila==-1){
             conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
             conMessage.iniciarVista();
         }
-        else if(e.getSource() == vista.panelEditEmp){
-            formEmpleado form = new formEmpleado(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5],datos[fila][6],datos[fila][7],datos[fila][8],datos[fila][9]);
+        else if(e.getSource() == vista.panelEditBol){
+            formPrecio form = new formPrecio(datos[fila][0],datos[fila][1],datos[fila][2]);
             form.iniciarVistaForm();
             fila = -1;
         }
-        else if(e.getSource() == vista.panelEliminarEmp){
+        else if(e.getSource() == vista.panelEliminarBol){
             conAcept = new controladorAceptar(alertAccept, "¿Seguro que desea eliminar el registro?");
             conAcept.iniciarVista();
             conAcept.vista.panelAceptar.addMouseListener(this);
         }
         else if(conAcept.vista.panelAceptar == e.getSource()){
             conAcept.vista.dispose();
-            if(modelo.eliminar("login", "empleado_IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
-                if(modelo.eliminar("empleado", "IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
+            if(modelo.eliminar("mantenimiento", "id", Integer.parseInt(vista.lblId.getText()))){
+                if(modelo.eliminar("mantenimiento", "id", Integer.parseInt(vista.lblId.getText()))){
                     conSuccess = new controladorSucces(alertSuccess, "Se ha eliminado exitosamente");
                 }
             }
@@ -149,14 +145,14 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if (vista.panelAgregarEmp == e.getSource()) {
-            setColorAdd(vista.panelAgregarEmp);
+        if (vista.panelAgregarBol == e.getSource()) {
+            setColorAdd(vista.panelAgregarBol);
         }
-        else if (vista.panelEditEmp == e.getSource()) {
-            setColorEditar(vista.panelEditEmp);
+        else if (vista.panelEditBol == e.getSource()) {
+            setColorEditar(vista.panelEditBol);
         }
-        else if (vista.panelEliminarEmp == e.getSource()) {
-            setColorEliminar(vista.panelEliminarEmp);
+        else if (vista.panelEliminarBol == e.getSource()) {
+            setColorEliminar(vista.panelEliminarBol);
         }
         else if (vista.panelLimpiar == e.getSource()) {
             setColorLimpiar(vista.panelLimpiar);
@@ -165,39 +161,32 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if (vista.panelAgregarEmp == e.getSource()) {
-            resetColorAdd(vista.panelAgregarEmp);
+        if (vista.panelAgregarBol == e.getSource()) {
+            resetColorAdd(vista.panelAgregarBol);
         }
-        else if (vista.panelEditEmp == e.getSource()) {
-            resetColorEditar(vista.panelEditEmp);
+        else if (vista.panelEditBol == e.getSource()) {
+            resetColorEditar(vista.panelEditBol);
         }
-        else if (vista.panelEliminarEmp == e.getSource()) {
-            resetColorEliminar(vista.panelEliminarEmp);
+        else if (vista.panelEliminarBol == e.getSource()) {
+            resetColorEliminar(vista.panelEliminarBol);
         }
         else if (vista.panelLimpiar == e.getSource()) {
             resetColorLimpiar(vista.panelLimpiar);
         }
     }
     
-    private class formEmpleado implements MouseListener, WindowListener, KeyListener {
-        private String user,password,name,age,phone,address,type, status, initDate,id;        
+    private class formPrecio implements MouseListener, WindowListener, KeyListener {
+        private String descripcion, precio, id;        
         private boolean opcion = false;//Esta variable es para saber como se utilizará si para agregar o modificar, Modificar = true; Agregar = false; 
-        vistaFormEmpleados form = new vistaFormEmpleados();
-        private formEmpleado(String id, String user, String password, String name, String phone, String address, String age, String initDate, String type, String status) {
+        AdmFormBoleto form = new AdmFormBoleto();
+        private formPrecio(String id, String descripcion, String precio) {
             this.id = id;
-            this.user = user;
-            this.password = password;
-            this.name = name;
-            this.phone = phone;
-            this.address = address;
-            this.age = age;
-            this.initDate = initDate;
-            this.type = type;
-            this.status = status;
+            this.descripcion = descripcion;
+            this.precio = precio;
             this.opcion = true;
         }
 
-        private formEmpleado() {
+        private formPrecio() {
             //No lo borren, se ocupa un constructor 
         }
         
@@ -205,7 +194,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             form.setLocationRelativeTo(null);
             form.panelAdd.addMouseListener(this);
             form.panelBack.addMouseListener(this);
-            form.txtEdad.addKeyListener(this);
+            //form.txtEdad.addKeyListener(this);
             form.setVisible(true);
             form.title.setText((opcion?"Modificar ":"Agregar ")+"Empleado");
             if(this.opcion == true)
@@ -214,22 +203,8 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
         private void llenarInputs(){
             form.txtId.setText(this.id);
-            form.txtUsuario.setText(this.user);
-            form.txtContra.setText(this.password);
-            form.txtNombre.setText(this.name);
-            form.txtEdad.setText(this.age);
-            form.txtTelefono.setText(this.phone);
-            form.txtDireccion.setText(this.address);
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            form.txtEstado.setSelectedItem(this.status);
-            java.util.Date date = null;
-            try{
-                 date = df.parse(String.valueOf(initDate));
-            } catch (ParseException ex){
-
-            }   
-            form.txtFecha_Inicio.setDate(date);
-            form.txtTipo.setSelectedItem(this.type);
+            form.txtDescripcion.setText(this.descripcion);
+            form.txtPrecio.setText(this.precio);
         }
         
         @Override
@@ -242,36 +217,31 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             //Agregar
             if(e.getSource() == form.panelAdd && !opcion){
                 int last_id = -1;
-                //Se llenan los datos que se van a guardar en la tabla de EMPLEADOS
-                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                String fechaBD = df.format(form.txtFecha_Inicio.getDate()); //le da formato correcto a la fecha 
-                String[] table_columns = {"Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo","Estatus"};
-                String[] table_values = {form.txtNombre.getText(),
-                                         form.txtTelefono.getText(),
-                                         form.txtDireccion.getText(),
-                                         form.txtEdad.getText(),
-                                         fechaBD,
-                                         "0".equals(String.valueOf(form.txtTipo.getSelectedIndex()))?"":String.valueOf(form.txtTipo.getSelectedIndex()),
-                                         String.valueOf(form.txtEstado.getSelectedItem())
+                //Se llenan los datos que se van a guardar en la tabla de MANTENIMIENTO
+                
+                String[] table_columns = {"Descripcion","Precio"};
+                String[] table_values = {form.txtDescripcion.getText(),
+                                         form.txtPrecio.getText()
                                         };
                 //Se llenan los datos que se van a guardar en la tabla LOGIN
-                String[] table_columns2 = {"Usuario","Contraseña","empleado_idEmpleado"};
-                String[] table_values2 = {form.txtUsuario.getText(),
-                                          form.txtContra.getText(),
-                                          String.valueOf(last_id)};
+//                String[] table_columns2 = {"Usuario","Contraseña","empleado_idEmpleado"};
+//                String[] table_values2 = {form.txtUsuario.getText(),
+//                                          form.txtContra.getText(),
+//                                          String.valueOf(last_id)};
                 //verifica que los inputs no esten vaciós
-                boolean areNotEmpty = checkIsNotEmpty(table_values) && checkIsNotEmpty(table_values2);
+                boolean areNotEmpty = checkIsNotEmpty(table_values);
                 //Se abre la conexión, lo hacemos desde aquí para aplicar las transacciones
                 Connection con = modelo.abrirConexion();
                 try {
                     con.setAutoCommit(false);
                 } catch (SQLException ex) {
-                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(controladorPrecios.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if(areNotEmpty && con != null &&(last_id = modelo.insertar("empleado", table_columns, table_values, con)) != -1){
-                    table_values2[2]=String.valueOf(last_id);
+                if(areNotEmpty && con != null &&(last_id = modelo.insertar("mantenimiento", table_columns, table_values, con)) != -1){
+                    //table_values2[2]=String.valueOf(last_id);
                     System.out.println(last_id);
-                    if(modelo.insertar("login", table_columns2, table_values2, con) != -1){
+                    
+//                    if(modelo.insertar("login", table_columns2, table_values2, con) != -1){
                         try {
                             conSuccess = new controladorSucces(alertSuccess, "¡Se ha agregado con éxito!");
                             conSuccess.iniciarVista();
@@ -283,7 +253,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                             conSuccess.iniciarVista();
                             form.dispose();
                         }
-                    }
+//                    }
                     modelo.cerrarConexion(con);
                 }
                 else{
@@ -297,36 +267,28 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             else if(e.getSource() == form.panelAdd && opcion){
                 int last_id = -1;
                 //Se llenan los datos que se van a guardar en la tabla de EMPLEADOS
-                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                String fechaBD = df.format(form.txtFecha_Inicio.getDate()); //le da formato correcto a la fecha s
-                System.out.println(String.valueOf(form.txtTipo.getSelectedIndex()));
-                String[] table_columns = {"IdEmpleado","Nombre","Telefono","Direccion","Edad","Fecha_Inicio","Tipo","Estatus"};
-                String[] table_values = {form.txtId.getText(),
-                                         form.txtNombre.getText(),
-                                         form.txtTelefono.getText(),
-                                         form.txtDireccion.getText(),
-                                         form.txtEdad.getText(),
-                                         fechaBD,
-                                          "0".equals(String.valueOf(form.txtTipo.getSelectedIndex()))?"":String.valueOf(form.txtTipo.getSelectedIndex()),
-                                         String.valueOf(form.txtEstado.getSelectedItem())
+               
+                String[] table_columns = {"Descripcion","Precio"};
+                String[] table_values = {form.txtDescripcion.getText(),
+                                         form.txtPrecio.getText()
                                         };
                 //Se llenan los datos que se van a guardar en la tabla LOGIN
-                //Como se va a encotnrar por el campo idEmpleado, lo puse primero
-                String[] table_columns2 = {"empleado_idEmpleado","Usuario","Contraseña"};
-                String[] table_values2 = {form.txtId.getText(),
-                                          form.txtUsuario.getText(),
-                                          form.txtContra.getText()};
+//                String[] table_columns2 = {"Usuario","Contraseña","empleado_idEmpleado"};
+//                String[] table_values2 = {form.txtUsuario.getText(),
+//                                          form.txtContra.getText(),
+//                                          String.valueOf(last_id)};
                 //verifica que los inputs no esten vaciós
-                boolean areNotEmpty = checkIsNotEmpty(table_values) && checkIsNotEmpty(table_values2);
+                boolean areNotEmpty = checkIsNotEmpty(table_values);
                 //Se abre la conexión, lo hacemos desde aquí para aplicar las transacciones
                 Connection con = modelo.abrirConexion();
                 try {
                     con.setAutoCommit(false);
                 } catch (SQLException ex) {
-                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(controladorPrecios.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if(areNotEmpty && con != null &&(modelo.modificar("empleado", table_columns, table_values, con))){
-                    if(modelo.modificar("login", table_columns2, table_values2, con)){
+                if(areNotEmpty && con != null &&(modelo.modificar("mantenimiento", table_columns, table_values, con))){
+       
+//                    if(modelo.modificar("login", table_columns2, table_values2, con)){
                         try {
                             con.commit();
                             conSuccess = new controladorSucces(alertSuccess, "¡Se ha modificado con éxito!");
@@ -337,7 +299,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                             conSuccess.iniciarVista();
                             form.dispose();
                         }
-                    }
+//                    }
                     modelo.cerrarConexion(con);
                 }
                 else{
@@ -425,9 +387,6 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
         @Override
         public void keyReleased(KeyEvent e) {
-            if(e.getSource() == form.txtEdad && !"".equals(form.txtEdad.getText())){
-                validacionTexFields(form.txtEdad, "[0-9]+");
-            }
         }
     }
 

@@ -19,12 +19,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
 import vista.forms.vistaFormEmpleados;
-import vista.IF_empleados;
+import vista.IF_compras;
 import vista.alerts.alertSuccess;
 import vista.alerts.alertError;
 import vista.alerts.alertMessage;
 import vista.alerts.alertAccept;
-import modelo.modeloEmpleados;
+import modelo.modeloCompras;
 import controlador.conAlerts.controladorError;
 import controlador.conAlerts.controladorSucces;
 import controlador.conAlerts.controladorMessage;
@@ -33,9 +33,9 @@ import controlador.conAlerts.controladorAceptar;
  *
  * @author Cesar Cedillo
  */
-public class controladorEmpleados extends ControladorPrincipal implements KeyListener,MouseListener{
-    IF_empleados vista = new IF_empleados();
-    modeloEmpleados modelo = new modeloEmpleados();
+public class controladorCompras extends ControladorPrincipal implements KeyListener,MouseListener{
+    IF_compras vista = new IF_compras();
+    modeloCompras modelo = new modeloCompras();
     
     alertAccept alertAccept = new alertAccept();
     alertError alertError = new alertError();
@@ -52,7 +52,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     String[] columnasTabla;
     int fila = -1;
     
-    public controladorEmpleados( IF_empleados vista, modeloEmpleados modelo) {
+    public controladorCompras( IF_compras vista, modeloCompras modelo) {
         this.vista= vista;
         this.modelo= modelo;
     }
@@ -60,9 +60,9 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     @Override
     public void iniciarVista() {
         vista.bucar_txt.addKeyListener(this);
-        vista.panelAgregarEmp.addMouseListener(this);
-        vista.panelEditEmp.addMouseListener(this);
-        vista.panelEliminarEmp.addMouseListener(this);
+        vista.panelAgregarCom.addMouseListener(this);
+        vista.panelEditCom.addMouseListener(this);
+        vista.panelEliminarComp.addMouseListener(this);
         vista.JTable.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
             fila = vista.JTable.getSelectedRow();
             llenarDatos();
@@ -77,15 +77,12 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
     public void llenarDatos(){
         if(fila!=-1){
             vista.lblId.setText(datos[fila][0]);
-            vista.lblUser.setText(datos[fila][1]);
-            vista.lblPass.setText(datos[fila][2]);
-            vista.lblNombre.setText(datos[fila][3]);
-            vista.lblPhone.setText(datos[fila][4]);
-            vista.lblDireccion.setText(datos[fila][5]);
-            vista.lblEdad.setText(datos[fila][6]);
-            vista.lblInitDate.setText(datos[fila][7]);
-            vista.lblType.setText(datos[fila][8]);
-            vista.lblStatus.setText(datos[fila][9]);
+            vista.lblSub.setText(datos[fila][1]);
+            vista.lblIVA.setText(datos[fila][2]);
+            vista.lblTotal.setText(datos[fila][3]);  
+            vista.lblInitDate.setText(datos[fila][4]);
+            vista.lblStatus.setText(datos[fila][5]);
+            vista.lblemp.setText(datos[fila][6]);
         }
     }
     @Override
@@ -112,7 +109,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getSource() == vista.panelAgregarEmp){
+        if(e.getSource() == vista.panelAgregarCom){
             this.vista.setEnabled(false);
             formEmpleado form = new formEmpleado();
             form.iniciarVistaForm();
@@ -121,20 +118,20 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
             conMessage.iniciarVista();
         }
-        else if(e.getSource() == vista.panelEditEmp){
+        else if(e.getSource() == vista.panelEditCom){
             formEmpleado form = new formEmpleado(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5],datos[fila][6],datos[fila][7],datos[fila][8],datos[fila][9]);
             form.iniciarVistaForm();
             fila = -1;
         }
-        else if(e.getSource() == vista.panelEliminarEmp){
+        else if(e.getSource() == vista.panelEliminarComp){
             conAcept = new controladorAceptar(alertAccept, "¿Seguro que desea eliminar el registro?");
             conAcept.iniciarVista();
             conAcept.vista.panelAceptar.addMouseListener(this);
         }
         else if(conAcept.vista.panelAceptar == e.getSource()){
             conAcept.vista.dispose();
-            if(modelo.eliminar("login", "empleado_IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
-                if(modelo.eliminar("empleado", "IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
+            if(modelo.eliminar("compra", "idCompra", Integer.parseInt(vista.lblId.getText()))){
+                if(modelo.eliminar("compra", "idCompra", Integer.parseInt(vista.lblId.getText()))){
                     conSuccess = new controladorSucces(alertSuccess, "Se ha eliminado exitosamente");
                 }
             }
@@ -149,14 +146,14 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if (vista.panelAgregarEmp == e.getSource()) {
-            setColorAdd(vista.panelAgregarEmp);
+        if (vista.panelAgregarCom == e.getSource()) {
+            setColorAdd(vista.panelAgregarCom);
         }
-        else if (vista.panelEditEmp == e.getSource()) {
-            setColorEditar(vista.panelEditEmp);
+        else if (vista.panelEditCom == e.getSource()) {
+            setColorEditar(vista.panelEditCom);
         }
-        else if (vista.panelEliminarEmp == e.getSource()) {
-            setColorEliminar(vista.panelEliminarEmp);
+        else if (vista.panelEliminarComp == e.getSource()) {
+            setColorEliminar(vista.panelEliminarComp);
         }
         else if (vista.panelLimpiar == e.getSource()) {
             setColorLimpiar(vista.panelLimpiar);
@@ -165,14 +162,14 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if (vista.panelAgregarEmp == e.getSource()) {
-            resetColorAdd(vista.panelAgregarEmp);
+        if (vista.panelAgregarCom == e.getSource()) {
+            resetColorAdd(vista.panelAgregarCom);
         }
-        else if (vista.panelEditEmp == e.getSource()) {
-            resetColorEditar(vista.panelEditEmp);
+        else if (vista.panelEditCom == e.getSource()) {
+            resetColorEditar(vista.panelEditCom);
         }
-        else if (vista.panelEliminarEmp == e.getSource()) {
-            resetColorEliminar(vista.panelEliminarEmp);
+        else if (vista.panelEliminarComp == e.getSource()) {
+            resetColorEliminar(vista.panelEliminarComp);
         }
         else if (vista.panelLimpiar == e.getSource()) {
             resetColorLimpiar(vista.panelLimpiar);
@@ -266,7 +263,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                 try {
                     con.setAutoCommit(false);
                 } catch (SQLException ex) {
-                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(controladorCompras.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if(areNotEmpty && con != null &&(last_id = modelo.insertar("empleado", table_columns, table_values, con)) != -1){
                     table_values2[2]=String.valueOf(last_id);
@@ -323,7 +320,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                 try {
                     con.setAutoCommit(false);
                 } catch (SQLException ex) {
-                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(controladorCompras.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if(areNotEmpty && con != null &&(modelo.modificar("empleado", table_columns, table_values, con))){
                     if(modelo.modificar("login", table_columns2, table_values2, con)){
