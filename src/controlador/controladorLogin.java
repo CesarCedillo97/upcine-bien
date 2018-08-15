@@ -23,7 +23,7 @@ import modelo.modeloPelicuas;
 import modelo.modeloProveedor;
 import modelo.modeloProductos;
 import modelo.modeloCombos;
-
+import modelo.modeloVentaBoletos;
 
 import vista.IF_Proveedores;
 import vista.IF_empleados;
@@ -113,7 +113,8 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
             }
             else if(tipoEmpleado==2){   //si es empleado
                 VentaBoletos vBol = new VentaBoletos();
-                ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol);
+                modeloVentaBoletos mVBol = new modeloVentaBoletos();
+                ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol,mVBol,idEmpleado);
                 conVenBol.iniciarVista();
             }
 
