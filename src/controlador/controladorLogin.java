@@ -16,6 +16,7 @@ import modelo.modeloPelicuas;
 import modelo.modeloProveedor;
 import modelo.modeloProductos;
 import modelo.modeloCombos;
+import modelo.modeloPrecios;
 import modelo.modeloVentaBoletos;
 
 
@@ -26,6 +27,7 @@ import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
 import vista.IF_Reportes;
+import vista.IF_precios;
 import vista.VentaBoletos;
 
 /**
@@ -105,9 +107,14 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 controladorReportes conRep = new controladorReportes(vrep);
                 conRep.iniciarVista();
                 
+                IF_precios vpre= new IF_precios();
+                modeloPrecios modPre = new modeloPrecios();
+                controladorPrecios conPre = new controladorPrecios(vpre, modPre);
+                conPre.iniciarVista();
+                
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom,vrep);
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom,vrep, vpre);
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado

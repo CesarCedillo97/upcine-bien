@@ -48,7 +48,7 @@ public class AdmFormBoleto extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(25, 116, 232));
+        jPanel2.setBackground(new java.awt.Color(54, 33, 89));
 
         title.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,7 +108,7 @@ public class AdmFormBoleto extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/accept.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/accept.png"))); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 0, 13)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(76, 175, 80));
@@ -150,7 +150,7 @@ public class AdmFormBoleto extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/cancel.png"))); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 0, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 70, 70));
@@ -213,7 +213,7 @@ public class AdmFormBoleto extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
