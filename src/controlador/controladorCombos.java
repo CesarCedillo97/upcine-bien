@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package controlador;
+import controlador.conAlerts.controladorAceptar;
+import controlador.conAlerts.controladorError;
+import controlador.conAlerts.controladorMessage;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import vista.IF_Combos;
 import modelo.modeloCombos;
 import controlador.conAlerts.controladorSucces;
+import vista.alerts.alertAccept;
+import vista.alerts.alertError;
+import vista.alerts.alertMessage;
 import vista.alerts.alertSuccess;
 
 /**
@@ -19,9 +25,23 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
     
     IF_Combos vista = new IF_Combos();
     modeloCombos modelo = new modeloCombos();
+    String idCombo, precio, nombre, idProd;
     
+    alertAccept alertAccept = new alertAccept();
+    alertError alertError = new alertError();
+    alertSuccess alertSuccess = new alertSuccess();
+    alertMessage alertMessage = new alertMessage();
     
-
+    controladorAceptar conAcept;
+    controladorError conError;
+    controladorSucces conSuccess;
+    controladorMessage conMessage;
+    
+    String[][] datosTabla;
+    String[][] datos;
+    String[] columnasTabla;
+    int fila =0;
+    
     public controladorCombos(IF_Combos vistaP, modeloCombos modeloP) {
         this.modelo= modeloP;
         this.vista = vistaP;

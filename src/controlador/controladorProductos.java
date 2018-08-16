@@ -45,7 +45,7 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
     String[][] datosTabla;
     String[][] datos;
     String[] columnasTabla;
-    int fila;
+    int fila =0;
 
     public controladorProductos(IF_productos vista, modeloProductos modelo) {
         this.modelo = modelo;
@@ -113,9 +113,9 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
             conMessage.iniciarVista();
         }
         else if (vista.panelEditar == e.getSource()) {
-           /* formProductos form = new formProductos(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5],datos[fila][6],datos[fila][7],datos[fila][8],datos[fila][9]);
+           formProductos form = new formProductos(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5]);
             form.iniciarVista();
-            fila = -1;*/
+            fila = -1;
         }
         else if (vista.panelLimpiar == e.getSource()) {
             limpiarDatos();
@@ -173,16 +173,22 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
         }
     }
     
+    
+    /*********************************************************************************************************************************************************************/
+    
     private class formProductos extends ControladorPrincipal implements MouseListener{
-        private String id,descrip,idProv,costo,precio;
-        private int cant;
+        private String id,descrip,idProv,costo,precio, cant;
         private boolean opc;
+        controladorAceptar conAceptF;
+        controladorError conErrorF;
+        controladorSucces conSuccessF;
+        controladorMessage conMessageF;
         
         vistaFormProductos vistaF = new vistaFormProductos();
 
-        public formProductos(String id, String descrip, String idProv, int cant, String costo, String precio) {
+        public formProductos(String id, String cant, String costo, String precio, String idProv, String desc) {
             this.id = id;
-            this.descrip = descrip;
+            this.descrip = desc;
             this.idProv = idProv;
             this.cant = cant;
             this.costo = costo;
@@ -200,28 +206,32 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
         public void iniciarVista() {
             this.vistaF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             vistaF.setLocationRelativeTo(null);
+            vistaF.pack();
             vistaF.panelAdd.addMouseListener(this);
             vistaF.panelBack.addMouseListener(this);
             vistaF.setVisible(true);
             vistaF.txtTitle.setText((opc?"Modificar ":"Agregar ")+"Producto");
+            vistaF.lblAcept.setText((opc?"Editar ":"Agregar "));
             if(this.opc == true)
                 llenarInputs();
             
             String[][] combos = modelo.callObtenerDatosCombo();
-                DefaultComboBoxModel modelito = new DefaultComboBoxModel();
-                for (String[] pro : combos){
-                    modelito.addElement(pro);
-                }
-                vistaF.txtProv.setModel(modelito);
+            DefaultComboBoxModel modelito = new DefaultComboBoxModel();
+            for (String[] combo : combos) {
+                modelito.addElement(combo[1]);
+            }
+            vistaF.txtProv.setModel(modelito);
         }
         
         private void llenarInputs(){
+            System.out.println("cantidad:"+this.cant+"");
             vistaF.lblID.setText(this.id);
             vistaF.txtDescripcion.setText(this.descrip);
             vistaF.txtPrecioVenta.setText(this.precio);
-            vistaF.txtCantidad.setValue(this.cant);
+            vistaF.txtCantidad.setValue(Integer.parseInt(this.cant));
             vistaF.txtCosto.setText(this.costo);
-            vistaF.txtProv.setSelectedItem(this.idProv);
+            vistaF.txtProv.setSelectedIndex(Integer.parseInt(this.idProv));
+            //prov = arrayprovs[formProduct.txtProv.getSelectedIndex()][0];
         }
 
         @Override
@@ -231,10 +241,19 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
         @Override
         public void mousePressed(MouseEvent e) {
             if (vistaF.panelAdd == e.getSource()) {
-                //resetColor(vistaF.panelAdd);
+                
+                if (this.opc == true) { //Este es para modificar
+                    
+                }
+                else {
+                    if (opc) { // este es para agregar
+                        
+                    }
+                }
             }
             else if (vistaF.panelBack == e.getSource()) {
                 vistaF.dispose();
+                resetColorGrey(vistaF.panelBack);
             }
         }
 
@@ -261,7 +280,6 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
                 resetColorGrey(vistaF.panelBack);
             }
         }
-
 
     
     
