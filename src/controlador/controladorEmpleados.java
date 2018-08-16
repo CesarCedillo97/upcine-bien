@@ -136,6 +136,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             if(modelo.eliminar("login", "empleado_IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
                 if(modelo.eliminar("empleado", "IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
                     conSuccess = new controladorSucces(alertSuccess, "Se ha eliminado exitosamente");
+                    vista.JTable.setModel(modelo.callObtenerDatosTabla());
                 }
             }
             fila = -1;
@@ -158,9 +159,6 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
         else if (vista.panelEliminarEmp == e.getSource()) {
             setColorEliminar(vista.panelEliminarEmp);
         }
-        else if (vista.panelLimpiar == e.getSource()) {
-            setColorLimpiar(vista.panelLimpiar);
-        }
     }
 
     @Override
@@ -173,9 +171,6 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
         }
         else if (vista.panelEliminarEmp == e.getSource()) {
             resetColorEliminar(vista.panelEliminarEmp);
-        }
-        else if (vista.panelLimpiar == e.getSource()) {
-            resetColorLimpiar(vista.panelLimpiar);
         }
     }
     
@@ -350,6 +345,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             else if(e.getSource() == form.panelBack){
                 form.dispose();
             }
+            vista.JTable.setModel(modelo.callObtenerDatosTabla());
         }
 
         @Override

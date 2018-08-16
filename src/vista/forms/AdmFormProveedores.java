@@ -104,7 +104,7 @@ public class AdmFormProveedores extends javax.swing.JFrame
                         .addGap(59, 59, 59)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
+                        .addGap(97, 97, 97)
                         .addComponent(title)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -113,9 +113,9 @@ public class AdmFormProveedores extends javax.swing.JFrame
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(title)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         panelAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

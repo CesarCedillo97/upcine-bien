@@ -47,8 +47,8 @@ public class controladorReportes extends ControladorPrincipal implements ActionL
     }
     @Override
     public void iniciarVista() {
-        String[] columnas = new String[]{"ID","Tipo Venta","Fecha","Subtotal","Descuento","IVA","Total","Empleado","Cliente"};
-        String txtQuery = "SELECT DISTINCT venta.idventa AS ID,venta.TipoVenta,venta.Fecha,venta.Subtotal,venta.Descuento,venta.IVA,venta.Total, empleado.Nombre AS NOMBRE_EMPLEADO,\n" +
+        String[] columnas = new String[]{"ID","Tipo Venta","Fecha","Subtotal","IVA","Total","Empleado","Cliente"};
+        String txtQuery = "SELECT DISTINCT venta.idventa AS ID,venta.TipoVenta,venta.Fecha,venta.Subtotal,venta.IVA,venta.Total, empleado.Nombre AS NOMBRE_EMPLEADO,\n" +
 "                            CASE WHEN venta.cliente_idCliente IS NOT NULL THEN cliente.Nombre\n" +
 "                                 WHEN venta.cliente_idCliente IS NULL THEN \"\"\n" +
 "				END\n" +

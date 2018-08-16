@@ -81,7 +81,6 @@ public class controladorPrecios extends ControladorPrincipal implements KeyListe
             vista.lblId.setText(datos[fila][0]);
             vista.lbTipo.setText(datos[fila][1]);
             vista.lbPrecio.setText(datos[fila][2]);
-           
         }
     }
     @Override
@@ -130,9 +129,9 @@ public class controladorPrecios extends ControladorPrincipal implements KeyListe
         else if(conAcept.vista.panelAceptar == e.getSource()){
             conAcept.vista.dispose();
             if(modelo.eliminar("mantenimiento", "id", Integer.parseInt(vista.lblId.getText()))){
-                if(modelo.eliminar("mantenimiento", "id", Integer.parseInt(vista.lblId.getText()))){
-                    conSuccess = new controladorSucces(alertSuccess, "Se ha eliminado exitosamente");
-                }
+                conSuccess = new controladorSucces(alertSuccess, "Se ha eliminado exitosamente");
+                vista.JTable.setModel(modelo.callObtenerDatosTabla());
+                datos=modelo.callObtenerDatos();
             }
             fila = -1;
         }
@@ -216,19 +215,12 @@ public class controladorPrecios extends ControladorPrincipal implements KeyListe
         public void mousePressed(MouseEvent e) {
             //Agregar
             if(e.getSource() == form.panelAdd && !opcion){
-                int last_id = -1;
                 //Se llenan los datos que se van a guardar en la tabla de MANTENIMIENTO
                 
                 String[] table_columns = {"Descripcion","Precio"};
                 String[] table_values = {form.txtDescripcion.getText(),
                                          form.txtPrecio.getText()
                                         };
-                //Se llenan los datos que se van a guardar en la tabla LOGIN
-//                String[] table_columns2 = {"Usuario","Contraseña","empleado_idEmpleado"};
-//                String[] table_values2 = {form.txtUsuario.getText(),
-//                                          form.txtContra.getText(),
-//                                          String.valueOf(last_id)};
-                //verifica que los inputs no esten vaciós
                 boolean areNotEmpty = checkIsNotEmpty(table_values);
                 //Se abre la conexión, lo hacemos desde aquí para aplicar las transacciones
                 Connection con = modelo.abrirConexion();
@@ -237,23 +229,18 @@ public class controladorPrecios extends ControladorPrincipal implements KeyListe
                 } catch (SQLException ex) {
                     Logger.getLogger(controladorPrecios.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if(areNotEmpty && con != null &&(last_id = modelo.insertar("mantenimiento", table_columns, table_values, con)) != -1){
-                    //table_values2[2]=String.valueOf(last_id);
-                    System.out.println(last_id);
-                    
-//                    if(modelo.insertar("login", table_columns2, table_values2, con) != -1){
-                        try {
-                            conSuccess = new controladorSucces(alertSuccess, "¡Se ha agregado con éxito!");
-                            conSuccess.iniciarVista();
-                            form.dispose();
-                            //si todo se inserta se realiza el commit
-                            con.commit();
-                        } catch (SQLException ex) {
-                            conError = new controladorError(alertError, "Algo ha sucedido, no se pudo realizar commit");
-                            conSuccess.iniciarVista();
-                            form.dispose();
-                        }
-//                    }
+                if(areNotEmpty && con != null &&(modelo.insertar("mantenimiento", table_columns, table_values, con)) != -1){
+                    try {
+                        conSuccess = new controladorSucces(alertSuccess, "¡Se ha agregado con éxito!");
+                        conSuccess.iniciarVista();
+                        form.dispose();
+                        //si todo se inserta se realiza el commit
+                        con.commit();
+                    } catch (SQLException ex) {
+                        conError = new controladorError(alertError, "Algo ha sucedido, no se pudo realizar commit");
+                        conSuccess.iniciarVista();
+                        form.dispose();
+                    }
                     modelo.cerrarConexion(con);
                 }
                 else{
@@ -265,19 +252,13 @@ public class controladorPrecios extends ControladorPrincipal implements KeyListe
             }
             //para modificar
             else if(e.getSource() == form.panelAdd && opcion){
-                int last_id = -1;
                 //Se llenan los datos que se van a guardar en la tabla de EMPLEADOS
                
-                String[] table_columns = {"Descripcion","Precio"};
-                String[] table_values = {form.txtDescripcion.getText(),
+                String[] table_columns = {"id","Descripcion","Precio"};
+                String[] table_values = {form.txtId.getText(),
+                                         form.txtDescripcion.getText(),
                                          form.txtPrecio.getText()
                                         };
-                //Se llenan los datos que se van a guardar en la tabla LOGIN
-//                String[] table_columns2 = {"Usuario","Contraseña","empleado_idEmpleado"};
-//                String[] table_values2 = {form.txtUsuario.getText(),
-//                                          form.txtContra.getText(),
-//                                          String.valueOf(last_id)};
-                //verifica que los inputs no esten vaciós
                 boolean areNotEmpty = checkIsNotEmpty(table_values);
                 //Se abre la conexión, lo hacemos desde aquí para aplicar las transacciones
                 Connection con = modelo.abrirConexion();
@@ -312,6 +293,8 @@ public class controladorPrecios extends ControladorPrincipal implements KeyListe
             else if(e.getSource() == form.panelBack){
                 form.dispose();
             }
+            datos=modelo.callObtenerDatos();
+            vista.JTable.setModel(modelo.callObtenerDatosTabla());
         }
 
         @Override
