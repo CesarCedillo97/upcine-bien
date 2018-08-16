@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelo.modeloClientes;
 import modelo.modeloEmpleados;
 
 import vista.Login;
@@ -19,6 +20,10 @@ import modelo.modeloPelicuas;
 import modelo.modeloProveedor;
 import modelo.modeloProductos;
 import modelo.modeloCombos;
+import modelo.modeloCompras;
+import modelo.modeloFunciones;
+import modelo.modeloPrecios;
+import modelo.modeloSalas;
 import modelo.modeloVentaBoletos;
 
 
@@ -29,6 +34,11 @@ import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
 import vista.IF_Reportes;
+import vista.IF_clientes;
+import vista.IF_compras;
+import vista.IF_funciones;
+import vista.IF_precios;
+import vista.IF_salas;
 import vista.VentaBoletos;
 
 /**
@@ -102,15 +112,44 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 IF_productos vprod = new IF_productos();
                 modeloProductos modPro = new modeloProductos();
                 controladorProductos conProd = new controladorProductos(vprod, modPro);
-                //conProd.iniciarVista();
+                conProd.iniciarVista();
                 
                 IF_Reportes vrep = new IF_Reportes();
                 controladorReportes conRep = new controladorReportes(vrep);
-                //conRep.iniciarVista();
+                conRep.iniciarVista();
+                //Precios
+                IF_precios vpre = new IF_precios();
+                modeloPrecios mpre = new modeloPrecios();
+                controladorPrecios conPre = new controladorPrecios(vpre, mpre);
+                conPre.iniciarVista();
+                
+                //Funciones
+                IF_funciones vfun = new IF_funciones();
+                modeloFunciones mfun = new modeloFunciones();
+                controladorFunciones conFun = new controladorFunciones(vfun, mfun);
+                conFun.iniciarVista();
+                
+                //Salas
+                IF_salas vsal = new IF_salas();
+                modeloSalas msal = new modeloSalas();
+                controladorSalas conSal = new controladorSalas(vsal, msal);
+                conSal.iniciarVista();
+                
+                //Clientes
+                IF_clientes vcli = new IF_clientes();
+                modeloClientes mcli = new modeloClientes();
+                controladorClientes conCli = new controladorClientes(vcli, mcli);
+                conCli.iniciarVista();
+                
+                //Compras
+                IF_compras vcompr = new IF_compras();
+                modeloCompras mcompr = new modeloCompras();
+                controladorCompras conCompr = new controladorCompras(vcompr, mcompr);
+                conCompr.iniciarVista();
                 
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom,vrep);
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom, vrep, vpre, vfun, vsal, vcli, vcompr);
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado

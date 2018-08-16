@@ -38,7 +38,7 @@ public class controladorClientes extends ControladorPrincipal{
     String[] columnasTabla;
     int fila = -1;
     
-    public controladorClientes(modeloClientes modelo, IF_clientes vista) {
+    public controladorClientes(IF_clientes vista, modeloClientes modelo) {
         this.modelo = modelo;
         this.vista = vista;
     }

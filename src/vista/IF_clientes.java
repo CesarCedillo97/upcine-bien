@@ -57,6 +57,7 @@ public class IF_clientes extends javax.swing.JInternalFrame {
         lblFechaAnt = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
+        setBorder(null);
         setPreferredSize(new java.awt.Dimension(807, 760));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -354,7 +355,7 @@ public class IF_clientes extends javax.swing.JInternalFrame {
                         .addComponent(panelEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(panelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -363,7 +364,7 @@ public class IF_clientes extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

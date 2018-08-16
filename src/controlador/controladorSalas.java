@@ -38,7 +38,7 @@ public class controladorSalas extends ControladorPrincipal{
     String[] columnasTabla;
     int fila = -1;
     
-    public controladorSalas(modeloSalas modelo, IF_salas salas) {
+    public controladorSalas(IF_salas salas, modeloSalas modelo) {
         this.modelo = modelo;
         this.salas = salas;
     }

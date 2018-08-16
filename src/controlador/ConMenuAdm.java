@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Locale;
 import javafx.scene.layout.Border;
 import javax.swing.JFrame;
 import javax.swing.border.BevelBorder;
@@ -25,7 +26,11 @@ import vista.Login;
 
 
 import modelo.*;
+import vista.IF_clientes;
+import vista.IF_compras;
+import vista.IF_funciones;
 import vista.IF_precios;
+import vista.IF_salas;
 /**
  *
  * @author Cesar Cedillo
@@ -40,18 +45,14 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     IF_Combos vCom = new IF_Combos();
     IF_Reportes vRep = new IF_Reportes();
     IF_precios vPre = new IF_precios();
-    
-    modeloCombos mCom = new modeloCombos();
-    modeloEmpleados mEmp = new modeloEmpleados();
-    modeloPelicuas mPeli = new modeloPelicuas();
-    modeloPrincipal mPrin = new modeloEmpleados();
-    modeloProductos mProd = new modeloProductos();
-    modeloProveedor mProv = new modeloProveedor();
-    modeloPrecios mPre = new modeloPrecios();
+    IF_funciones vFun = new IF_funciones();
+    IF_salas vSal = new IF_salas();
+    IF_clientes vCli = new IF_clientes();
+    IF_compras vCompr = new IF_compras();
     
     //agancaso omiso a este comentrios
-
-    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos,IF_Reportes reportes, IF_precios precios) { // se declaran todos los componentes que se van a mostrar dentro del constructor
+    
+    public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos,IF_Reportes reportes, IF_precios precios, IF_funciones funciones, IF_salas salas, IF_clientes clientes, IF_compras compras) { // se declaran todos los componentes que se van a mostrar dentro del constructor
         this.Desktop= vista;
         this.vEmp = vistaEmp;
         this.vPeli = vistaPeli;
@@ -60,6 +61,9 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.vCom = combos;
         this.vRep = reportes;
         this.vPre = precios;
+        this.vSal = salas;
+        this.vCli = clientes;
+        this.vCompr = compras;
         
         //Aquí va la declaracion de paneles (Internal frames)
         this.Desktop.panelEmpleados.addMouseListener((MouseListener)this); 
@@ -73,6 +77,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.Desktop.panelCombos.addMouseListener((MouseListener)this);
         this.Desktop.panelReportes.addMouseListener((MouseListener)this);
         this.Desktop.panelSalir.addMouseListener((MouseListener)this);
+        this.Desktop.panelClientes.addMouseListener((MouseListener)this);
         this.Desktop.panelReportes.addMouseListener((MouseListener)this);
         
         //Aquí se agregan al desktop
@@ -83,6 +88,10 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.Desktop.Desktop.add(vProd);
         this.Desktop.Desktop.add(vCom);
         this.Desktop.Desktop.add(vRep);
+        this.Desktop.Desktop.add(vFun);
+        this.Desktop.Desktop.add(vSal);
+        this.Desktop.Desktop.add(vCli);
+        this.Desktop.Desktop.add(vCompr);
         
         //aquí se muestran
         this.vEmp.show();
@@ -92,6 +101,10 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.vCom.show();
         this.vRep.show();
         this.vPre.show();
+        this.vFun.show();
+        this.vSal.show();
+        this.vCli.show();
+        this.vCompr.show();
         
         //Aqui se ponen en tal posicion para que se vean bien
         this.vEmp.setLocation(-1, -25);
@@ -101,10 +114,14 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.vCom.setLocation(-1, -25);
         this.vRep.setLocation(-1, -25);
         this.vPre.setLocation(-1, -25);
+        this.vFun.setLocation(-1, -25);
+        this.vSal.setLocation(-1, -25);
+        this.vCli.setLocation(-1, -25);
+        this.vCompr.setLocation(-1, -25);
         this.vEmp.toFront();
         
     }
-    
+
     @Override
      public void iniciarVista(){
         Desktop.setTitle("UpCine");
@@ -135,6 +152,18 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         }
         else if (Desktop.panelProv == e.getSource()){
             this.vProv.toFront();
+        } 
+        else if (Desktop.panelFunciones == e.getSource()){
+            this.vFun.toFront();
+        } 
+        else if (Desktop.panelAsientos == e.getSource()){
+            this.vSal.toFront();
+        } 
+        else if (Desktop.panelClientes == e.getSource()){
+            this.vCli.toFront();
+        } 
+        else if (Desktop.panelCompras == e.getSource()){
+            this.vCompr.toFront();
         } 
         else if (Desktop.panelCombos == e.getSource()) {
             //aqui va el modleo de la tabla
