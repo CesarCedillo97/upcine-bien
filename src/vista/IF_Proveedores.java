@@ -41,11 +41,11 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         JTable = new javax.swing.JTable();
         JTable.getTableHeader().setFont(new Font("Segoe UI", Font.PLAIN, 20));
-        panelAgregarEmp = new javax.swing.JPanel();
+        panelAgregarProv = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        panelEditEmp = new javax.swing.JPanel();
+        panelEditProv = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        panelEliminarEmp = new javax.swing.JPanel();
+        panelEliminarProv = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         lblResponsable = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
@@ -146,66 +146,66 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
         JTable.setRowHeight(18);
         jScrollPane3.setViewportView(JTable);
 
-        panelAgregarEmp.setBackground(new java.awt.Color(35, 8, 79));
-        panelAgregarEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelAgregarProv.setBackground(new java.awt.Color(35, 8, 79));
+        panelAgregarProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Agregar");
 
-        javax.swing.GroupLayout panelAgregarEmpLayout = new javax.swing.GroupLayout(panelAgregarEmp);
-        panelAgregarEmp.setLayout(panelAgregarEmpLayout);
-        panelAgregarEmpLayout.setHorizontalGroup(
-            panelAgregarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarEmpLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelAgregarProvLayout = new javax.swing.GroupLayout(panelAgregarProv);
+        panelAgregarProv.setLayout(panelAgregarProvLayout);
+        panelAgregarProvLayout.setHorizontalGroup(
+            panelAgregarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarProvLayout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(jLabel24)
                 .addGap(37, 37, 37))
         );
-        panelAgregarEmpLayout.setVerticalGroup(
-            panelAgregarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelAgregarProvLayout.setVerticalGroup(
+            panelAgregarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        panelEditEmp.setBackground(new java.awt.Color(161, 143, 30));
-        panelEditEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelEditProv.setBackground(new java.awt.Color(161, 143, 30));
+        panelEditProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Editar");
 
-        javax.swing.GroupLayout panelEditEmpLayout = new javax.swing.GroupLayout(panelEditEmp);
-        panelEditEmp.setLayout(panelEditEmpLayout);
-        panelEditEmpLayout.setHorizontalGroup(
-            panelEditEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditEmpLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelEditProvLayout = new javax.swing.GroupLayout(panelEditProv);
+        panelEditProv.setLayout(panelEditProvLayout);
+        panelEditProvLayout.setHorizontalGroup(
+            panelEditProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditProvLayout.createSequentialGroup()
                 .addContainerGap(48, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addGap(54, 54, 54))
         );
-        panelEditEmpLayout.setVerticalGroup(
-            panelEditEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelEditProvLayout.setVerticalGroup(
+            panelEditProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        panelEliminarEmp.setBackground(new java.awt.Color(215, 24, 24));
-        panelEliminarEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelEliminarProv.setBackground(new java.awt.Color(215, 24, 24));
+        panelEliminarProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Eliminar");
 
-        javax.swing.GroupLayout panelEliminarEmpLayout = new javax.swing.GroupLayout(panelEliminarEmp);
-        panelEliminarEmp.setLayout(panelEliminarEmpLayout);
-        panelEliminarEmpLayout.setHorizontalGroup(
-            panelEliminarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarEmpLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelEliminarProvLayout = new javax.swing.GroupLayout(panelEliminarProv);
+        panelEliminarProv.setLayout(panelEliminarProvLayout);
+        panelEliminarProvLayout.setHorizontalGroup(
+            panelEliminarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarProvLayout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jLabel18)
                 .addGap(40, 40, 40))
         );
-        panelEliminarEmpLayout.setVerticalGroup(
-            panelEliminarEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelEliminarProvLayout.setVerticalGroup(
+            panelEliminarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
@@ -292,8 +292,8 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
                             .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelEditEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(panelEditProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelEliminarProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(jLabel2)
@@ -304,7 +304,7 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(panelAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -333,11 +333,11 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(panelAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(panelEditEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelEditProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(panelEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelEliminarProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -410,8 +410,8 @@ public class IF_Proveedores extends javax.swing.JInternalFrame {
     public javax.swing.JLabel lblId;
     public javax.swing.JLabel lblResponsable;
     public javax.swing.JLabel lblTelefono;
-    public javax.swing.JPanel panelAgregarEmp;
-    public javax.swing.JPanel panelEditEmp;
-    public javax.swing.JPanel panelEliminarEmp;
+    public javax.swing.JPanel panelAgregarProv;
+    public javax.swing.JPanel panelEditProv;
+    public javax.swing.JPanel panelEliminarProv;
     // End of variables declaration//GEN-END:variables
 }

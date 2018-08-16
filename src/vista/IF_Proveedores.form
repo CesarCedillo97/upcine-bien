@@ -102,8 +102,8 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelEditEmp" min="-2" max="-2" attributes="0"/>
-                                  <Component id="panelEliminarEmp" min="-2" max="-2" attributes="0"/>
+                                  <Component id="panelEditProv" min="-2" max="-2" attributes="0"/>
+                                  <Component id="panelEliminarProv" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -116,7 +116,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblEmpresa" min="-2" pref="112" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="panelAgregarEmp" min="-2" max="-2" attributes="0"/>
+                              <Component id="panelAgregarProv" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -153,12 +153,12 @@
                                       <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                                       <Component id="lblId" min="-2" pref="20" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="panelAgregarEmp" min="-2" max="-2" attributes="0"/>
+                                  <Component id="panelAgregarProv" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="panelEditEmp" min="-2" max="-2" attributes="0"/>
+                              <Component id="panelEditProv" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="panelEliminarEmp" min="-2" max="-2" attributes="0"/>
+                              <Component id="panelEliminarProv" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -342,7 +342,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelAgregarEmp">
+            <Container class="javax.swing.JPanel" name="panelAgregarProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4f" green="8" red="23" type="rgb"/>
@@ -385,7 +385,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelEditEmp">
+            <Container class="javax.swing.JPanel" name="panelEditProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1e" green="8f" red="a1" type="rgb"/>
@@ -428,7 +428,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelEliminarEmp">
+            <Container class="javax.swing.JPanel" name="panelEliminarProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="18" green="18" red="d7" type="rgb"/>
