@@ -101,11 +101,11 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 IF_productos vprod = new IF_productos();
                 modeloProductos modPro = new modeloProductos();
                 controladorProductos conProd = new controladorProductos(vprod, modPro);
-                conProd.iniciarVista();
+                //conProd.iniciarVista();
                 
                 IF_Reportes vrep = new IF_Reportes();
                 controladorReportes conRep = new controladorReportes(vrep);
-                conRep.iniciarVista();
+                //conRep.iniciarVista();
                 
                 IF_precios vpre= new IF_precios();
                 modeloPrecios modPre = new modeloPrecios();
