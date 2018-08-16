@@ -16,9 +16,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
 import vista.IF_Proveedores;
 import modelo.modeloProveedor;
@@ -63,20 +67,22 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
     
     @Override
     public void iniciarVista() {
-        String[] columnas = new String[]{"ID","Empresa","Responsable","Dirección","Teléfono"};
-        String txtQuery = "SELECT * FROM proveedor";
-        datos = modelo.obtenerDatos(txtQuery);
         vista.panelAgregarProv.addMouseListener(this);
         vista.panelEditProv.addMouseListener(this);
         vista.panelEliminarProv.addMouseListener(this);
-        vista.JTable.setModel(modelo.obtenerDatosTabla(datos,columnas));
+        cargarTabla();
         vista.JTable.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
             fila = vista.JTable.getSelectedRow();
             llenarDatos();
         });
         vista.bucar_txt.addKeyListener(this);
     }
-    
+    public void cargarTabla(){
+        String[] columnas = new String[]{"ID","Empresa","Responsable","Dirección","Teléfono"};
+        String txtQuery = "SELECT * FROM proveedor";
+        datos = modelo.obtenerDatos(txtQuery);
+        vista.JTable.setModel(modelo.obtenerDatosTabla(datos,columnas));
+    }
     public void llenarDatos(){
         if(fila!=-1){
             vista.lblId.setText(datos[fila][0]);
@@ -123,7 +129,17 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
             form.iniciarVistaForm();
         }
         else if(e.getSource() == vista.panelEliminarProv){
-            
+            conAcept = new controladorAceptar(alertAccept, "¿Seguro que desea eliminar el registro?");
+            conAcept.iniciarVista();
+            conAcept.vista.panelAceptar.addMouseListener(this);
+        }
+        else if(conAcept.vista.panelAceptar == e.getSource()){
+            conAcept.vista.dispose();
+            if(modelo.eliminar("proveedor", "idProveedor", Integer.parseInt(vista.lblId.getText()))){
+                conSuccess = new controladorSucces(alertSuccess, "Se ha eliminado exitosamente");
+                cargarTabla();
+            }
+            fila = -1;
         }
     }
 
@@ -186,7 +202,79 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            
+            if(e.getSource() == form.panelAdd && !opcion){
+                String[] columnas = {"Nombre_empresa","Nombre_responsable","Direccion","Telefono"};
+                String[] valores = {form.txtEmpresa.getText(),
+                                    form.txtResponsable.getText(),
+                                    form.txtDireccion.getText(),
+                                    form.txtTelefono.getText()};
+                boolean notEmpty = checkIsNotEmpty(valores);
+                Connection con = modelo.abrirConexion();
+                try {
+                    con.setAutoCommit(false);
+                } catch (SQLException ex) {
+                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if(notEmpty && con!= null && modelo.insertar("proveedor", columnas, valores, con) != -1){
+                    try {
+                        conSuccess = new controladorSucces(alertSuccess, "¡Se ha agregado con éxito!");
+                        conSuccess.iniciarVista();
+                        form.dispose();
+                        //si todo se inserta se realiza el commit
+                        con.commit();
+                    } catch (SQLException ex) {
+                        conError = new controladorError(alertError, "Algo ha sucedido, no se pudo realizar commit");
+                        conSuccess.iniciarVista();
+                        form.dispose();
+                    }
+                    modelo.cerrarConexion(con);
+                }
+                else{
+                    if(!notEmpty){
+                        conError = new controladorError(alertError, "Por favor llene todos los campos para proseguir");
+                        conError.iniciarVista();
+                    }
+                }
+            }
+            else if(e.getSource() == form.panelAdd && opcion){
+                String[] columnas = {"idProveedor","Nombre_empresa","Nombre_responsable","Direccion","Telefono"};
+                String[] valores = {form.txtId.getText(),
+                                    form.txtEmpresa.getText(),
+                                    form.txtResponsable.getText(),
+                                    form.txtDireccion.getText(),
+                                    form.txtTelefono.getText()};
+                boolean notEmpty = checkIsNotEmpty(valores);
+                Connection con = modelo.abrirConexion();
+                try {
+                    con.setAutoCommit(false);
+                } catch (SQLException ex) {
+                    Logger.getLogger(controladorEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if(notEmpty && modelo.modificar("proveedor", columnas, valores, con)){
+                    try {
+                        conSuccess = new controladorSucces(alertSuccess, "¡Se ha modificado con éxito!");
+                        conSuccess.iniciarVista();
+                        form.dispose();
+                        //si todo se inserta se realiza el commit
+                        con.commit();
+                    } catch (SQLException ex) {
+                        conError = new controladorError(alertError, "Algo ha sucedido, no se pudo realizar commit");
+                        conSuccess.iniciarVista();
+                        form.dispose();
+                    }
+                    modelo.cerrarConexion(con);
+                }
+                else{
+                    if(!notEmpty){
+                        conError = new controladorError(alertError, "Por favor llene todos los campos para proseguir");
+                        conError.iniciarVista();
+                    }
+                }
+            }
+            else if(e.getSource() == form.panelBack){
+                form.dispose();
+            }
+            cargarTabla();
         }
 
         @Override
@@ -201,12 +289,22 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            
+            if(e.getSource() == form.panelAdd){
+                setColorAceptar(form.panelAdd);
+            }
+            else if(e.getSource() == form.panelBack){
+                setColorCancelar(form.panelBack);
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            
+            if(e.getSource() == form.panelAdd){
+                resetColorGrey(form.panelAdd);
+            }
+            else if(e.getSource() == form.panelBack){
+                resetColorGrey(form.panelBack);
+            }
         }
 
         @Override

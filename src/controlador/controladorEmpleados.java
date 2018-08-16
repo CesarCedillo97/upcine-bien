@@ -136,6 +136,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             if(modelo.eliminar("login", "empleado_IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
                 if(modelo.eliminar("empleado", "IdEmpleado", Integer.parseInt(vista.lblId.getText()))){
                     conSuccess = new controladorSucces(alertSuccess, "Se ha eliminado exitosamente");
+                    vista.JTable.setModel(modelo.callObtenerDatosTabla());
                 }
             }
             fila = -1;
@@ -344,6 +345,7 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
             else if(e.getSource() == form.panelBack){
                 form.dispose();
             }
+            vista.JTable.setModel(modelo.callObtenerDatosTabla());
         }
 
         @Override
