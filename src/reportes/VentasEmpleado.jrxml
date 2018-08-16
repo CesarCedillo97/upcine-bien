@@ -50,7 +50,7 @@
 			</textField>
 			<image>
 				<reportElement x="51" y="11" width="87" height="60" uuid="616bc9bd-eb48-4203-9999-45ad0562fb34"/>
-				<imageExpression><![CDATA["C:\\Users\\Jesus\\OneDrive\\Documentos\\GitHub\\UpCine\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["C:\Users\Adrián Scott\Documents\GitHub\upcine-bien\src\assets\img\logoChido.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
