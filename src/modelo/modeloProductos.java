@@ -5,6 +5,9 @@
  */
 package modelo;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -41,6 +44,45 @@ public class modeloProductos extends modeloPrincipal{
         String txtQuery = "SELECT idProveedor, Nombre_empresa \n" +
                                 " FROM proveedor;";
         return super.obtenerDatos(txtQuery);
+    }
+    
+    public boolean insertarProductos(String cantidad,String costo,String precio,String prov,String descripcion){
+        try
+        {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            s.executeUpdate("insert into producto(Cantidad, Costo, Precio_venta, proveedor_idProveedor, Descripcion) values('"+cantidad+"', '"+costo+"', '"+precio+"', '"+prov+"', '"+descripcion+"')");
+            conexion.cerrarConexion(con);
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    public boolean modificarProductos(String id,String cantidad,String costo,String precio,String prov,String descripcion){
+        try
+        {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            s.executeUpdate("update producto set Cantidad = "+cantidad+", Costo = "+costo+", Precio_venta = "+precio+", proveedor_idProveedor = "+prov+", Descripcion = '"+descripcion+"' where IdProducto = "+id+"");
+            conexion.cerrarConexion(con);
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    public boolean eliminarProductos(String id){
+        try
+        {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            s.executeUpdate("delete from producto where IdProducto = "+id+"");
+            conexion.cerrarConexion(con);
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
     
 }

@@ -1,9 +1,7 @@
-﻿/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
+
+import controlador.*;
+
 
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -31,6 +29,7 @@ import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
 import vista.IF_Reportes;
+import vista.VentaBoletos;
 
 /**
  *

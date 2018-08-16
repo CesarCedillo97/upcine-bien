@@ -104,21 +104,49 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
     @Override
     public void mousePressed(java.awt.event.MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
-            this.vista.setEnabled(false);
-            formProductos vistaForm = new formProductos();
-            vistaForm.iniciarVista();
-        }
-        else if(fila==-1){
-            conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
-            conMessage.iniciarVista();
+            if(fila==-1){
+                conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
+                conMessage.iniciarVista();
+            }else{
+                this.vista.setEnabled(false);
+                formProductos vistaForm = new formProductos();
+                vistaForm.iniciarVista();
+            }
+            
         }
         else if (vista.panelEditar == e.getSource()) {
-           formProductos form = new formProductos(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5]);
-            form.iniciarVista();
-            fila = -1;
+            if(fila==-1){
+                conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
+                conMessage.iniciarVista();
+            }else{
+                formProductos form = new formProductos(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5]);
+                form.iniciarVista();
+            }
+           
         }
         else if (vista.panelLimpiar == e.getSource()) {
             limpiarDatos();
+        }
+        else if (vista.panelEliminar == e.getSource()) {
+            if(fila==-1){
+                conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
+                conMessage.iniciarVista();
+            }else{
+                conMessage = new controladorMessage(alertMessage, "¿Seguro que desea Eliminar el producto?");
+                conMessage.iniciarVista();
+            }
+                
+        }
+        else if (alertMessage.panelAceptar == e.getSource())  {
+            if (modelo.eliminarProductos(datos[fila][0])) {
+               controladorSucces hecho = new controladorSucces(alertSuccess, "Se ha eliminado Correctamente");
+               hecho.iniciarVista();
+               alertMessage.dispose();
+            }else{
+                controladorError nohecho = new controladorError(alertError, "Ha ocurrido un error!");
+                nohecho.iniciarVista();
+            }
+            
         }
     }
 
@@ -184,6 +212,8 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
         controladorSucces conSuccessF;
         controladorMessage conMessageF;
         
+        String[][] combos;
+        
         vistaFormProductos vistaF = new vistaFormProductos();
 
         public formProductos(String id, String cant, String costo, String precio, String idProv, String desc) {
@@ -197,6 +227,7 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
         }
         
         public formProductos() {
+            this.opc=false;
         }
         
         
@@ -215,7 +246,7 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
             if(this.opc == true)
                 llenarInputs();
             
-            String[][] combos = modelo.callObtenerDatosCombo();
+            combos = modelo.callObtenerDatosCombo();
             DefaultComboBoxModel modelito = new DefaultComboBoxModel();
             for (String[] combo : combos) {
                 modelito.addElement(combo[1]);
@@ -242,12 +273,42 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
         public void mousePressed(MouseEvent e) {
             if (vistaF.panelAdd == e.getSource()) {
                 
-                if (this.opc == true) { //Este es para modificar
+                this.cant=String.valueOf(vistaF.txtCantidad.getValue());
+                this.costo=vistaF.txtCosto.getText();
+                this.descrip=vistaF.txtDescripcion.getText();
+                this.id=vistaF.lblID.getText();
+                this.precio=vistaF.txtPrecioVenta.getText();
+                this.idProv= combos[vistaF.txtProv.getSelectedIndex()][0];
                     
+                if (this.opc == false) { //Este es para agregar
+                    
+                    
+                    if (!"".equals(this.cant) && (!"".equals(this.costo) || !"0".equals(this.costo)) && !"".equals(this.descrip) && !"".equals(this.precio) && !"".equals(this.idProv) ) {
+                        if (modelo.insertarProductos(cant, costo, precio, idProv, descrip)) {
+                            controladorSucces hecho = new controladorSucces(alertSuccess, "Se ha insertado Correctamente");
+                            hecho.iniciarVista();
+                            
+                        }else{
+                            controladorError nohecho = new controladorError(alertError, "Ha ocurrido un error!");
+                            nohecho.iniciarVista();
+                        }
+                    }else{
+                        controladorMessage message = new controladorMessage(alertMessage, "Por favor, llene los campos");
+                        message.iniciarVista();
+                    }
                 }
                 else {
-                    if (opc) { // este es para agregar
-                        
+                    if (!"".equals(this.cant) && (!"".equals(this.costo) || !"0".equals(this.costo)) && !"".equals(this.descrip) && !"".equals(this.precio) && !"".equals(this.idProv) && !"".equals(this.id)) { // este es para modificar
+                        if (modelo.modificarProductos(id, cant, costo, precio, idProv, descrip)) {
+                            controladorSucces hecho = new controladorSucces(alertSuccess, "Se ha Modificado Correctamente");
+                            hecho.iniciarVista();
+                        }else{
+                            controladorError nohecho = new controladorError(alertError, "Ha ocurrido un error!");
+                            nohecho.iniciarVista();
+                        }
+                    }else{
+                        controladorMessage message = new controladorMessage(alertMessage, "Por favor, llene los campos");
+                        message.iniciarVista();
                     }
                 }
             }
