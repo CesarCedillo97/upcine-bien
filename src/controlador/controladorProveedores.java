@@ -6,18 +6,46 @@
 package controlador;
 
 
+import controlador.conAlerts.controladorAceptar;
+import controlador.conAlerts.controladorError;
+import controlador.conAlerts.controladorMessage;
+import controlador.conAlerts.controladorSucces;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import vista.IF_Proveedores;
 import modelo.modeloProveedor;
+import vista.alerts.alertAccept;
+import vista.alerts.alertError;
+import vista.alerts.alertMessage;
+import vista.alerts.alertSuccess;
 /**
  *
  * @author Jesus
  */
-public class controladorProveedores extends ControladorPrincipal implements KeyListener {
+public class controladorProveedores extends ControladorPrincipal implements KeyListener,MouseListener {
     IF_Proveedores vista = new  IF_Proveedores();
     modeloProveedor modelo = new modeloProveedor();
+    
+    
+    alertAccept alertAccept = new alertAccept();
+    alertError alertError = new alertError();
+    alertSuccess alertSuccess = new alertSuccess();
+    alertMessage alertMessage = new alertMessage();
+    
+    controladorAceptar conAcept;
+    controladorError conError;
+    controladorSucces conSuccess;
+    controladorMessage conMessage;
+    
+    String[][] datosTabla;
     String[][] datos;
+    String[] columnasTabla;
+    int fila = -1;
+    
+    
+    
     public controladorProveedores( IF_Proveedores vista, modeloProveedor modProv ) {
     this.vista = vista;
     this.modelo= modProv;
@@ -54,6 +82,31 @@ public class controladorProveedores extends ControladorPrincipal implements KeyL
           vista.JTable.setModel(modelo.filtrarTabla(query,columnas));  
             //modelo.buscarDatos();
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ventas" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="14c31e24-c2d2-4457-b089-c1569e5818a3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Empleado" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[3]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT venta.idventa AS ID,venta.TipoVenta,venta.Fecha,venta.Subtotal,venta.Descuento,venta.IVA,venta.Total, empleado.Nombre AS NOMBRE_EMPLEADO,
+                            CASE WHEN venta.cliente_idCliente IS NOT NULL THEN cliente.Nombre
+                                 WHEN venta.cliente_idCliente IS NULL THEN ""
+				END
+                            AS NOMBRE_CLIENTE FROM venta, empleado, cliente WHERE venta.empleado_IdEmpleado = empleado.IdEmpleado AND (venta.cliente_idCliente = cliente.idCliente OR venta.cliente_idCliente IS NULL) AND venta.`empleado_IdEmpleado`=$P!{Empleado};]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer"/>
+	<field name="TipoVenta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[1) Boleto
+2) Dulces]]></fieldDescription>
+	</field>
+	<field name="Fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Subtotal" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Descuento" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IVA" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Total" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMBRE_EMPLEADO" class="java.lang.String"/>
+	<field name="NOMBRE_CLIENTE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="165" y="11" width="224" height="50" uuid="c26725bb-c3d4-4e45-bcb6-d30248cd861b"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reporte de Ventas]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="436" y="23" width="100" height="20" uuid="d9f91ac8-7f22-4469-8356-b47f2417cd39"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="51" y="11" width="87" height="60" uuid="616bc9bd-eb48-4203-9999-45ad0562fb34"/>
+				<imageExpression><![CDATA["C:\\Users\\Jesus\\OneDrive\\Documentos\\GitHub\\UpCine\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="20" uuid="2f14b355-cdf6-405f-bfa6-183e3f3e4e83"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="36" height="20" uuid="186a0555-75f0-4e43-aa15-7c24333d02c4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="0" width="51" height="20" uuid="2fea8868-4737-4feb-bb48-b894220c718d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="0" width="67" height="20" uuid="6bdeec7a-a40d-462b-8e69-ea6439af2ecf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="0" width="65" height="20" uuid="fac8ea0c-4917-4890-8437-041fe3ab0c7f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descuento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="0" width="42" height="20" uuid="3d1c148c-b0cb-4fcf-8e79-ebe2a06f611a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IVA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="0" width="66" height="20" uuid="0bebc1e8-d511-4a1f-b39a-a60e12c253ab"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="0" width="113" height="20" uuid="5222ae6e-175b-417e-8bb5-5b8b8f343589"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE EMPLEADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="100" height="20" uuid="26c2b5ca-5dba-4d89-b927-73f650815d81"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE CLIENTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="20" uuid="27147b56-4c5f-4a9f-b678-82e8fa141cdc"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="1" width="36" height="20" uuid="5485de60-7af1-4084-b31f-4f61753f18fe"/>
+				<textFieldExpression><![CDATA[$F{TipoVenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="0" width="37" height="20" uuid="07ff26f5-2a38-418e-831c-8d44dac20675"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="1" width="67" height="20" uuid="103135bf-f87f-4adc-b8b4-21dabbd48565"/>
+				<textFieldExpression><![CDATA[$F{Subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="1" width="65" height="20" uuid="d0d83045-93aa-492e-99e6-83473fce61d7"/>
+				<textFieldExpression><![CDATA[$F{Descuento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="1" width="42" height="20" uuid="9ebaa6ef-c9ce-41ca-8a1c-31e9b5da6646"/>
+				<textFieldExpression><![CDATA[$F{IVA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="1" width="66" height="20" uuid="c41e8345-8c7e-40f8-b199-895c8d10a929"/>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="357" y="0" width="113" height="20" uuid="54fb6f27-7fde-44bc-8691-4bcc52fcf880"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_EMPLEADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="100" height="20" uuid="8ce6535d-bc8e-4ee4-9e77-5e45e126e25f"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_CLIENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="199" y="0" width="80" height="20" uuid="347085c5-a7ee-42e1-b7ac-d7dad472bb75"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="279" y="0" width="40" height="20" uuid="374d4201-25e5-46d6-a60c-a4aaa7b9e148"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

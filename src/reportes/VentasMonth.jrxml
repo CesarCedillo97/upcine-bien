@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fb4f7c6b-611d-40c8-8938-55ac683cd768">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Mes" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT venta.idventa AS ID,venta.TipoVenta,venta.Fecha,venta.Subtotal,venta.Descuento,venta.IVA,venta.Total, empleado.Nombre AS NOMBRE_EMPLEADO,
+                            CASE WHEN venta.cliente_idCliente IS NOT NULL THEN cliente.Nombre
+                                 WHEN venta.cliente_idCliente IS NULL THEN ""
+				END
+                            AS NOMBRE_CLIENTE FROM venta, empleado, cliente WHERE venta.empleado_IdEmpleado = empleado.IdEmpleado AND (venta.cliente_idCliente = cliente.idCliente OR venta.cliente_idCliente IS NULL) AND MONTH(venta.`Fecha`)=$P{Mes};]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer"/>
+	<field name="TipoVenta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[1) Boleto
+2) Dulces]]></fieldDescription>
+	</field>
+	<field name="Fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Subtotal" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Descuento" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IVA" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Total" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMBRE_EMPLEADO" class="java.lang.String"/>
+	<field name="NOMBRE_CLIENTE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="403" y="33" width="100" height="20" uuid="81d05d5b-0a7f-4105-b28b-3dea5349c82c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="144" y="13" width="241" height="50" uuid="68a9824b-4bf6-468a-991d-12d8a7a05f2a"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Ventas]]></text>
+			</staticText>
+			<image>
+				<reportElement x="45" y="13" width="83" height="60" uuid="66cb7475-06be-4701-b554-9cc834437e53"/>
+				<imageExpression><![CDATA["C:\\Users\\Jesus\\OneDrive\\Documentos\\GitHub\\UpCine\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="279" y="0" width="64" height="20" uuid="5fc1a606-d4d8-404c-91d7-e5f7a2ff8602"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="28" height="20" uuid="5bc5faa2-248f-42e5-bb92-6f58f61f031d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="0" width="34" height="20" uuid="5c3e7d5b-67f6-439f-bd94-b9954c545feb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="0" width="49" height="20" uuid="94eaf689-77e5-4be0-85c7-2cc3e007a7b3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="0" width="65" height="20" uuid="787e6f85-872a-4d28-b625-7a016d22698f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="0" width="111" height="20" uuid="c26752fd-30fa-4650-a28a-8e8539dde293"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE EMPLEADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="0" width="63" height="20" uuid="5ebee7f3-4c6b-444c-ae84-04272911cc80"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descuento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="0" width="40" height="20" uuid="06bea33e-62f9-4e24-9931-3f6d1381dd4c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IVA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="0" width="101" height="20" uuid="d6c99330-da7a-478b-aa1e-2b21a18a679e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE CLIENTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="239" y="1" width="40" height="20" uuid="e47638cd-ebf3-4bac-a26c-1af8da081d91"/>
+				<textFieldExpression><![CDATA[$F{IVA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="0" width="101" height="20" uuid="ba93eee9-f584-4ed5-b684-adcf6f0e2aa2"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_CLIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="1" width="63" height="20" uuid="2a8c0a69-6470-4df2-922f-eedd0fcdd4bb"/>
+				<textFieldExpression><![CDATA[$F{Descuento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="1" width="64" height="20" uuid="1788096a-1953-4fc7-b584-5b778adc34f1"/>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="0" width="38" height="20" uuid="7bb457da-56e3-4c9d-9652-08f579969da6"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="1" width="34" height="20" uuid="e6e22c6d-0622-44dd-a24c-3d84cd9ddf40"/>
+				<textFieldExpression><![CDATA[$F{TipoVenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="0" width="111" height="20" uuid="4264521b-16ea-427f-9fee-1599ca52616e"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_EMPLEADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="1" width="65" height="20" uuid="4a4af7c3-ef39-422e-928d-f46a19726ab5"/>
+				<textFieldExpression><![CDATA[$F{Subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="28" height="20" uuid="77f938a5-cdd4-407a-ba57-f8557c06b3d9"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="199" y="0" width="80" height="20" uuid="a02f8249-571a-4fc3-83cf-8c9be93422ac"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="279" y="0" width="40" height="20" uuid="c0940a11-26e5-4240-98cf-b5ba8c02e473"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

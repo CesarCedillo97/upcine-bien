@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,8 +6,6 @@
 package controlador;
 
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -23,8 +21,7 @@ import modelo.modeloPelicuas;
 import modelo.modeloProveedor;
 import modelo.modeloProductos;
 import modelo.modeloCombos;
-import modelo.modeloCompras;
-import modelo.modeloPrecios;
+import modelo.modeloVentaBoletos;
 
 
 import vista.IF_Proveedores;
@@ -33,11 +30,7 @@ import vista.IF_peliculas;
 import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
-
-import vista.IF_compras;
-import vista.IF_precios;
-
-import vista.VentaBoletos;
+import vista.IF_Reportes;
 
 /**
  *
@@ -112,31 +105,19 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 controladorProductos conProd = new controladorProductos(vprod, modPro);
                 conProd.iniciarVista();
                 
-                //para las compras
-                IF_compras vCop = new IF_compras();
-                modeloCompras modCo = new modeloCompras();
-                controladorCompras conCo = new controladorCompras(vCop, modCo);
-                conCo.iniciarVista();
-                
-                //para los precios
-                IF_precios pre = new IF_precios();
-                modeloPrecios modPre = new modeloPrecios();
-                controladorPrecios conPre = new controladorPrecios(pre, modPre);
-                conPre.iniciarVista();
+                IF_Reportes vrep = new IF_Reportes();
+                controladorReportes conRep = new controladorReportes(vrep);
+                conRep.iniciarVista();
                 
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom, pre, vCop);
-
-                
-                System.out.println("w");
-
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom,vrep);
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
                 VentaBoletos vBol = new VentaBoletos();
-                ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol);
+                modeloVentaBoletos mVBol = new modeloVentaBoletos();
+                ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol,mVBol,idEmpleado);
                 conVenBol.iniciarVista();
             }
 

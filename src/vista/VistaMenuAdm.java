@@ -5,8 +5,12 @@
  */
 package vista;
 
+import java.awt.Color;
 import javafx.scene.Cursor;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 
 /**
  *
@@ -110,14 +114,8 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         panelEmpleados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panelEmpleados.setPreferredSize(new java.awt.Dimension(158, 40));
         panelEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelEmpleadosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelEmpleadosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelEmpleadosMouseExited(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelEmpleadosMousePressed(evt);
             }
         });
 
@@ -155,12 +153,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         panelFunciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelFuncionesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelFuncionesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelFuncionesMouseExited(evt);
             }
         });
 
@@ -756,18 +748,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void panelFuncionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFuncionesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelFuncionesMouseClicked
-
-    private void panelFuncionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFuncionesMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelFuncionesMouseEntered
-
-    private void panelFuncionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFuncionesMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelFuncionesMouseExited
-
     private void panelPeliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPeliMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_panelPeliMouseClicked
@@ -873,20 +853,38 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelCombosMouseEntered
 
     private void panelCombosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCombosMouseExited
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_panelCombosMouseExited
 
-    private void panelEmpleadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEmpleadosMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelEmpleadosMouseExited
+    private void panelEmpleadosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEmpleadosMousePressed
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+    }//GEN-LAST:event_panelEmpleadosMousePressed
 
-    private void panelEmpleadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEmpleadosMouseEntered
-
-    }//GEN-LAST:event_panelEmpleadosMouseEntered
-
-    private void panelEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEmpleadosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelEmpleadosMouseClicked
+    private void panelFuncionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFuncionesMouseClicked
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelFunciones.setBackground(new java.awt.Color(64, 43, 100));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+    }//GEN-LAST:event_panelFuncionesMouseClicked
 
     /**
      * @param args the command line arguments
