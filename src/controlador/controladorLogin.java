@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,8 +6,6 @@
 package controlador;
 
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -25,13 +23,15 @@ import modelo.modeloProductos;
 import modelo.modeloCombos;
 import modelo.modeloVentaBoletos;
 
+
 import vista.IF_Proveedores;
 import vista.IF_empleados;
 import vista.IF_peliculas;
 import vista.VistaMenuAdm;
 import vista.IF_productos;
 import vista.IF_Combos;
-import vista.VentaBoletos;
+import vista.IF_Reportes;
+
 /**
  *
  * @author Cesar Cedillo
@@ -96,7 +96,7 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 //para los combos
                 IF_Combos vCom = new IF_Combos();
                 modeloCombos modCom = new modeloCombos();
-                controladorCombos conCom = new controladorCombos(vCom,modCom);
+                controladorCombos conCom = new controladorCombos();
                 conCom.iniciarVista();
                 
                 //Para los productos
@@ -105,10 +105,13 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 controladorProductos conProd = new controladorProductos(vprod, modPro);
                 conProd.iniciarVista();
                 
+                IF_Reportes vrep = new IF_Reportes();
+                controladorReportes conRep = new controladorReportes(vrep);
+                conRep.iniciarVista();
+                
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
-                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom);
-                System.out.println("w");
+                ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom,vrep);
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
