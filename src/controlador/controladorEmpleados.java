@@ -158,9 +158,6 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
         else if (vista.panelEliminarEmp == e.getSource()) {
             setColorEliminar(vista.panelEliminarEmp);
         }
-        else if (vista.panelLimpiar == e.getSource()) {
-            setColorLimpiar(vista.panelLimpiar);
-        }
     }
 
     @Override
@@ -173,9 +170,6 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
         }
         else if (vista.panelEliminarEmp == e.getSource()) {
             resetColorEliminar(vista.panelEliminarEmp);
-        }
-        else if (vista.panelLimpiar == e.getSource()) {
-            resetColorLimpiar(vista.panelLimpiar);
         }
     }
     
