@@ -44,7 +44,7 @@ public class vistaFormProductos extends javax.swing.JFrame
         txtProv = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         panelAdd = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        lblAcept = new javax.swing.JLabel();
         panelBack = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
@@ -96,6 +96,12 @@ public class vistaFormProductos extends javax.swing.JFrame
         jLabel4.setForeground(new java.awt.Color(54, 33, 89));
         jLabel4.setText("Cantidad:");
 
+        txtCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCostoKeyTyped(evt);
+            }
+        });
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(54, 33, 89));
         jLabel5.setText("Costo:");
@@ -103,6 +109,12 @@ public class vistaFormProductos extends javax.swing.JFrame
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(54, 33, 89));
         jLabel6.setText("Precio de Venta:");
+
+        txtPrecioVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioVentaKeyTyped(evt);
+            }
+        });
 
         txtProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -122,9 +134,9 @@ public class vistaFormProductos extends javax.swing.JFrame
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Arial Black", 0, 13)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(54, 33, 89));
-        jLabel13.setText(" Agregar");
+        lblAcept.setFont(new java.awt.Font("Arial Black", 0, 13)); // NOI18N
+        lblAcept.setForeground(new java.awt.Color(54, 33, 89));
+        lblAcept.setText(" Agregar");
 
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
         panelAdd.setLayout(panelAddLayout);
@@ -132,14 +144,14 @@ public class vistaFormProductos extends javax.swing.JFrame
             panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAddLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(lblAcept, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         panelAddLayout.setVerticalGroup(
             panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
+                .addComponent(lblAcept)
                 .addContainerGap())
         );
 
@@ -311,6 +323,24 @@ public class vistaFormProductos extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_panelBackMouseExited
 
+    private void txtCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='.') {
+            evt.consume();
+        }
+        if (evt.getKeyChar()=='.' && txtCosto.getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCostoKeyTyped
+
+    private void txtPrecioVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioVentaKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='.') {
+            evt.consume();
+        }
+        if (evt.getKeyChar()=='.' && txtCosto.getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtPrecioVentaKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -359,7 +389,6 @@ public class vistaFormProductos extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -367,6 +396,7 @@ public class vistaFormProductos extends javax.swing.JFrame
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel lblAcept;
     public javax.swing.JLabel lblID;
     public javax.swing.JPanel panelAdd;
     public javax.swing.JPanel panelBack;

@@ -13,10 +13,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class modeloProductos extends modeloPrincipal{
     
-        public String[][] callObtenerDatos(){
+    public String[][] callObtenerDatos(){
         //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
-        String txtQuery = "SELECT IdProducto, Cantidad, Costo, Precio_venta, proveedor_idProveedor, Descripcion \n" +
-                                " FROM producto;";
+        String txtQuery = "SELECT IdProducto, Cantidad, Costo, Precio_venta, proveedor_idProveedor, Descripcion  \n" +
+                                " FROM producto order by Descripcion;";
         return super.obtenerDatos(txtQuery);
     }
    
@@ -32,14 +32,14 @@ public class modeloProductos extends modeloPrincipal{
     
     public DefaultTableModel callFiltrarTabla(String dato){
         String[] columnas = {"Descripcion","Precio","Proveedor","Cantidad"};
-        String Query = "SELECT Descripcion, Precio_venta, Nombre_empresa, Cantidad FROM producto, proveedor WHERE producto.proveedor_idProveedor = proveedor.idProveedor and Descripcion LIKE '"+ dato +"%'";
+        String Query = "SELECT Descripcion, Precio_venta, Nombre_empresa, Cantidad FROM producto, proveedor WHERE producto.proveedor_idProveedor = proveedor.idProveedor and Descripcion LIKE '"+ dato +"%' order by Descripcion";
         return super.filtrarTabla(Query, columnas);
     }
     
     public String[][] callObtenerDatosCombo(){
         //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
-        String txtQuery = "SELECT Nombre_empresa \n" +
-                                " FROM proveedo;";
+        String txtQuery = "SELECT idProveedor, Nombre_empresa \n" +
+                                " FROM proveedor;";
         return super.obtenerDatos(txtQuery);
     }
     

@@ -638,9 +638,9 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelPeli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelFunciones, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                            .addComponent(panelEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)))
+                            .addComponent(panelPeli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(panelFunciones, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(panelEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -731,7 +731,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -742,16 +742,25 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelPeliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPeliMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelPeliMouseClicked
 
     private void panelPeliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPeliMouseEntered
@@ -763,7 +772,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelPeliMouseExited
 
     private void panelProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProductMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelProductMouseClicked
 
     private void panelProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProductMouseEntered
@@ -775,7 +795,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelProductMouseExited
 
     private void panelPreciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPreciosMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelPreciosMouseClicked
 
     private void panelPreciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPreciosMouseEntered
@@ -787,7 +818,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelPreciosMouseExited
 
     private void panelAsientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAsientosMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelAsientosMouseClicked
 
     private void panelAsientosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAsientosMouseEntered
@@ -799,7 +841,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAsientosMouseExited
 
     private void panelProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProvMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelProvMouseClicked
 
     private void panelProvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProvMouseEntered
@@ -811,7 +864,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelProvMouseExited
 
     private void panelComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelComprasMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelComprasMouseClicked
 
     private void panelComprasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelComprasMouseEntered
@@ -823,7 +887,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelComprasMouseExited
 
     private void panelReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelReportesMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelReportesMouseClicked
 
     private void panelReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelReportesMouseEntered
@@ -835,7 +910,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelReportesMouseExited
 
     private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
     }//GEN-LAST:event_panelSalirMouseClicked
 
     private void panelSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseEntered
@@ -847,7 +933,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelSalirMouseExited
 
     private void panelCombosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCombosMouseClicked
-        // TODO add your handling code here:
+        panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+        panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        panelPrecios.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelAsientos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelProv.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelCompras.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelReportes.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        panelSalir.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     }//GEN-LAST:event_panelCombosMouseClicked
 
     private void panelCombosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCombosMouseEntered
