@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -21,7 +21,7 @@ import modelo.modeloPelicuas;
 import modelo.modeloProveedor;
 import modelo.modeloProductos;
 import modelo.modeloCombos;
-
+import modelo.modeloVentaBoletos;
 
 
 import vista.IF_Proveedores;
@@ -115,7 +115,10 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
-                JOptionPane.showMessageDialog(null,"nimodo prro, no eres admin");
+                VentaBoletos vBol = new VentaBoletos();
+                modeloVentaBoletos mVBol = new modeloVentaBoletos();
+                ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol,mVBol,idEmpleado);
+                conVenBol.iniciarVista();
             }
 
         }

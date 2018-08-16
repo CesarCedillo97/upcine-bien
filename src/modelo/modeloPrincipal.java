@@ -93,6 +93,7 @@ public class modeloPrincipal {
             else{
                 mensaje = "Algo ha sucedido";
             }
+            System.out.println(e.getMessage());
             conError = new controladorError(alertError, mensaje);
             conError.iniciarVista();
             return -1;
@@ -168,7 +169,35 @@ public class modeloPrincipal {
             return false;
         }
     }
-    
+    /**
+     * Retorna el valor del iva ya dividido entre 100 por ejemplo 0.18
+     * @return 
+     */
+    public float obtenerIVA(){
+        float iva = -1;
+        Connection con = null;
+        try{
+            con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("SELECT Precio FROM mantenimiento");
+            if(rs.next()){
+                iva = rs.getFloat("Precio")/100;
+            }
+            else{
+                conError = new controladorError(alertError, "No se encontró ningun campo IVA");
+                conError.iniciarVista();
+            }
+            return iva;
+        }
+        catch(SQLException e){
+            conError = new controladorError(alertError, "Hubo un fallo en la conexión");
+            conError.iniciarVista();
+            return -1;
+        }
+        finally{
+            if(con != null) cerrarConexion(con);
+        }
+    }
     /**
      * Sirve para buscar filtrar los datos de la tabla
      * @param SQLQuery Recibe la sentencia a ejecutar en mysql

@@ -7,7 +7,10 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javafx.scene.layout.Border;
 import javax.swing.JFrame;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 import modelo.modeloLogin;
 import vista.VistaMenuAdm;
 
