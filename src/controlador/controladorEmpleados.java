@@ -124,7 +124,6 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
         else if(e.getSource() == vista.panelEditEmp){
             formEmpleado form = new formEmpleado(datos[fila][0],datos[fila][1],datos[fila][2],datos[fila][3],datos[fila][4],datos[fila][5],datos[fila][6],datos[fila][7],datos[fila][8],datos[fila][9]);
             form.iniciarVistaForm();
-            fila = -1;
         }
         else if(e.getSource() == vista.panelEliminarEmp){
             conAcept = new controladorAceptar(alertAccept, "¿Seguro que desea eliminar el registro?");
@@ -341,11 +340,12 @@ public class controladorEmpleados extends ControladorPrincipal implements KeyLis
                         conError.iniciarVista();
                     }
                 }
+                vista.JTable.setModel(modelo.callObtenerDatosTabla());
+                fila = -1;
             }
             else if(e.getSource() == form.panelBack){
                 form.dispose();
             }
-            vista.JTable.setModel(modelo.callObtenerDatosTabla());
         }
 
         @Override
