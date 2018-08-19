@@ -8,7 +8,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.modeloClientes;
@@ -40,6 +55,7 @@ import vista.IF_funciones;
 import vista.IF_precios;
 import vista.IF_salas;
 import vista.VentaBoletos;
+import vista.empleadoOpcionVender;
 
 /**
  *
@@ -47,6 +63,7 @@ import vista.VentaBoletos;
  */
 public class controladorLogin extends ControladorPrincipal implements ActionListener, KeyListener{
   Login vista = new Login();
+  int idEmpleado = -1;
     modeloLogin modelo = new modeloLogin();
     
     
@@ -73,7 +90,6 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
     }
 
     public void verificarInicio(){
-        int idEmpleado = -1;
         int tipoEmpleado;
         String nombre = "";
         if(falloInicio < 5){ //verifica si no se ha fallado en el inicio de sesion más de 5 veces
@@ -153,11 +169,42 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado
-//                VentaBoletos vBol = new VentaBoletos();
-//                modeloVentaBoletos mVBol = new modeloVentaBoletos();
-//                ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol,mVBol,idEmpleado);
-//                conVenBol.iniciarVista();
-
+                if(!existeFichero()){
+                    empleadoOpcionVender opcVender = new empleadoOpcionVender();
+                    opcVender.setVisible(true);
+                    opcVender.setLocationRelativeTo(null);
+                    opcVender.panelProductos.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e){
+                            try {
+                                escribirFichero(new File("src/File/config"),"productos");
+                            } catch (UnsupportedEncodingException ex) {}
+                        }
+                    });
+                    opcVender.panelFunciones.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e){
+                            try {
+                                escribirFichero(new File("src/File/config"),"funciones");
+                                abrirVentanaVenta();
+                            } catch (UnsupportedEncodingException ex) {}
+                        }
+                    });
+                    opcVender.panelBack.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e){
+                            File file = new File("src/File/config");
+                            file.delete();
+                            opcVender.dispose();
+                            vista.setVisible(true);
+                        }
+                    });
+                    this.vista.dispose();
+                    
+                }
+                else{
+                    abrirVentanaVenta();
+                }
 
             }
 
@@ -171,6 +218,64 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 JOptionPane.showMessageDialog(null,"nimodo prro, te quedan "+(5-falloInicio)+" intentos");
             }
         }
+    }
+    
+    public void abrirVentanaVenta(){
+      try {
+          String tipoVenta = leerFichero();
+          if("funciones".equals(tipoVenta)){
+              VentaBoletos vBol = new VentaBoletos();
+              modeloVentaBoletos mVBol = new modeloVentaBoletos();
+              ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol,mVBol,idEmpleado);
+              conVenBol.iniciarVista();
+          }
+          else if("productos".equals(tipoVenta)){
+              
+          }
+      } catch (FileNotFoundException ex) {
+          Logger.getLogger(controladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    }
+    public boolean existeFichero(){
+        File config = new File("src/File/config"); 
+        boolean fileExist = config.exists();
+        if(!fileExist){
+            config.getParentFile().mkdirs();
+            try {
+                config.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(controladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return fileExist;
+    }
+   
+    public void escribirFichero(File conf, String tipoVenta) throws UnsupportedEncodingException{
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+            new FileOutputStream(conf), "utf-8"))) {
+            writer.write(String.valueOf("TipoVenta:"+tipoVenta));
+         }  catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    public String leerFichero() throws FileNotFoundException{
+        Properties prop = new Properties();
+        InputStream is = new FileInputStream("src/File/config");
+        String suc = null;
+        try {
+            prop.load(is);
+            suc = prop.getProperty("TipoVenta");
+            is.close();
+        } catch (IOException ex) {
+            System.out.println("No se pudo cargar el archivo");
+        }
+        if(suc == null)
+        {
+            File file = new File("src/File/config");
+            file.delete();
+        }
+        return prop.getProperty("TipoVenta");
     }
     
     @Override
@@ -205,5 +310,4 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
     {
         
     }
-
 }
