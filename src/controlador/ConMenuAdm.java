@@ -64,6 +64,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.vSal = salas;
         this.vCli = clientes;
         this.vCompr = compras;
+        this.vFun = funciones;
         
         //Aquí va la declaracion de paneles (Internal frames)
         this.Desktop.panelEmpleados.addMouseListener((MouseListener)this); 
