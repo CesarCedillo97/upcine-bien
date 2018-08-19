@@ -195,7 +195,7 @@ public class controladorPrecios extends ControladorPrincipal implements KeyListe
             form.panelBack.addMouseListener(this);
             //form.txtEdad.addKeyListener(this);
             form.setVisible(true);
-            form.title.setText((opcion?"Modificar ":"Agregar ")+"Empleado");
+            form.title.setText((opcion?"Modificar ":"Agregar ")+"precios");
             if(this.opcion == true)
                 llenarInputs();
         }
