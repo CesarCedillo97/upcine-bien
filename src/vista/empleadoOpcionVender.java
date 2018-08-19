@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.Color;
+
 /**
  *
  * @author Cesar Cedillo
@@ -29,7 +31,6 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         panelBack = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -42,7 +43,6 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        lblHora = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,11 +51,6 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(54, 33, 89));
-
-        lblNombre.setBackground(new java.awt.Color(25, 116, 232));
-        lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre.setText("nombre");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/logoChiquito.png"))); // NOI18N
 
@@ -81,6 +76,7 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cancelar");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelBackLayout = new javax.swing.GroupLayout(panelBack);
         panelBack.setLayout(panelBackLayout);
@@ -102,7 +98,7 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(25, 116, 232));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Bienvenido:");
+        jLabel8.setText("Bienvenido");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,11 +107,9 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(160, 160, 160)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(186, 186, 186)
                 .addComponent(panelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -124,9 +118,7 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblNombre)
-                        .addComponent(jLabel8))
+                    .addComponent(jLabel8)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(panelBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)))
@@ -137,6 +129,7 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(54, 33, 89));
         jLabel2.setText("ó");
 
+        panelFunciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelFunciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelFuncionesMouseClicked(evt);
@@ -185,6 +178,7 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
                 .addContainerGap(131, Short.MAX_VALUE))
         );
 
+        panelProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelProductosMouseClicked(evt);
@@ -238,14 +232,10 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
                 .addGap(123, 123, 123))
         );
 
-        lblHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(54, 33, 89));
-        lblHora.setText("Hora");
-
         jLabel11.setBackground(new java.awt.Color(54, 33, 89));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(54, 33, 89));
-        jLabel11.setText("¿Qué desea vender el día de hoy?");
+        jLabel11.setText("¿Que tipo de ventas se realizarán?");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -253,19 +243,13 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(panelProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel2)
-                        .addGap(61, 61, 61)
-                        .addComponent(panelFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 37, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(62, 62, 62)
+                .addComponent(panelProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel2)
+                .addGap(61, 61, 61)
+                .addComponent(panelFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel11)
@@ -282,12 +266,10 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
                         .addGap(174, 174, 174)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(panelFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(lblHora)
                 .addContainerGap())
         );
 
@@ -330,11 +312,11 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
     }//GEN-LAST:event_panelProductosMouseClicked
 
     private void panelProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProductosMouseEntered
-        // TODO add your handling code here:
+        this.panelProductos.setBackground(new Color(220,220,220));
     }//GEN-LAST:event_panelProductosMouseEntered
 
     private void panelProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProductosMouseExited
-        // TODO add your handling code here:
+        this.panelProductos.setBackground(new Color(240,240,240));
     }//GEN-LAST:event_panelProductosMouseExited
 
     private void panelFuncionesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelFuncionesKeyPressed
@@ -346,11 +328,11 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
     }//GEN-LAST:event_panelFuncionesMouseClicked
 
     private void panelFuncionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFuncionesMouseEntered
-        // TODO add your handling code here:
+        this.panelFunciones.setBackground(new Color(220,220,220));
     }//GEN-LAST:event_panelFuncionesMouseEntered
 
     private void panelFuncionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFuncionesMouseExited
-        // TODO add your handling code here:
+        this.panelFunciones.setBackground(new Color(240,240,240));
     }//GEN-LAST:event_panelFuncionesMouseExited
 
     /**
@@ -402,8 +384,6 @@ public class empleadoOpcionVender extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblHora;
-    private javax.swing.JLabel lblNombre;
     public javax.swing.JPanel panelBack;
     public javax.swing.JPanel panelFunciones;
     public javax.swing.JPanel panelProductos;

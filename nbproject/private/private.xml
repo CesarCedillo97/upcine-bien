@@ -3,11 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Adrián%20Scott/Documents/GitHub/upcine-bien/src/modelo/modeloSalas.java</file>
             <file>file:/C:/Users/Adrián%20Scott/Documents/GitHub/upcine-bien/src/controlador/controladorSalas.java</file>
             <file>file:/C:/Users/Adrián%20Scott/Documents/GitHub/upcine-bien/src/controlador/controladorEmpleados.java</file>
             <file>file:/C:/Users/Adrián%20Scott/Documents/GitHub/upcine-bien/src/controlador/controladorFunciones.java</file>
             <file>file:/C:/Users/Adrián%20Scott/Documents/GitHub/upcine-bien/src/vista/forms/AdmFormBoleto.java</file>
+=======
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/modelo/modeloVentaBoletos.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/controlador/controladorLogin.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/modelo/modeloProductos.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/modelo/modeloVentaProductos.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/vista/VentaProductos.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/vista/IF_compras.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/controlador/ControladorVentaProductos.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/controlador/controladorReportes.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/vista/IF_productos.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/controlador/controladorProductos.java</file>
+            <file>file:/C:/Users/Cesar%20Cedillo/Documents/GitHub/upcine-bien/src/controlador/ControladorVentaBoletos.java</file>
+>>>>>>> 39c57c916b8b3d84e3deded36ce5ca9ea387c8e8
         </group>
     </open-files>
 </project-private>
