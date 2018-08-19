@@ -61,6 +61,7 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
         vista.panelEliminar.addMouseListener(this);
         vista.panelLimpiar.addMouseListener(this);
         vista.bucar_txtPro.addKeyListener(this);
+        fila=-1;
         
         vista.JTable.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
             fila = vista.JTable.getSelectedRow();
@@ -94,6 +95,7 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
             vista.lblProveedor.setText("");
             vista.lblDescrip.setText("");
             vista.bucar_txtPro.setText("");
+            fila = -1;
         }
     }
 
@@ -132,16 +134,16 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
                 conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
                 conMessage.iniciarVista();
             }else{
-                conMessage = new controladorMessage(alertMessage, "¿Seguro que desea Eliminar el producto?");
-                conMessage.iniciarVista();
+                conAcept = new controladorAceptar(alertAccept, "¿Seguro que desea Eliminar el producto?");
+                conAcept.iniciarVista();
             }
                 
         }
-        else if (alertMessage.panelAceptar == e.getSource())  {
+        else if (alertAccept.panelAceptar == e.getSource())  {
             if (modelo.eliminarProductos(datos[fila][0])) {
                controladorSucces hecho = new controladorSucces(alertSuccess, "Se ha eliminado Correctamente");
                hecho.iniciarVista();
-               alertMessage.dispose();
+               alertAccept.dispose();
             }else{
                 controladorError nohecho = new controladorError(alertError, "Ha ocurrido un error!");
                 nohecho.iniciarVista();
