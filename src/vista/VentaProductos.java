@@ -21,10 +21,10 @@ public class VentaProductos extends javax.swing.JFrame {
         initComponents();
         dispose();
        // jXDatePicker1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setAlwaysOnTop(true);
-        this.setResizable(false);       
-        this.setUndecorated(true);
+//        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        this.setAlwaysOnTop(true);
+//        this.setResizable(false);       
+//        this.setUndecorated(true);
         //this.setVisible(true);
     }
 
@@ -41,7 +41,7 @@ public class VentaProductos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         panelEliminarCompra = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        panleProd = new javax.swing.JPanel();
+        panelProductos = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         panelCombos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -77,8 +77,8 @@ public class VentaProductos extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(54, 33, 89), 2, true));
 
-        panleProd.setLayout(new java.awt.GridLayout());
-        jScrollPane1.setViewportView(panleProd);
+        panelProductos.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
+        jScrollPane1.setViewportView(panelProductos);
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(54, 33, 89), 2, true));
@@ -242,17 +242,17 @@ public class VentaProductos extends javax.swing.JFrame {
             .addGroup(panelEliminarCompraLayout.createSequentialGroup()
                 .addGroup(panelEliminarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEliminarCompraLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(panelEliminarCompraLayout.createSequentialGroup()
                         .addGap(204, 204, 204)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(180, 180, 180)))
+                        .addGap(180, 180, 180))
+                    .addGroup(panelEliminarCompraLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jScrollPane1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -350,7 +350,7 @@ public class VentaProductos extends javax.swing.JFrame {
     public javax.swing.JPanel panelAceptarCompra;
     public javax.swing.JPanel panelCombos;
     public javax.swing.JPanel panelEliminarCompra;
-    public javax.swing.JPanel panleProd;
+    public javax.swing.JPanel panelProductos;
     public javax.swing.JTextField txtCliente;
     // End of variables declaration//GEN-END:variables
 }
