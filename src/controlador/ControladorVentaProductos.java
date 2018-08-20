@@ -39,6 +39,7 @@ import java.awt.LayoutManager;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
@@ -93,6 +94,8 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
     public void iniciarVista() {
          vista.setLocationRelativeTo(null);
          vista.setVisible(true);
+         vista.setIconImage(new ImageIcon(getClass().getResource("/assets/img/logoChiquito.png")).getImage());
+
          productos=modelo.obtenerProductos();
          combos=modelo.obtenerCombos();
          vista.panelAceptarCompra.addMouseListener(this);
@@ -186,11 +189,21 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
         }
         if (vali<=9) {
             for (int val = vali; val == 10; val++) {
-                JPanel panel = new JPanel(new FlowLayout());
-                panel.setSize(200, 150);
-                panel.setBackground(new Color(161,143,30));
-                panel.setVisible(true);
-                vista.panelCombos.add(panel);
+                JPanel panel = new JPanel();
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.setSize(200, 150);
+            panel.setVisible(true);
+            //Se crea la Precio
+            panel.setBackground(new Color(161,143,30));
+            JLabel labelDesc = new JLabel();
+            //Se crea el Descrip
+            labelDesc.setForeground(Color.white);
+            labelDesc.setFont(new Font("Segue UI", Font.PLAIN, 20));
+
+
+            //AGREGar
+            vista.panelCombos.add(panel);
+            cont++;
             }
             
         }
@@ -397,7 +410,8 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
         @Override
         public void keyReleased(KeyEvent e) {
             if (vistaF.txtPago == e.getSource()) {
-                float recibido = Float.parseFloat(vistaF.txtPago.getText());
+                if (!"".equals(vistaF.txtPago.getText())) {
+                    float recibido = Float.parseFloat(vistaF.txtPago.getText());
                 float Ftotal = Float.parseFloat(this.TotalP);
                 if (recibido >= Ftotal) {
                     float cambio = Ftotal-recibido;
@@ -407,6 +421,10 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
                     vistaF.lblCambio.setText("0");
                     vistaF.panelConfirm.setEnabled(false);
                 }
+                }else{
+                    vistaF.lblCambio.setText("0");
+                }
+                
             }
         }
         

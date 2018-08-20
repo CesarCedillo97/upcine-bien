@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Locale;
 import javafx.scene.layout.Border;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
@@ -135,7 +136,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         //algun setModel para la tabla de la primer pantalla (si es que tiene)... seria libros
         //dejo lo siguiente como ejemplo
         //vista.Administrador_Usuarios_TablaUsuarios_Table.setModel(modelo.usuariosUsuariosConsultar());
-
+        Desktop.setIconImage(new ImageIcon(getClass().getResource("/assets/img/logoChiquito.png")).getImage());
     }
 
 

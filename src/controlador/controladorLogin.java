@@ -59,6 +59,8 @@ import vista.IF_salas;
 import vista.VentaBoletos;
 import vista.empleadoOpcionVender;
 import vista.VentaProductos;
+import vista.alerts.*;
+import controlador.conAlerts.*;
 
 /**
  *
@@ -219,10 +221,14 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
         else{   //si no encuentra una coincidencia
             falloInicio++; 
             if(falloInicio >=5){ //no permite iniciar sesión despues de 5 fallas en el inicio de sesión
-               JOptionPane.showMessageDialog(null,"nimodo prro, ya petaste");
+                alertMessage alMess = new alertMessage();
+                controladorMessage conMess = new controladorMessage(alMess, "Cuenta bloqueada, llamar al Administrador");
+                conMess.iniciarVista();
             }
             else{
-                JOptionPane.showMessageDialog(null,"nimodo prro, te quedan "+(5-falloInicio)+" intentos");
+                alertMessage alMess = new alertMessage();
+                controladorMessage conMess = new controladorMessage(alMess, "Usuario o contraseña incorrectos, te quedan "+(5-falloInicio)+" intentos");
+                conMess.iniciarVista();
             }
         }
     }

@@ -98,6 +98,7 @@ public class ControladorVentaBoletos extends ControladorPrincipal implements Cha
     public void iniciarVista() {
         vista.setLocationRelativeTo(null);
         tiposBoletos = modelo.obtenerTiposBoletos();
+        vista.setIconImage(new ImageIcon(getClass().getResource("/assets/img/logoChiquito.png")).getImage());
         funciones = modelo.obtenerPeliculas();
         IVA = modelo.obtenerIVA();
         int numTipos = tiposBoletos.length;

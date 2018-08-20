@@ -88,7 +88,7 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
             });
             
             datosLista=modelo.obtenerProductos(datos[fila][0]);
-            vista.tablaLista.setModel(modelo.callObtenerDatosTablaLista(datos[fila][0]));
+            vista.tablaLista.setModel(modelo.obtenerDatosTablaLista(datos[fila][0]));
 
         }
     }

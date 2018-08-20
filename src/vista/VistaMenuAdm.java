@@ -6,8 +6,10 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.Image;
 import javafx.scene.Cursor;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
@@ -35,6 +37,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         panelReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        
     }
 
     /**
@@ -99,9 +102,14 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        panelVentas = new org.jdesktop.swingx.JXPanel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         Desktop = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(54, 33, 89));
@@ -467,7 +475,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addGap(14, 14, 14)
                         .addComponent(jLabel31)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         panelComprasLayout.setVerticalGroup(
             panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -597,7 +605,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("Clientes");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/emp.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/clientes.png"))); // NOI18N
 
         javax.swing.GroupLayout panelClientesLayout = new javax.swing.GroupLayout(panelClientes);
         panelClientes.setLayout(panelClientesLayout);
@@ -659,7 +667,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                     .addGroup(panelSalirLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel35)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -675,6 +683,56 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                     .addGroup(panelSalirLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+
+        panelVentas.setBackground(new java.awt.Color(85, 65, 118));
+        panelVentas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelVentas.setPreferredSize(new java.awt.Dimension(101, 40));
+        panelVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelVentasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelVentasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelVentasMouseExited(evt);
+            }
+        });
+
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("Ventas");
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/venta.png"))); // NOI18N
+
+        javax.swing.GroupLayout panelVentasLayout = new javax.swing.GroupLayout(panelVentas);
+        panelVentas.setLayout(panelVentasLayout);
+        panelVentasLayout.setHorizontalGroup(
+            panelVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentasLayout.createSequentialGroup()
+                .addGroup(panelVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel42)
+                    .addGroup(panelVentasLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel41)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelVentasLayout.setVerticalGroup(
+            panelVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVentasLayout.createSequentialGroup()
+                .addComponent(jLabel42)
+                .addGroup(panelVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVentasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel41)
+                        .addGap(16, 16, 16))
+                    .addGroup(panelVentasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 
@@ -716,12 +774,15 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                                     .addComponent(panelProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 2, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                            .addComponent(panelClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                            .addComponent(panelCompras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                            .addComponent(panelReportes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(panelCompras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(panelReportes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(panelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -756,7 +817,9 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(panelClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1023,7 +1086,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelEmpleadosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEmpleadosMousePressed
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+//        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -1077,6 +1140,18 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelClientesMouseExited
 
+    private void panelVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelVentasMouseClicked
+
+    private void panelVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentasMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelVentasMouseEntered
+
+    private void panelVentasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentasMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelVentasMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -1120,6 +1195,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1147,6 +1223,8 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1167,6 +1245,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     public org.jdesktop.swingx.JXPanel panelProv;
     public org.jdesktop.swingx.JXPanel panelReportes;
     public org.jdesktop.swingx.JXPanel panelSalir;
+    public org.jdesktop.swingx.JXPanel panelVentas;
     // End of variables declaration//GEN-END:variables
 
 
