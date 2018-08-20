@@ -21,13 +21,13 @@
 	<field name="Fecha" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Subtotal" class="java.lang.Float">
+	<field name="Subtotal" class="java.lang.Double">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="IVA" class="java.lang.Float">
+	<field name="IVA" class="java.lang.Double">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Total" class="java.lang.Float">
+	<field name="Total" class="java.lang.Double">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="NOMBRE_EMPLEADO" class="java.lang.String"/>
@@ -36,7 +36,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="83" splitType="Stretch">
+		<band height="105" splitType="Stretch">
 			<staticText>
 				<reportElement x="165" y="11" width="224" height="50" uuid="c26725bb-c3d4-4e45-bcb6-d30248cd861b"/>
 				<textElement>
@@ -49,8 +49,8 @@
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="48" y="11" width="90" height="68" uuid="dc22a0d9-4ba0-4d07-a227-7d57a2d027f1"/>
-				<imageExpression><![CDATA["C:\\Users\\Adrián Scott\\Documents\\GitHub\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
+				<reportElement x="24" y="11" width="114" height="79" uuid="575c4c4b-2ec2-4d0f-b78c-494b2fd3b8cc"/>
+				<imageExpression><![CDATA["C:\\Users\\Jesus\\OneDrive\\Documentos\\GitHub\\UpCine\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

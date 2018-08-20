@@ -36,7 +36,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="94" splitType="Stretch">
+		<band height="106" splitType="Stretch">
 			<staticText>
 				<reportElement x="165" y="11" width="224" height="50" uuid="c26725bb-c3d4-4e45-bcb6-d30248cd861b"/>
 				<textElement>
@@ -49,8 +49,8 @@
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="49" y="11" width="90" height="68" uuid="3c703747-c789-408b-841c-662d894ad51d"/>
-				<imageExpression><![CDATA["C:\\Users\\Adrián Scott\\Documents\\GitHub\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
+				<reportElement x="36" y="11" width="114" height="79" uuid="46826db4-ef23-49c8-89e7-831ebdc42ffa"/>
+				<imageExpression><![CDATA["C:\\Users\\Jesus\\OneDrive\\Documentos\\GitHub\\UpCine\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
