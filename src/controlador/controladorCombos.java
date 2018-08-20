@@ -12,14 +12,12 @@ import java.awt.event.MouseListener;
 import vista.IF_Combos;
 import modelo.modeloCombos;
 import controlador.conAlerts.controladorSucces;
-<<<<<<< HEAD
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
-=======
+
 import javax.swing.event.ListSelectionEvent;
->>>>>>> 34f7d505e1b7daaa086739c30c30bff15b62f478
 import vista.alerts.alertAccept;
 import vista.alerts.alertError;
 import vista.alerts.alertMessage;
@@ -65,20 +63,16 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
         vista.panelEditar.addMouseListener(this);
         vista. panelEliminar.addMouseListener(this);
         vista.panelLimpiar.addMouseListener(this);
-<<<<<<< HEAD
         vista.bucar_txtCombos.addKeyListener(this);
         fila=0;
         
         datos=modelo.callObtenerDatos();
-=======
         fila=-1;
->>>>>>> 34f7d505e1b7daaa086739c30c30bff15b62f478
         vista.tablaCombos.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
             fila = vista.tablaCombos.getSelectedRow();
             llenarDatos();
         });
         
-<<<<<<< HEAD
         vista.tablaCombos.setModel(modelo.callObtenerDatosTabla());
         
     }
@@ -109,21 +103,11 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
         DefaultTableModel modelitoVacio = new DefaultTableModel();
 
         vista.tablaLista.setModel(modelitoVacio);
-    }
     
-=======
         datos = modelo.callObtenerDatos();
         vista.tablaCombos.setModel(modelo.callObtenerDatosTabla());
     }
     
-    public void llenarDatos(){
-        if(fila!=-1){
-            vista.lblPrecioCombo.setText(datos[fila][1]);
-            vista.lblNombre.setText(datos[fila][1]);
-            vista.tablaLista.setModel(modelo.obtenerDatosTablaLista(datos[fila][0]));
-        }
-    }
->>>>>>> 34f7d505e1b7daaa086739c30c30bff15b62f478
     @Override
     public void mouseClicked(MouseEvent e) {
         
