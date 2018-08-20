@@ -30,6 +30,10 @@ public abstract class ControladorPrincipal
         panel.setBackground(new java.awt.Color(85,65,118));
     }
     
+    public void resetColorNormalAz(JPanel panel){
+        panel.setBackground(new java.awt.Color(54,33,89));
+    }
+    
     public void resetColorSalir(JPanel panel){
         panel.setBackground(new java.awt.Color(25,116,232));
     }

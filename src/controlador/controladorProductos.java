@@ -106,16 +106,11 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
     @Override
     public void mousePressed(java.awt.event.MouseEvent e) {
         if (vista.panelAgregar == e.getSource()) {
-            if(fila==-1){
-                conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
-                conMessage.iniciarVista();
-            }else{
-                this.vista.setEnabled(false);
-                formProductos vistaForm = new formProductos();
-                vistaForm.iniciarVista();
-            }
-            
+            this.vista.setEnabled(false);
+            formProductos vistaForm = new formProductos();
+            vistaForm.iniciarVista();
         }
+            
         else if (vista.panelEditar == e.getSource()) {
             if(fila==-1){
                 conMessage = new controladorMessage(alertMessage, "Primero debes seleccionar un campo de la tabla");
@@ -145,7 +140,7 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
                hecho.iniciarVista();
                alertAccept.dispose();
             }else{
-                controladorError nohecho = new controladorError(alertError, "Ha ocurrido un error!");
+                controladorError nohecho = new controladorError(alertError, "Este Producto está en un combo!");
                 nohecho.iniciarVista();
             }
             
@@ -289,6 +284,8 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
                         if (modelo.insertarProductos(cant, costo, precio, idProv, descrip)) {
                             controladorSucces hecho = new controladorSucces(alertSuccess, "Se ha insertado Correctamente");
                             hecho.iniciarVista();
+                            vista.JTable.setModel(modelo.callObtenerDatosTabla());
+                            vistaF.dispose();
                             
                         }else{
                             controladorError nohecho = new controladorError(alertError, "Ha ocurrido un error!");
@@ -304,6 +301,8 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
                         if (modelo.modificarProductos(id, cant, costo, precio, idProv, descrip)) {
                             controladorSucces hecho = new controladorSucces(alertSuccess, "Se ha Modificado Correctamente");
                             hecho.iniciarVista();
+                            vista.JTable.setModel(modelo.callObtenerDatosTabla());
+                            vistaF.dispose();
                         }else{
                             controladorError nohecho = new controladorError(alertError, "Ha ocurrido un error!");
                             nohecho.iniciarVista();

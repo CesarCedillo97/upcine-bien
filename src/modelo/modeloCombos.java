@@ -15,24 +15,41 @@ public class modeloCombos extends modeloPrincipal{
     
     public String[][] callObtenerDatos(){
         //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
-        String txtQuery = "SELECT IdProducto, Cantidad, Costo, Precio_venta, proveedor_idProveedor, Descripcion \n" +
-                                " FROM producto;";
+        String txtQuery = "SELECT * FROM combos;";
         return super.obtenerDatos(txtQuery);
     }
+    
+    public String[][] obtenerProductos(String idCombo){
+        //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
+        String txtQuery = "SELECT * FROM detalles_combos where id_IdCombo = '"+idCombo+"';";
+        return super.obtenerDatos(txtQuery);
+    }
+    
+    
    
     public DefaultTableModel callObtenerDatosTabla(){
         //txtQueryTabla es la consulta que jalará los datos que irán en la tabla solamente
-        String txtQueryTabla = "SELECT Descripcion, Precio_venta, Nombre_empresa, Cantidad FROM producto, proveedor WHERE producto.proveedor_idProveedor = proveedor.idProveedor order by Descripcion;";
+        String txtQueryTabla = "SELECT nombre, precio FROM combos;";
         //Se obtienen los datos de la consulta de la tabla
         String[][] datosTabla = super.obtenerDatos(txtQueryTabla);
         //Se declaran los nombres de las columnas que llevará la table (Esta madre no tiene nada que ver con la base de datos si no con JTable)
-        String[] columnasTabla = new String[]{"Descripcion","Precio","Proveedor","Cantidad"};
+        String[] columnasTabla = new String[]{"Nombre","Precio"};
+        return obtenerDatosTabla(datosTabla, columnasTabla);
+    }
+    
+    public DefaultTableModel callObtenerDatosTablaLista(String idCombo){
+        //txtQueryTabla es la consulta que jalará los datos que irán en la tabla solamente
+        String txtQueryTabla = "SELECT  Descripcion, detalles_combos.cantidad FROM producto, detalles_combos where id_IdCombo = "+idCombo+" and detalles_combos.id_IdProductos = producto.IdProducto;";
+        //Se obtienen los datos de la consulta de la tabla
+        String[][] datosTabla = super.obtenerDatos(txtQueryTabla);
+        //Se declaran los nombres de las columnas que llevará la table (Esta madre no tiene nada que ver con la base de datos si no con JTable)
+        String[] columnasTabla = new String[]{"Descripcón","Cantidad"};
         return obtenerDatosTabla(datosTabla, columnasTabla);
     }
     
     public DefaultTableModel callFiltrarTabla(String dato){
-        String[] columnas = {"Descripcion","Precio","Proveedor","Cantidad"};
-        String Query = "SELECT Descripcion, Precio_venta, Nombre_empresa, Cantidad FROM producto, proveedor WHERE producto.proveedor_idProveedor = proveedor.idProveedor and Descripcion LIKE '"+ dato +"%'";
+        String[] columnas = {"Nombre","Precio"};
+        String Query = "SELECT nombre, precio FROM combos WHERE nombre LIKE '"+ dato +"%'";
         return super.filtrarTabla(Query, columnas);
     }
     

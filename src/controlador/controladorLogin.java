@@ -40,6 +40,8 @@ import modelo.modeloFunciones;
 import modelo.modeloPrecios;
 import modelo.modeloSalas;
 import modelo.modeloVentaBoletos;
+import modelo.modeloVentaProductos;
+
 
 
 import vista.IF_Proveedores;
@@ -56,6 +58,7 @@ import vista.IF_precios;
 import vista.IF_salas;
 import vista.VentaBoletos;
 import vista.empleadoOpcionVender;
+import vista.VentaProductos;
 
 /**
  *
@@ -178,6 +181,8 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                         public void mouseClicked(MouseEvent e){
                             try {
                                 escribirFichero(new File("src/File/config"),"productos");
+                                abrirVentanaVenta();
+                                opcVender.dispose();
                             } catch (UnsupportedEncodingException ex) {}
                         }
                     });
@@ -187,6 +192,7 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                             try {
                                 escribirFichero(new File("src/File/config"),"funciones");
                                 abrirVentanaVenta();
+                                opcVender.dispose();
                             } catch (UnsupportedEncodingException ex) {}
                         }
                     });
@@ -230,7 +236,10 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
               conVenBol.iniciarVista();
           }
           else if("productos".equals(tipoVenta)){
-              
+              VentaProductos vProd = new VentaProductos();
+              modeloVentaProductos modVentProd = new modeloVentaProductos();
+              ControladorVentaProductos conVProd = new ControladorVentaProductos(vProd, modVentProd, idEmpleado);
+              conVProd.iniciarVista();
           }
       } catch (FileNotFoundException ex) {
           Logger.getLogger(controladorLogin.class.getName()).log(Level.SEVERE, null, ex);
