@@ -20,8 +20,17 @@ import controlador.conAlerts.controladorAceptar;
 import controlador.conAlerts.controladorError;
 import controlador.conAlerts.controladorMessage;
 import controlador.conAlerts.controladorSucces;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.plaf.basic.BasicComboBoxRenderer;
 
 /**
  *
@@ -33,11 +42,16 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
     private int ID;
     
     private String[][] productos, combos;
+    
+    JLabel[] products;
+    JPanel[] panelesProductos;
+    JSpinner[] spiners;
 
     public ControladorVentaProductos(VentaProductos vistaP, modeloVentaProductos modeloP, int id) {
         this.vista=vistaP;
         this.modelo = modeloP;
         this.ID = id;
+        
     }
     
     
@@ -45,6 +59,52 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
     @Override
     public void iniciarVista() {
          vista.setLocationRelativeTo(null);
+         vista.setVisible(true);
+         productos=modelo.obtenerProductos();
+         combos=modelo.obtenerCombos();
+         
+         llenarCombos();
+         llenarProductos();
+    }
+    
+    
+    public void llenarProductos(){
+        panelesProductos = new JPanel[productos.length];
+        spiners = new JSpinner[productos.length];
+        int cont =0;
+        for(String[] strings: productos){
+            System.out.println(""+cont);
+            JPanel panel = new JPanel();
+            panel.setSize(200, 150);
+            panel.setVisible(true);
+            panel.setBackground(new Color(cont*15,cont*10,cont*20));
+            JLabel labelDesc = new JLabel();
+            JLabel labelPrec = new JLabel();
+            labelDesc.setText(strings[5]);
+            labelDesc.setForeground(Color.white);
+            panel.add(labelDesc);
+            labelPrec.setText("$"+strings[3]);
+            labelPrec.setForeground(Color.white);
+            panel.add(labelPrec);
+            panel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            vista.panelProductos.add(panel);
+            cont++;
+        }
+        
+    }
+    
+    
+    public void llenarCombos(){
+        int cont =0;
+        for(String[] strings: combos){
+            System.out.println(""+cont);
+            JPanel panel = new JPanel();
+            panel.setSize(200, 150);
+            panel.setVisible(true);
+            panel.setBackground(new Color(200,200,200));
+            vista.panelCombos.add(panel);
+            cont++;
+        }
     }
 
     @Override
