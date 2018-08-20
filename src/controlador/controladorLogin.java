@@ -31,7 +31,7 @@ import modelo.modeloEmpleados;
 
 import vista.Login;
 import modelo.modeloLogin;
-import modelo.modeloPelicuas;
+import modelo.modeloPeliculas;
 import modelo.modeloProveedor;
 import modelo.modeloProductos;
 import modelo.modeloCombos;
@@ -112,8 +112,9 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
             
                 //Para las pelis
                 IF_peliculas peli = new IF_peliculas();
-                modeloPelicuas modPeli = new modeloPelicuas();
+                modeloPeliculas modPeli = new modeloPeliculas();
                 controladorPeliculas conPeli = new controladorPeliculas(peli, modPeli);
+                conPeli.iniciarVista();
 
                 //Para los proveedores
                 IF_Proveedores prove = new IF_Proveedores();
