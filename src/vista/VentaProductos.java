@@ -20,6 +20,10 @@ public class VentaProductos extends javax.swing.JFrame {
     public VentaProductos() {
         initComponents();
         dispose();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setAlwaysOnTop(false);
+        this.setResizable(false);       
+        this.setUndecorated(true);
        // jXDatePicker1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 //        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        this.setAlwaysOnTop(true);

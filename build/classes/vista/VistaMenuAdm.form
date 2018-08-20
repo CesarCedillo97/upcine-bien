@@ -92,8 +92,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelProv" alignment="1" pref="220" max="32767" attributes="0"/>
-                                  <Component id="panelAsientos" pref="220" max="32767" attributes="0"/>
+                                  <Component id="panelProv" alignment="1" pref="222" max="32767" attributes="0"/>
+                                  <Component id="panelAsientos" pref="222" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -122,18 +122,18 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelClientes" alignment="1" pref="220" max="32767" attributes="0"/>
-                                  <Component id="panelCompras" alignment="1" pref="220" max="32767" attributes="0"/>
-                                  <Component id="panelReportes" alignment="1" pref="220" max="32767" attributes="0"/>
+                                  <Component id="panelClientes" alignment="1" pref="222" max="32767" attributes="0"/>
+                                  <Component id="panelCompras" alignment="1" pref="222" max="32767" attributes="0"/>
+                                  <Component id="panelReportes" alignment="1" pref="222" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="panelSalir" min="-2" pref="87" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="panelVentas" pref="126" max="32767" attributes="0"/>
+                                      <Component id="panelVentas" pref="129" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

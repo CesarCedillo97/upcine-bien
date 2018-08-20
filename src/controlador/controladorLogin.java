@@ -172,6 +172,7 @@ public class controladorLogin extends ControladorPrincipal implements ActionList
                 //Para la pantalla principal del desktop
                 VistaMenuAdm vistaMenu = new VistaMenuAdm();
                 ConMenuAdm newCalis = new ConMenuAdm(vistaMenu, emp, peli,prove,vprod, vCom, vrep, vpre, vfun, vsal, vcli, vcompr);
+                newCalis.idEmpleado = idEmpleado;
                 newCalis.iniciarVista();
             }
             else if(tipoEmpleado==2){   //si es empleado

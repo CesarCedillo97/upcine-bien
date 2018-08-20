@@ -37,6 +37,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         panelReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
     }
 
@@ -870,7 +871,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelPeliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPeliMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -894,7 +894,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProductMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
@@ -918,7 +917,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelPreciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPreciosMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -942,7 +940,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelAsientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAsientosMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -966,7 +963,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelProvMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -990,7 +986,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelComprasMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -1014,7 +1009,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelReportesMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -1038,7 +1032,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
+       
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -1062,7 +1056,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
 
     private void panelCombosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCombosMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelEmpleados.setBackground(new java.awt.Color(64, 43, 100));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -1103,7 +1096,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     private void panelFuncionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFuncionesMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
-        panelFunciones.setBackground(new java.awt.Color(64, 43, 100));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -1119,7 +1111,6 @@ public class VistaMenuAdm extends javax.swing.JFrame {
     private void panelClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelClientesMouseClicked
         panelEmpleados.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelFunciones.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        panelFunciones.setBackground(new java.awt.Color(64, 43, 100));
         panelPeli.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelProduct.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         panelCombos.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));

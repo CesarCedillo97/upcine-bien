@@ -5,9 +5,14 @@
  */
 package controlador;
 
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.layout.Border;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -32,6 +37,9 @@ import vista.IF_compras;
 import vista.IF_funciones;
 import vista.IF_precios;
 import vista.IF_salas;
+import vista.VentaBoletos;
+import vista.VentaProductos;
+import vista.empleadoOpcionVender;
 /**
  *
  * @author Cesar Cedillo
@@ -50,7 +58,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
     IF_salas vSal = new IF_salas();
     IF_clientes vCli = new IF_clientes();
     IF_compras vCompr = new IF_compras();
-    
+    int idEmpleado;
     //agancaso omiso a este comentrios
     
     public ConMenuAdm(VistaMenuAdm vista, IF_empleados vistaEmp, IF_peliculas vistaPeli, IF_Proveedores vistaProv, IF_productos productos ,IF_Combos combos,IF_Reportes reportes, IF_precios precios, IF_funciones funciones, IF_salas salas, IF_clientes clientes, IF_compras compras) { // se declaran todos los componentes que se van a mostrar dentro del constructor
@@ -81,6 +89,7 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         this.Desktop.panelSalir.addMouseListener((MouseListener)this);
         this.Desktop.panelClientes.addMouseListener((MouseListener)this);
         this.Desktop.panelReportes.addMouseListener((MouseListener)this);
+        this.Desktop.panelVentas.addMouseListener((MouseListener)this);
         
         //Aquí se agregan al desktop
         this.Desktop.Desktop.add(vEmp);
@@ -186,6 +195,49 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
             controladorLogin control = new controladorLogin(modeloL, vistaL);
             control.iniciarVista();
         }
+        else if (Desktop.panelVentas == e.getSource()){
+            Desktop.dispose();
+            empleadoOpcionVender opcVender = new empleadoOpcionVender();
+            opcVender.setLocationRelativeTo(null);
+            opcVender.setVisible(true);
+            opcVender.panelProductos.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    opcVender.dispose();
+                    abrirVentanaVenta("productos");
+                }
+                @Override
+                public void mouseEntered(MouseEvent e){
+                    opcVender.panelProductos.setBackground(new Color(220,220,220));
+                }
+                @Override
+                public void mouseExited(MouseEvent e){
+                    opcVender.panelProductos.setBackground(new Color(240,240,240));
+                }
+            });
+            opcVender.panelFunciones.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    opcVender.dispose();
+                    abrirVentanaVenta("funciones");
+                }
+                @Override
+                public void mouseEntered(MouseEvent e){
+                    opcVender.panelFunciones.setBackground(new Color(220,220,220));
+                }
+                @Override
+                public void mouseExited(MouseEvent e){
+                    opcVender.panelFunciones.setBackground(new Color(240,240,240));
+                }
+            });
+            opcVender.panelBack.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    opcVender.dispose();
+                    Desktop.setVisible(true);
+                }
+            });
+        }
     }
 
     @Override
@@ -231,6 +283,12 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         else if (Desktop.panelSalir == e.getSource()) {
             setColor(Desktop.panelSalir);
         }
+        else if (Desktop.panelVentas == e.getSource()) {
+            setColor(Desktop.panelVentas);
+        }
+        else if (Desktop.panelClientes == e.getSource()) {
+            setColor(Desktop.panelClientes);
+        }
     }
 
     @Override
@@ -268,8 +326,27 @@ public class ConMenuAdm extends ControladorPrincipal implements MouseListener{
         else if (Desktop.panelSalir == e.getSource()) {
             resetColor(Desktop.panelSalir);
         }
+        else if (Desktop.panelVentas == e.getSource()) {
+            resetColor(Desktop.panelVentas);
+        }
+        else if (Desktop.panelClientes == e.getSource()) {
+            resetColor(Desktop.panelClientes);
+        }
     }
     
-    
+    public void abrirVentanaVenta(String tipoVenta){
+          if("funciones".equals(tipoVenta)){
+              VentaBoletos vBol = new VentaBoletos();
+              modeloVentaBoletos mVBol = new modeloVentaBoletos();
+              ControladorVentaBoletos conVenBol = new ControladorVentaBoletos(vBol,mVBol,idEmpleado);
+              conVenBol.iniciarVista();
+          }
+          else if("productos".equals(tipoVenta)){
+              VentaProductos vProd = new VentaProductos();
+              modeloVentaProductos modVentProd = new modeloVentaProductos();
+              ControladorVentaProductos conVProd = new ControladorVentaProductos(vProd, modVentProd, idEmpleado);
+              conVProd.iniciarVista();
+          }
+      }
     
 }

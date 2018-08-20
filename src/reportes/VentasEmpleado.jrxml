@@ -49,8 +49,8 @@
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="51" y="11" width="87" height="60" uuid="616bc9bd-eb48-4203-9999-45ad0562fb34"/>
-				<imageExpression><![CDATA["C:\Users\Adrián Scott\Documents\GitHub\upcine-bien\src\assets\img\logoChido.jpg"]]></imageExpression>
+				<reportElement x="48" y="11" width="90" height="68" uuid="dc22a0d9-4ba0-4d07-a227-7d57a2d027f1"/>
+				<imageExpression><![CDATA["C:\\Users\\Adrián Scott\\Documents\\GitHub\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

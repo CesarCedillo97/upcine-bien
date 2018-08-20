@@ -49,8 +49,8 @@
 				<text><![CDATA[Reporte de Ventas]]></text>
 			</staticText>
 			<image>
-				<reportElement x="45" y="13" width="83" height="60" uuid="66cb7475-06be-4701-b554-9cc834437e53"/>
-				<imageExpression><![CDATA["C:\Users\Adrián Scott\Documents\GitHub\upcine-bien\src\assets\img\logoChido.jpg"]]></imageExpression>
+				<reportElement x="26" y="13" width="90" height="68" uuid="3a8391e4-a016-4aba-876b-73bf42a74e78"/>
+				<imageExpression><![CDATA["C:\\Users\\Adrián Scott\\Documents\\GitHub\\upcine-bien\\src\\assets\\img\\logoChido.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
