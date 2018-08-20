@@ -306,7 +306,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Precios");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/emp.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/precios chico.png"))); // NOI18N
 
         javax.swing.GroupLayout panelPreciosLayout = new javax.swing.GroupLayout(panelPrecios);
         panelPrecios.setLayout(panelPreciosLayout);
@@ -320,7 +320,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(14, 14, 14)
                         .addComponent(jLabel25)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         panelPreciosLayout.setVerticalGroup(
             panelPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,7 +355,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Sala y asientos");
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/emp.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/seats.png"))); // NOI18N
 
         javax.swing.GroupLayout panelAsientosLayout = new javax.swing.GroupLayout(panelAsientos);
         panelAsientos.setLayout(panelAsientosLayout);
@@ -453,7 +453,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Compras");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/emp.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/compras.png"))); // NOI18N
 
         javax.swing.GroupLayout panelComprasLayout = new javax.swing.GroupLayout(panelCompras);
         panelCompras.setLayout(panelComprasLayout);
@@ -467,7 +467,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addGap(14, 14, 14)
                         .addComponent(jLabel31)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         panelComprasLayout.setVerticalGroup(
             panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -502,7 +502,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Reportes");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/emp.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/reportes.png"))); // NOI18N
 
         javax.swing.GroupLayout panelReportesLayout = new javax.swing.GroupLayout(panelReportes);
         panelReportes.setLayout(panelReportesLayout);
@@ -551,7 +551,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Combos");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/soda.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/popcornchico.png"))); // NOI18N
 
         javax.swing.GroupLayout panelCombosLayout = new javax.swing.GroupLayout(panelCombos);
         panelCombos.setLayout(panelCombosLayout);
@@ -597,7 +597,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("Clientes");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/salir.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/emp.png"))); // NOI18N
 
         javax.swing.GroupLayout panelClientesLayout = new javax.swing.GroupLayout(panelClientes);
         panelClientes.setLayout(panelClientesLayout);
@@ -647,7 +647,7 @@ public class VistaMenuAdm extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Salir");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/salir.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/quit.png"))); // NOI18N
 
         javax.swing.GroupLayout panelSalirLayout = new javax.swing.GroupLayout(panelSalir);
         panelSalir.setLayout(panelSalirLayout);
@@ -687,9 +687,9 @@ public class VistaMenuAdm extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelPeli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(panelFunciones, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(panelEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
+                            .addComponent(panelPeli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(panelFunciones, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(panelEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

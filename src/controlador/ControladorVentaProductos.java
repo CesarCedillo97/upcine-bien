@@ -36,6 +36,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.LayoutManager;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
@@ -43,6 +45,8 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.JFormattedTextField;
+import vista.forms.EmpConfirmVentaProd;
+
 
 
 /**
@@ -137,6 +141,9 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
             panel.add(spinner);
             panel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             vista.panelProductos.add(panel);
+            panelesProductos[cont] = panel;
+            spiners[cont]=spinner;
+            
             cont++;
         }
         
@@ -191,7 +198,9 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
     
     public void limpiarDatos(){
         IVA=modelo.obtenerIVA();
-         vista.lblIva.setText(Float.toString(IVA));         
+         vista.lblIva.setText(Float.toString(IVA)); 
+         vista.panelCombos.removeAll();
+         vista.panelProductos.removeAll();
          llenarCombos();
          llenarProductos();
          vista.lblSubtotal.setText("");
@@ -310,6 +319,88 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
             System.err.println("Unexpected editor type: " + spinner.getEditor().getClass() + " isn't a descendant of DefaultEditor");
             return null;
         }
+    }
+    //**********************************************************************************************************************************
+        //**********************************************************************************************************************************
+    
+    public class FormVentaProductos extends ControladorPrincipal implements MouseListener, KeyListener{
+        EmpConfirmVentaProd vistaF = new EmpConfirmVentaProd();
+        String TotalP;
+        
+        public FormVentaProductos(EmpConfirmVentaProd vistaFP, String total) {
+            this.TotalP= total;
+            this.vistaF= vistaFP;
+        }
+
+        @Override
+        public void iniciarVista() {
+            vistaF.setVisible(true);
+            vistaF.setLocationRelativeTo(null);
+            
+            vistaF.panelCanel.addMouseListener(this);
+            vistaF.panelConfirm.addMouseListener(this);
+            vistaF.panelConfirm.setEnabled(false);
+            
+            vistaF.lblTotal.setText(TotalP);
+            
+            vistaF.txtPago.addKeyListener(this);
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent me) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent me) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            if (vistaF.panelConfirm == e.getSource()) {
+                
+            }else if (vistaF.panelCanel == e.getSource()) {
+                
+            }
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            if (vistaF.panelConfirm == e.getSource()) {
+                
+            }else if (vistaF.panelCanel == e.getSource()) {
+                
+            }
+        }
+
+        @Override
+        public void keyTyped(KeyEvent ke) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent ke) {
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            if (vistaF.txtPago == e.getSource()) {
+                float recibido = Float.parseFloat(vistaF.txtPago.getText());
+                float Ftotal = Float.parseFloat(this.TotalP);
+                if (recibido >= Ftotal) {
+                    float cambio = Ftotal-recibido;
+                    vistaF.lblCambio.setText(String.valueOf(cambio));
+                    vistaF.panelConfirm.setEnabled(true);
+                }else{
+                    vistaF.lblCambio.setText("0");
+                    vistaF.panelConfirm.setEnabled(false);
+                }
+            }
+        }
+        
+        
     }
     
 }
