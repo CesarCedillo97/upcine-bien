@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import vista.IF_Combos;
 import modelo.modeloCombos;
 import controlador.conAlerts.controladorSucces;
+import javax.swing.event.ListSelectionEvent;
 import vista.alerts.alertAccept;
 import vista.alerts.alertError;
 import vista.alerts.alertMessage;
@@ -54,8 +55,23 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
         vista.panelEditar.addMouseListener(this);
         vista. panelEliminar.addMouseListener(this);
         vista.panelLimpiar.addMouseListener(this);
+        fila=-1;
+        vista.tablaCombos.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            fila = vista.tablaCombos.getSelectedRow();
+            llenarDatos();
+        });
+        
+        datos = modelo.callObtenerDatos();
+        vista.tablaCombos.setModel(modelo.callObtenerDatosTabla());
     }
-
+    
+    public void llenarDatos(){
+        if(fila!=-1){
+            vista.lblPrecioCombo.setText(datos[fila][1]);
+            vista.lblNombre.setText(datos[fila][1]);
+            vista.tablaLista.setModel(modelo.obtenerDatosTablaLista(datos[fila][0]));
+        }
+    }
     @Override
     public void mouseClicked(MouseEvent e) {
         if (true) {

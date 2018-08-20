@@ -310,7 +310,6 @@ public class ControladorVentaBoletos extends ControladorPrincipal implements Cha
         d.height = 100;
         spinner.getComponent(0).setPreferredSize(d);
         spinner.addChangeListener((ChangeEvent e) -> {
-            
         });
         
         return spinner;
