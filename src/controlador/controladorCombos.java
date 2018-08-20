@@ -187,6 +187,7 @@ public class controladorCombos extends ControladorPrincipal implements MouseList
     public void keyReleased(KeyEvent e) {
         if (vista.bucar_txtCombos == e.getSource()) {
             vista.tablaCombos.setModel(modelo.callFiltrarTabla(vista.bucar_txtCombos.getText()));
+            datos=modelo.obtenerProductosFilter(vista.bucar_txtCombos.getText());
         }
     }
     

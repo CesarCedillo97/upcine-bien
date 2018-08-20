@@ -22,6 +22,13 @@ public class modeloProductos extends modeloPrincipal{
                                 " FROM producto order by Descripcion;";
         return super.obtenerDatos(txtQuery);
     }
+    
+    public String[][] callObtenerDatosFilter(String dato){
+        //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
+        String txtQuery = "SELECT IdProducto, Cantidad, Costo, Precio_venta, proveedor_idProveedor, Descripcion  \n" +
+                                " FROM producto where Descripcion LIKE '"+ dato +"%' order by Descripcion;";
+        return super.obtenerDatos(txtQuery);
+    }
    
     public DefaultTableModel callObtenerDatosTabla(){
         //txtQueryTabla es la consulta que jalará los datos que irán en la tabla solamente

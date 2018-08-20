@@ -6,8 +6,13 @@
 package modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -58,4 +63,25 @@ public class modeloVentaProductos extends modeloPrincipal{
         }
         else return null;
         }
+        
+        
+        public boolean insertarVenta(float subtotal, float iva, float total, int idEmp, int idCliente, ArrayList a){
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        try{
+            Connection con = conexion.abrirConexion();
+            PreparedStatement s = con.prepareStatement("INSERT INTO venta(TipoVenta, Fecha, Subtotal, IVA, Total, empleado_IdEmpleado)VALUES (2,'"+df.format(date)+"', "+subtotal+", "+iva+", "+total+", "+idEmp+")",Statement.RETURN_GENERATED_KEYS);
+            s.executeUpdate();
+            ResultSet rs = s.getGeneratedKeys();
+            rs.next();
+            int idVenta = rs.getInt(1);
+            Statement q = con.createStatement();
+
+            conexion.cerrarConexion(con);
+            return true;
+        }
+        catch(SQLException e){
+            return false;
+        }
+    }
 }

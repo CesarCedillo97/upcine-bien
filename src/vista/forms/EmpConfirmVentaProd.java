@@ -41,7 +41,8 @@ public class EmpConfirmVentaProd extends javax.swing.JFrame {
         panelCanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(54, 33, 89));
@@ -119,7 +120,7 @@ public class EmpConfirmVentaProd extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(25, 116, 232));
+        jLabel1.setForeground(new java.awt.Color(54, 33, 89));
         jLabel1.setText("Confirmar Venta");
 
         javax.swing.GroupLayout panelConfirmLayout = new javax.swing.GroupLayout(panelConfirm);

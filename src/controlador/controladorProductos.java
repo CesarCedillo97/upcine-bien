@@ -96,6 +96,10 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
             vista.lblDescrip.setText("");
             vista.bucar_txtPro.setText("");
             fila = -1;
+            
+            datos = modelo.callObtenerDatos();
+        
+            vista.JTable.setModel(modelo.callObtenerDatosTabla());
         }
     }
 
@@ -195,6 +199,7 @@ public class controladorProductos extends ControladorPrincipal implements KeyLis
     public void keyReleased(KeyEvent e) {
         if (vista.bucar_txtPro == e.getSource()) {
             vista.JTable.setModel(modelo.callFiltrarTabla(vista.bucar_txtPro.getText()));
+            datos=modelo.callObtenerDatosFilter(vista.bucar_txtPro.getText());
         }
     }
     

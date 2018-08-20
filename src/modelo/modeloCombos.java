@@ -25,8 +25,12 @@ public class modeloCombos extends modeloPrincipal{
         return super.obtenerDatos(txtQuery);
     }
     
-    
-   
+    public String[][] obtenerProductosFilter( String dato){
+        //txtQuery devuelve TODOS los campos que se van a mostrar en la parte de datos
+        String txtQuery = "SELECT * FROM combos where nombre LIKE '"+ dato +"%'";
+        return super.obtenerDatos(txtQuery);
+    }
+       
     public DefaultTableModel callObtenerDatosTabla(){
         //txtQueryTabla es la consulta que jalará los datos que irán en la tabla solamente
         String txtQueryTabla = "SELECT nombre, precio FROM combos;";

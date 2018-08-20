@@ -218,6 +218,10 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
     public void mousePressed(MouseEvent e) {
         
         if (vista.panelAceptarCompra == e.getSource()) {
+            EmpConfirmVentaProd vistaForm = new EmpConfirmVentaProd();
+            FormVentaProductos conForm = new FormVentaProductos(vistaForm, vista.lblTotal.getText());
+            conForm.iniciarVista();
+            vista.setEnabled(false);
             
         }else if(vista.panelEliminarVenta == e.getSource()){
             limpiarDatos();
@@ -351,7 +355,13 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
         }
 
         @Override
-        public void mousePressed(MouseEvent me) {
+        public void mousePressed(MouseEvent e) {
+            if (vistaF.panelConfirm == e.getSource()) {
+                setColorAdd(vistaF.panelConfirm);
+            }else if (vistaF.panelCanel == e.getSource()) {
+                vista.setEnabled(true);
+                vistaF.dispose();
+            }
         }
 
         @Override
@@ -361,18 +371,18 @@ public class ControladorVentaProductos extends ControladorPrincipal implements M
         @Override
         public void mouseEntered(MouseEvent e) {
             if (vistaF.panelConfirm == e.getSource()) {
-                
+                setColorAdd(vistaF.panelConfirm);
             }else if (vistaF.panelCanel == e.getSource()) {
-                
+                setColorEliminar(vistaF.panelCanel);
             }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
             if (vistaF.panelConfirm == e.getSource()) {
-                
+                resetColorGrey(vistaF.panelConfirm);
             }else if (vistaF.panelCanel == e.getSource()) {
-                
+                resetColorGrey(vistaF.panelCanel);
             }
         }
 
